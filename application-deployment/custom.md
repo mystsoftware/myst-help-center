@@ -2,25 +2,7 @@
 
 Yes.
 
-MyST supports the Automated Deployment of many artifact types:
-* Oracle ADF     
-* Application Configuration
-* Oracle B2B
-* Oracle BAM
-* Java EAR
-* Java JAR
-* Java Library (Classpath)
-* Java WAR
-* Oracle MDS
-* Oracle MFT
-* OSB Configuration
-* OSB XPath
-* Oracle WSM Policy
-* Oracle SOA Composites
-* Oracle SOA Extension
-* PL/SQL
-
-If you wish to deploy an artifact type that is not in the list, you can support this through the extensibility of MyST.
+If you wish to deploy an artifact type that is not in the list of supported MyST Artifact Types, you can do this through the MyST Extensibility Framework.
 
 ### About Extending MyST
 
@@ -30,17 +12,33 @@ MyST provides an extensible framework through declarative WLST or via custom act
 
 Custom actions can be written in Python, Jython, WLST, Ant, Java or even Puppet manifests.
 
-### Choosing the approach for extending MyST
+### Choosing the approach for Extending MyST
  
 MyST should be extended only when strictly necessary. You should use the out of the box MyST model as much as possible so that your solution is upgrade safe.
 
-If you believe that you cannot achieve an outcome by using the MyST model, please contact Rubicon Red support for advice. The following order of preference should be taken when extending MyST
+If you believe that you cannot achieve an outcome by using the MyST model, please contact Rubicon Red support for advice. The following order of preference should be taken when deciding how to model configuration and deployment within MyST.
 
-1. Use the out-of-the-box MyST model
-2. Use the Declarative WLST (also know as `myst-extension` in the MyST model)
-3. Create a custom action and type
+1. Use the out-of-the-box definitions. MyST supports the Automated Deployment of many artifact types:
+  * Oracle ADF     
+  * Application Configuration
+  * Oracle B2B
+  * Oracle BAM
+  * Java EAR
+  * Java JAR
+  * Java Library (Classpath)
+  * Java WAR
+  * Oracle MDS
+  * Oracle MFT
+  * OSB Configuration
+  * OSB XPath
+  * Oracle WSM Policy
+  * Oracle SOA Composites
+  * Oracle SOA Extension
+  * PL/SQL
+2. If the desired type is not supported, use MyST's Declarative Extension Model (also know as `myst-extension`).
+3. If the type can not be supported through `myst-extension` consider creating a custom action and type or raise it as a feature request with MyST Support.
 
-### Creating custom types
+### Creating Custom Types
 
 Custom deployment types can be supported in the MyST CLI through the following property name standard where 
  * `ID` is a unique identifier for the artifact instance, 
@@ -95,7 +93,14 @@ As with all MyST CLI resources, you can alternatively use XML instead of Name/Va
 
 If you want to define your artifact instance properties within an existing Platform Blueprint or Model in **MyST Studio** you should use the name/value property notation define it under the **Global Variables**.
 
-### Creating custom actions
+### Creating Custom Actions
+
+MyST supports the injection of Custom Actions within various parts of the Provisioning and Deployment workflow. 
+
+When using the CLI, custom actions should be defined under a specific folder within the MyST workspace depending on the language they are written in:
+
+|| Language || Location ||
+| Python/Jython | ext/targets |
 
 #### Python / Jython
 
