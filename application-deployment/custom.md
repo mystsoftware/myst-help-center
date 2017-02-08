@@ -28,7 +28,7 @@ MyST provides an intuitive data model to define your OFMW components. In some sc
 
 MyST provides an extensible framework through declarative WLST or via custom actions to be executed at provision or deploy-time.
 
-Custom actions can be written in Python, Ant, Java or even Puppet manifests.
+Custom actions can be written in Python, Jython, WLST, Ant, Java or even Puppet manifests.
 
 ### Choosing the approach for extending MyST
  
@@ -40,16 +40,74 @@ If you believe that you cannot achieve an outcome by using the MyST model, pleas
 2. Use the Declarative WLST (also know as `myst-extension` in the MyST model)
 3. Create a custom action and type
 
-### Create custom types
+### Creating custom types
 
-Custom deployment types can be supported in the MyST CLI through the following property name standard
+Custom deployment types can be supported in the MyST CLI through the following property name standard where 
+ * `ID` is a unique identifier for the artifact instance, 
+ * `TYPE-ID` is a unique identifier for the artifact type and
+ * `PARAM-ID` is a unique identifier for any artifact parameters
 
-core.deployment[ID].
+```
+core.deployment[ID].artifact.repository.artifactId
+core.deployment[ID].artifact.repository.groupId
+core.deployment[ID].artifact.repository.version
+core.deployment[ID].present
+core.deployment[ID].type=TYPE-ID
+core.deployment[ID].param[PARAM-ID]
+```
 
+For example, if we wanted to create an artifact type for an Oracle API Gateway Federation we may use the following:
 
+```
+core.deployment[OAG_CONFIG
+].artifact.repository.artifactId=OAG_CONFIG
+core.deployment[OAG_CONFIG
+].artifact.repository.groupId=com.acme
+core.deployment[OAG_CONFIG
+].artifact.repository.version=1.0.0-1
+core.deployment[OAG_CONFIG
+].present=true
+core.deployment[OAG_CONFIG
+].type=oag-fed
+core.deployment[OAG_CONFIG
+].param[target-groups]=default_group
+```
 
+As with all MyST CLI resources, you can alternatively use XML instead of Name/Value Properties if you want:
 
-Below is an example of how you would go about extending MyST to support deployment of Oracle API Gateway feds and environment settings.
+```
+<deployment id="OAG_CONFIG">
+  <artifact>  
+    <repository>
+      <artifactId>OAG_CONFIG</artifactId>  
+      <groupId>com.acme</groupId>  
+      <version>1.0.0-1</version>  
+      <type>jar</type>  
+    </repository>  
+  </artifact>  
+  <present>true</present>
+  <type>sql</type>
+  <param-list>
+    <param id="target-groups">default_group</param>
+  </param-list>
+</deployment>
+```  
 
-1. Creating out MyST
+If you want to define your artifact instance properties within an existing Platform Blueprint or Model in **MyST Studio** you should use the name/value property notation define it under the **Global Variables**.
+
+### Creating custom actions
+
+#### Python / Jython
+
+.....
+
+#### WLST
+
+The python script must be created under <MYST_WORKSPACE>/ext/targets
+Make sure that the custom action scripts are kept under version control
+The action name will be the same name as the python file, without the file extension. For example, if the file is called configure-mediator.py, then the action name will be configure-mediator
+In the following example the MBean attribute will be set for all the WLS servers. 
+Note that any MyST properties can be accessed from the conf context
+In case the values to be set in the MBeans are either different per environment or could be changed often, it's recommended to externalise them in your environment property files.
+
 
