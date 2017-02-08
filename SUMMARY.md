@@ -5,5 +5,8 @@
 
 ## Platform Configuration
 
-* [How do I configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
+* [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
+* [Can I apply patches with MyST to one server at a time?](platform-configuration/configure-jca-adapters.md)
+
+
 
