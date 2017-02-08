@@ -88,13 +88,9 @@ call UPS_WFATTRIBUTELABELMAP('1610224c-00fa-42c1-9a08-d0a14a52534a','ProtectedNu
 
 Once you are building the project using Jenkins and registering the build with MyST Studio, you can include the artifact in an Application Blueprint and deploy that using MyST Studio. The registered artifact in MyST Studio will look similar to the following:
 
-![](/howtos/img/howto-deploy-flexfields-1.app-1.png)
+![](img/howto-deploy-flexfields-1.app-1.png)
 
-![](/howtos/img/howto-deploy-flexfields-2.app-2.png)
-
-
-
-
+![](img/howto-deploy-flexfields-2.app-2.png)
 
 For the above to work, you will also need SQLPlus installed on the target machine. This can be installed on AWS with the following steps, executed as root:
 
