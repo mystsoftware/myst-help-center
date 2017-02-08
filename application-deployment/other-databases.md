@@ -1,6 +1,6 @@
 ## {{page.title }} 
 
-MyST supports uses JDBC to execute SQL against databases. Many databases are supported through JDBC drivers. The most common of these are:
+MyST uses JDBC to execute SQL against databases. Many databases are supported through JDBC drivers. The most common of these are:
  * Oracle Database
  * MySQL
  * PostgreSQL
