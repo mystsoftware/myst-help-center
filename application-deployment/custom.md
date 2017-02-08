@@ -84,7 +84,7 @@ As with all MyST CLI resources, you can alternatively use XML instead of Name/Va
     </repository>  
   </artifact>  
   <present>true</present>
-  <type>sql</type>
+  <type>oag-fed</type>
   <param-list>
     <param id="target-groups">default_group</param>
   </param-list>
@@ -160,18 +160,17 @@ def myst(conf):
 execfile(System.getProperty("myst.home") + '/lib/targets/common/utils.py')
 
 def myst(cfg):
-    if not 'oag.deployment.federations' in cfg:
+    oagFeds=conf.getProperty('internal.deployment.oag-fed')
+    if oagFeds is None or len(oagFeds) == 0:
         return
+    deployFedsList = oagFeds.split(',')
 
     scriptName = 'deploy-oag-fed-archive.py'
-
-    deployFedsProp = cfg['oag.deployment.federations']
-    deployFedsList = deployFedsProp.split(',')
 
     cfg['oag.remote.tmpdir'] = '/tmp/myst'
     remoteTmpDir = cfg['oag.remote.tmpdir']
 
-    adminNode = cfg['oag.admin.node-id']
+    adminNode = cfg['product.wls-admin.node-list']
     adminHost = cfg['core.node[' + adminNode + '].host']
     cfg['remote.server.host'] = adminHost
     cfg['remote.server.username'] = cfg['core.node[' + adminNode + '].authentication.credentials.username']
@@ -190,9 +189,9 @@ def myst(cfg):
 
     for deployFed in deployFedsList:
       
-        sourceLocation = cfg['oag.deployment.federation.' + deployFed + '.source.location']
-        sourceFile = cfg['oag.deployment.federation.' + deployFed + '.source.file']
-        targetGroups = cfg['oag.deployment.federation.' + deployFed + '.target.groups']
+        sourceLocation = # Get source location from binary
+        sourceFile =  # TODO: Get source file from binary
+        targetGroups = cfg['core.deployment[' + deployFed + '].param[target-groups]']
 
         cfg['destination.directory'] = remoteTmpDir
         cfg['library.file'] = sourceLocation + '/' + sourceFile
