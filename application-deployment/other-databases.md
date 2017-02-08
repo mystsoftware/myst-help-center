@@ -6,4 +6,4 @@ MyST uses JDBC to execute SQL against databases. Many databases are supported th
  * PostgreSQL
  * DB2
  
-When seeding data to NoSQL databases, you may wish to [create a custom deployment type](application-deployment/custom.md). However, some NoSQL databases do have JDBC Drivers written for them. For example, there is a [JDBC Driver for Apache Cassandra](https://github.com/adejanovski/cassandra-jdbc-wrapper) which wraps the CQL protocol to allow common SQL operations via JDBC such as INSERT, UPDATE, CREATE TABLE etc.
+When seeding data to NoSQL databases, you may wish to [create a custom deployment type](custom.md). However, some NoSQL databases do have JDBC Drivers written for them. For example, there is a [JDBC Driver for Apache Cassandra](https://github.com/adejanovski/cassandra-jdbc-wrapper) which wraps the CQL protocol to allow common SQL operations via JDBC such as INSERT, UPDATE, CREATE TABLE etc.
