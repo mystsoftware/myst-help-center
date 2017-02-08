@@ -1,1 +1,2 @@
-This file serves as an introduction to your Knowledge Base, it is displayed on the homepage of your website. Use it to provide more context to your visitors.
+Welcome to the advanced help center for the MyST, where you can learn special tips and tricks for using MyST that you won't find in the MyST Studio User Guide.
+
