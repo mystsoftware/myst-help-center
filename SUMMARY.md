@@ -10,6 +10,7 @@
 
 ## Artifact Build
 
+* [I can't get Maven to build my project. Please help!](artifact-build/maven-build-issues.md)
 * [I have existing 11g automated builds using Maven. How do I update them for 12c?](artifact-build/maven-11g-to-12c.md)
 
 ## Application Deployment
