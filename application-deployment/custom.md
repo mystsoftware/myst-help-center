@@ -118,6 +118,15 @@ For example, to execute an action called `deploy-oag` after all of the other dep
 action.deploy.post=deploy-oag
 ```
 
+To prevent the custom actions from failing when there are no artifacts defined in the model matching the deploy type, you should develop the custom action to return without performing a deploy.
+
+For example:
+```
+oagFeds=conf.getProperty('internal.deployment.oag-fed')
+if oagFeds is None or len(oagFeds) == 0:
+  return
+```
+
 #### Python / Jython / WLST
 
 In terms of the scripting language and how it interacts with MyST, Python, Jython and WLST are all quite similar. The differences are as follows:
@@ -126,7 +135,38 @@ In terms of the scripting language and how it interacts with MyST, Python, Jytho
  
 The action name will be the same name as the file, without the file extension. For example, if the file is called `configure-mediator.py`, then the action name will be `configure-mediator`.
 
-At runtime, MyST passes all of the properties via the `conf` context. In case where the values to be set in the action are either different per environment or could be changed often, it's recommended to externalise them into your model.
+At runtime, MyST passes all of the instance data via the `conf` context. In a case where the values to be set in the action are either different per environment or could be changed often, it's recommended to externalise them into your model.
+
+The runtime data can be accessed either as name/value properties or `XMLBean` Java objects.
+
+##### Accessing Data
+
+The unique IDs for a given deployment type can be accessed in a comma-separated list via `internal.deployment.TYPE-ID`.
+
+So in the previously mentioned `OAG_CONFIG` example if we had two deployment IDs of `OUTBOUND_OAG_CONFIG` and `INBOUND_OAG_CONFIG` it would be `internal.deployment.oag-fed=OUTBOUND_OAG_CONFIG,INBOUND_OAG_CONFIG` 
+
+You could then access the deployment object properties like this:
+
+```
+oagFeds=conf.getProperty('internal.deployment.oag-fed')
+if oagFeds is None or len(oagFeds) == 0:
+  return
+deployFedsList = oagFeds.split(',')
+for oagFedIdentifier in deployFedsList:
+  type = cfg['core.deployment[' + oagFedIdentifier + '].type']
+  name = cfg['core.deployment[' + oagFedIdentifier + '].artifactId']
+  targetGroups = cfg['core.deployment[' + oagFedIdentifier + '].param[target-groups]']
+```
+
+or if you want to use the XML Bean Object instead of properties, you can something like this:
+
+```
+deployFedsArray = model.getCore().getDeploymentList().getDeploymentArray()
+for oagFedObject in deployFedsArray
+  type = oagFedObject.getType()
+  name = oagFedObject.getArtifact().getRepository().getArtifactId()
+  targetGroups = oagFedObject.getParamList().getParamArray()[0].getStringValue()
+```
 
 ##### Example 1: Configure Mediator MBeans via WLST
 
