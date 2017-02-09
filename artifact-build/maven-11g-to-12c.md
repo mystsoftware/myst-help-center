@@ -6,7 +6,7 @@ For MyST specific artifact types such as SQL and Application Configurations, you
 
 To upgrade an artifact from 11g to 12c, it simply has to be re-opened in JDeveloper 12c. Then, the change needs to be re-committed to source control and the artifact should be re-built. Before we can re-build out artifact for 12c, we need to update out pom.xml. Below are some examples of 11g pom.xml files and the corresponding equivalent for 12c.
 
-### SOA Suite
+### SOA Suite POM Examples
 
 #### 11g Project Object Model
 
@@ -67,7 +67,7 @@ To upgrade an artifact from 11g to 12c, it simply has to be re-opened in JDevelo
 </project>
 ```
 
-### Oracle Service Bus
+### Oracle Service Bus POM Examples
 
 #### 11g Project Object Model
 
