@@ -7,7 +7,7 @@ For MyST specific artifact types such as SQL and Application Configurations, you
 To upgrade an artifact from 11g to 12c, it simply has to be re-opened in JDeveloper 12c. Then, the change needs to be re-committed to source control and the artifact should be re-built. 
 
 Before we can re-build out artifact for 12c, we need to:
- 1. [seed the Oracle Maven parent POMs to our local or remote Maven repository](maven-11g-to-12c.md)
+ 1. [seed the Oracle Maven parent POMs to our local or remote Maven repository](maven-build-issues.md)
  2. update our project pom.xml files (as per below).
  
 Following are some examples of 11g pom.xml files and the corresponding equivalents for 12c:
