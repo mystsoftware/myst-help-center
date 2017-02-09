@@ -2,7 +2,7 @@
 
 If you follow the official [Oracle Fusion Middleware Developing Applications Using Continuous Integration](https://docs.oracle.com/middleware/1212/core/MAVEN/introduction.htm) documentation you may hit some known issues when it comes to building SOA, OSB and ADF components. The majority of these issues are caused by defects in the parent seed process.
 
-We recommend that you raise a ticket with [Oracle Support](http://support.oracle.com) if you are stuck so that in the case of a defect, the root cause can be addressed in the next Oracle Middleware version. In addition to this we have provided below a reference of workarounds to the standard Oracle Maven build parent seed process in case it helps to unblock you.
+We recommend that you raise a ticket with [Oracle Support](http://support.oracle.com) if you are stuck so that in the case of a defect, the root cause can be addressed in the next Oracle Middleware version. That said, we have provided below a reference of workarounds to the standard Oracle Maven build parent seed process in case it helps to unblock you.
 
 ### 12.1.3 Oracle Maven Synchornization and Workarounds
 
