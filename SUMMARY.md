@@ -8,13 +8,12 @@
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
 
+## Artifact Build
+
+* [I have existing 11g Maven builds. How do I update them for 12c?](artifact-build/maven-11g-to-12c.md)
+
 ## Application Deployment
 
 * [Can I integrate my existing deploy scripts with MyST?](application-deployment/custom.md)
 * [Does MyST allow me to seed databases that aren't Oracle?](application-deployment/other-databases.md)
 * [Does MyST support configuring BPM FlexFields?](application-deployment/deploy-bpm-flexfields.md)
-
-## Artifact Build
-
-* [I have existing 11g Maven builds. How do I update them for 12c?](artifact-build/maven-11g-to-12c.md)
-
