@@ -8,7 +8,7 @@ To upgrade an artifact from 11g to 12c, it simply has to be re-opened in JDevelo
 
 Before we can re-build out artifact for 12c, we need to:
  1. [seed the Oracle Maven parent POMs to our local or remote Maven repository](maven-11g-to-12c.md)
- 2. update our project pom.xml files
+ 2. update our project pom.xml files (as per below).
  
 Below are some examples of 11g pom.xml files and the corresponding equivalents for 12c.
 
