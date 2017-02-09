@@ -57,18 +57,12 @@ core.deployment[ID].param[PARAM-ID]
 For example, if we wanted to create an artifact type for an Oracle API Gateway Federation we may use the following:
 
 ```
-core.deployment[OAG_CONFIG
-].artifact.repository.artifactId=OAG_CONFIG
-core.deployment[OAG_CONFIG
-].artifact.repository.groupId=com.acme
-core.deployment[OAG_CONFIG
-].artifact.repository.version=1.0.0-1
-core.deployment[OAG_CONFIG
-].present=true
-core.deployment[OAG_CONFIG
-].type=oag-fed
-core.deployment[OAG_CONFIG
-].param[target-groups]=default_group
+core.deployment[OAG_CONFIG].artifact.repository.artifactId=OAG_CONFIG
+core.deployment[OAG_CONFIG].artifact.repository.groupId=com.acme
+core.deployment[OAG_CONFIG].artifact.repository.version=1.0.0-1
+core.deployment[OAG_CONFIG].present=true
+core.deployment[OAG_CONFIG].type=oag-fed
+core.deployment[OAG_CONFIG].param[target-groups]=default_group
 ```
 
 As with all MyST CLI resources, you can alternatively use XML instead of Name/Value Properties if you want:
