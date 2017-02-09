@@ -1,6 +1,6 @@
 ## {{page.title}}
 
-In 12c, Oracle introduced out-of-the-box support for Maven builds of SOA, OSB and ADF. As there was no direct support in 11g, Rubicon Red provided this capability through a series of support parent pom.xml files. 
+In 12c, Oracle introduced out-of-the-box support for Maven builds of SOA, OSB and ADF. As there was no direct support in 11g, Rubicon Red provided this capability through a series of supported parent pom.xml files. 
 
 For MyST specific artifact types such as SQL and Application Configurations, you do not need to make any changes to your pom.xml when you migrate from 11g to 12c.
 
