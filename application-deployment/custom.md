@@ -189,7 +189,7 @@ def myst(conf):
 
 ##### Example 2: Deploy Oracle API Gateway Federations
 
-`ext/targets/wlst/deploy-oag.py`
+`ext/targets/jython/deploy-oag.py`
 ```
 execfile(System.getProperty("myst.home") + '/lib/targets/common/utils.py')
 
