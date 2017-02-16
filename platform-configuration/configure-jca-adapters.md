@@ -1,4 +1,3 @@
-## {{page.title}}
 
 MyST Studio supports the automation of any JCA adapter type. JCA Adapters themselves are configured through deployment plans. MyST Studio has a mechanism for defining JCA adapter configuration so that it can be used to generate the deployment plan when the platform is automatically provisioned or updated by MyST.
 
