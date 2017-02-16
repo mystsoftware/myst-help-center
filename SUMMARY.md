@@ -7,6 +7,7 @@
 
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
+* [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/myst-is-complaining-about-the-jdk-version.-how-can-i-fix-this.md)
 
 ## Artifact Build
 
@@ -18,3 +19,4 @@
 * [Can I integrate my existing deploy scripts with MyST?](application-deployment/custom.md)
 * [Does MyST allow me to seed databases that aren't Oracle?](application-deployment/other-databases.md)
 * [Does MyST support configuring BPM FlexFields?](application-deployment/deploy-bpm-flexfields.md)
+
