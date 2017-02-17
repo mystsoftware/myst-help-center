@@ -5,6 +5,22 @@ MyST provides an intuitive data model to define your Fusion Middleware model tha
 ###Prerequisites
 ####Create the WLST Script
 1. Easiest way to do this is using the WebLogic console recording ![WebLogic Record](/platform-configuration/configure-myst-extension/WebLogic-Console-Record.png)
+1. Here is an example of a WebLogic recorded wlst script:
+
+```
+cd('/')
+cmo.createForeignJNDIProvider('MyForeignJNDIProvider')
+
+cd('/ForeignJNDIProviders/MyForeignJNDIProvider')
+set('Targets',jarray.array([ObjectName('com.bea:Name=osb_cluster,Type=Cluster')], ObjectName))
+cmo.setProviderURL('t3://myserver:8001')
+cmo.setInitialContextFactory('weblogic.jndi.WLInitialContextFactory')
+cmo.createForeignJNDILink('MyForeignJNDILink')
+
+cd('/ForeignJNDIProviders/MyForeignJNDIProvider/ForeignJNDILinks/MyForeignJNDILink')
+cmo.setLocalJNDIName('my/localjndi')
+cmo.setRemoteJNDIName('my/remotejndi')
+```
 
 ####Create a MyST Workspace
 1. Create a new folder for our MyST workspace.
@@ -15,6 +31,7 @@ mkdir myst-workspace
 ```
 cd myst-workspace
 myst init
+```
 
 ###Generate the MyST Extension
 1. Generate the myst-extension
