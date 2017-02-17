@@ -7,6 +7,7 @@
 
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
+* [How do I use the myst-extension to extend MyST capabitilies?](platform-configuration/configure-myst-extension.md)
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
 
 ## Artifact Build
