@@ -259,8 +259,108 @@ def myst(cfg):
 
 #### Java
 
-The JAR files for the MyST extension and all the dependent JARs must be under `<MYST_WORKSPACE>/lib/thirdparty`.
+MyST also supports extension through a Java SDK. The JAR file containing the MyST extension and all the dependent JARs must be under `<MYST_WORKSPACE>/lib/thirdparty`.
 
 If some JARS must be loaded before the MyST JARs, then these files must be placed under `<MYST_WORKSPACE>/lib/thirdparty/pre`.
- 
 
+##### Example MyST Java Custom Action
+
+Below is an example MyST Custom Action Java class:
+
+```
+package com.example;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.io.File;
+
+import com.rubiconred.myst.actions.JavaActionRunner;
+import com.rubiconred.myst.config.MySTConfiguration;
+import com.rubiconred.myst.core.CoreDocument;
+import com.rubiconred.myst.core.CustomType.Property;
+import com.rubiconred.myst.exceptions.ActionException;
+
+public class MyCustomMySTAction extends JavaActionRunner {
+
+	private String yourName;
+	private String yourFmwVersion;
+	
+	@Override
+	public void run() throws ActionException {
+		MySTConfiguration configuration = getConfiguration();
+		
+		String currentAction = configuration.getRequest().getAction();
+		System.out.println("Action: " + currentAction);
+		
+		// Get value via Java Objects
+		CoreDocument coreDoc = configuration.getModel();
+		for (Property propObj : coreDoc.getCore().getCustom().getPropertyArray()){
+			if (propObj.getName().equals("your.name")){
+				yourName = propObj.getName();
+			}
+		}
+		yourFmwVersion = coreDoc.getCore().getFmw().getVersion();
+		System.out.println("Access via Java Object");
+		System.out.println("Hello "+yourName + ". I see you are using FMW "+ yourFmwVersion);
+		
+		// Get value via Property Notation
+		Properties properties = configuration.getProperties();
+		System.out.println("Access via Java Object");
+		System.out.println("Hello "+ properties.getProperty("your.name") + ". I see you are using FMW "+ properties.getProperty("core.fmw.version") );
+		
+	}
+
+	@Override
+	public List<String> getActionNames() {
+		List<String> actionNames = new ArrayList<String>();
+		actionNames.add("my-custom-myst-action");
+		return actionNames;
+	}
+	
+}
+
+```
+
+Any property with `password` in the name will be automatically encrypted when it is defined in MyST.
+
+##### Debugging and testing out MyST Java-based custom action  
+      
+To debug and test the MyST custom action outside of MyST, we will need `myst-core.jar`, `myst-model-*.jar`, `xmlbeans-*.jar` and `log4j-*.jar` libraries available on our classpath.  These jars should exist under `$MYST_HOME/lib` or `$MYST_HOME/lib/thirdparty`
+
+Below is an example snippet for testing our MyST custom action, you could put this in a JUnit test or a Java main method.
+
+```
+// Load XMLBean
+CoreDocument coreDoc = CoreDocument.Factory.parse(new File("/Users/rubiconred/test.xml"));
+// Load Properties
+Properties prop = new Properties();
+prop.load(new FileInputStream(new File("/Users/rubiconred/test.properties")));
+		
+// Set MyST Home
+System.setProperty("myst.home", "/opt/myst");
+		
+// Instantiate MyST Configuration		
+MySTConfiguration config = new MySTConfiguration();
+config.setModel(coreDoc);
+config.setProperties(prop);
+
+// Instantiate MyST Custom Action		
+MyCustomMySTAction customAction = new MyCustomMySTAction();
+customAction.setConfiguration(config);
+
+// Run MyST Custom Action
+customAction.run();
+```
+
+The `test.properties` file and `test.xml` file used in the above example can be generated from the MyST CLI as follows:
+
+###### Generating Properties for a Platform Model
+
+1. Execute `myst properties <model>` where `<model>` is the name of the MyST Platform Model. For a list of available models, you should be able to type `myst usage`.
+2. This will output the properties content which can then be copied into a file on the file system.
+
+###### Generating XML content for a Platform Model 
+
+1. Execute `myst properties <model> -Dxml` where `<model>` is the name of the MyST Platform Model. For a list of available models, you should be able to type `myst usage`.
+2. This will output the XML content which can then be copied into a file on the file system.
