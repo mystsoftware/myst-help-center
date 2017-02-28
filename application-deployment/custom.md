@@ -121,6 +121,8 @@ if oagFeds is None or len(oagFeds) == 0:
   return
 ```
 
+If you need to download or access artifacts from an Artifact Repository as part of a deployment, make sure that you run `download-deploy-artifacts` prior to a deployment. This can be automatically done with the property `action.deploy.pre=download-deploy-artifacts`. From your custom action you can then access the location of the downloaded artifact from `${MYST_WORKSPACE}/target/artifacts/${groupId}/${artifactId}-${version}.${type}`
+
 #### Python / Jython / WLST
 
 In terms of the scripting language and how it interacts with MyST, Python, Jython and WLST are all quite similar. The differences are as follows:
