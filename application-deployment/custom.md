@@ -353,6 +353,8 @@ customAction.setConfiguration(config);
 customAction.run();
 ```
 
+Notice that it assumes a `myst.home`. Before running this test you should install the MyST CLI and set it's location for the `myst.home`.
+
 The `test.properties` file and `test.xml` file used in the above example can be generated from the MyST CLI as follows:
 
 ###### Generating Properties for a Platform Model
