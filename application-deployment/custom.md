@@ -324,6 +324,12 @@ public class MyCustomMySTAction extends JavaActionRunner {
 
 ```
 
+To make the class dynamically discoverable, it must be built into a jar which includes the file `META-INF/services/com.rubiconred.myst.actions.JavaAction` with the name of the class in the contents - e.g.
+```
+com.example.MyCustomMySTAction
+```
+If you have multiple custom actions in one JAR, each action class should be listed in the above files contents.
+
 Any property with `password` in the name will be automatically encrypted when it is defined in MyST.
 
 ##### Debugging and testing out MyST Java-based custom action  
