@@ -19,7 +19,7 @@ The four available phases you can use combined with RCU:
 
 ###Configuring MyST Studio
 ####Workspace
-If you followed the **Workspace** prerequisites.
+If you use the **Workspace** method:
 1. Define the SQL deployment definition in the global properties section
 ```
 core.deployment[Stock-rcu-create-post].param[data-source-username]=sys
@@ -34,7 +34,7 @@ core.deployment[Stock-rcu-create-post].type=sql
 ```
 
 ####Binary Repository
-If you followed the **Binary Repository** prerequisites.
+If you use the **Binary Repository** method:
 1. Define the SQL deployment definition in the global properties section
 
 ```
@@ -53,3 +53,5 @@ core.deployment[Stock-rcu-create-pre].present=true
 core.deployment[Stock-rcu-create-post].type=sql
 ```
 
+###Provisioning
+When you run a provision (or RCU) action and depending on which phase you are using MyST will also execute the SQL.
