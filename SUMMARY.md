@@ -7,9 +7,9 @@
 
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
+* [How do I run SQL scripts pre and post RCU](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [How do I use the myst-extension to extend MyST capabitilies?](platform-configuration/configure-myst-extension.md)
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
-* [Running SQL scripts pre and post RCU](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 
 ## Artifact Build
 
