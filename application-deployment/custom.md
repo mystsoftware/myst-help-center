@@ -121,6 +121,8 @@ if oagFeds is None or len(oagFeds) == 0:
   return
 ```
 
+If you need to download or access artifacts from an Artifact Repository as part of a deployment, make sure that you run `download-deploy-artifacts` prior to a deployment. This can be automatically done with the property `action.deploy.pre=download-deploy-artifacts`. From your custom action you can then access the location of the downloaded artifact from `${MYST_WORKSPACE}/target/artifacts/${groupId}/${artifactId}-${version}.${type}`
+
 #### Python / Jython / WLST
 
 In terms of the scripting language and how it interacts with MyST, Python, Jython and WLST are all quite similar. The differences are as follows:
@@ -322,6 +324,12 @@ public class MyCustomMySTAction extends JavaActionRunner {
 
 ```
 
+To make the class dynamically discoverable, it must be built into a jar which includes the file `META-INF/services/com.rubiconred.myst.actions.JavaAction` with the name of the class in the contents - e.g.
+```
+com.example.MyCustomMySTAction
+```
+If you have multiple custom actions in one JAR, each action class should be listed in the above files contents.
+
 Any property with `password` in the name will be automatically encrypted when it is defined in MyST.
 
 ##### Debugging and testing out MyST Java-based custom action  
@@ -352,6 +360,8 @@ customAction.setConfiguration(config);
 // Run MyST Custom Action
 customAction.run();
 ```
+
+Notice that it assumes a `myst.home`. Before running this test you should install the MyST CLI and set it's location for the value of `myst.home`.
 
 The `test.properties` file and `test.xml` file used in the above example can be generated from the MyST CLI as follows:
 
