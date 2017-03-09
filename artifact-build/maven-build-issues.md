@@ -101,21 +101,24 @@ The MyST CLI ships with Maven Parent POMs for building 11g projects. After insta
 The below script can be used to install the parent poms into a local maven repository. 
 
 ```
+# Common
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/common/build-common-11.x.pom 
+
 # OSB
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/osb/build-osb-11.1.1.7-dependent.pom
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/osb/build-osb-11.1.1.7-standalone.pom
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/osb/build-osb-11.1.1.7.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-dependent.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-standalone.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7.pom
   
 # SOA
 mvn clean install -f $MYST_HOME/lib/resources/maven/sca/adf-config/pom.xml
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/sca/build-sca-11.x-dependent.pom
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/sca/build-sca-11.1.1.6.pom
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/sca/build-sca-11.1.1.7.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.x-dependent.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.6.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.7.pom
   
 # MDS
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/mds/build-mds-project-11.1.1.7.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/mds/build-mds-project-11.1.1.7.pom
 # JDeveloper
-mvn clean install:install -f $MYST_HOME/lib/resources/maven/jdev/build-jdev-project-11.1.1.7.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/jdev/build-jdev-project-11.1.1.7.pom
 ```
 
 ##### Installing the library dependencies for OSB standalone build
@@ -147,23 +150,26 @@ Run the following commands, making sure that your replace the URL with your Mave
 REPO_USERNAME=admin
 REPO_PASSWORD=password
 REPO_URL=127.0.0.1:8083/artifactory/libs-release-local
+
+# Common
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/common/build-common-11.x.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_UR  
   
 # OSB
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/osb/build-osb-11.1.1.7-dependent.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/osb/build-osb-11.1.1.7-standalone.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/osb/build-osb-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-dependent.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-standalone.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
   
 # SOA
-mvn deploy -f $MYST_HOME/lib/resources/maven/sca/adf-config/pom.xml -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/sca/build-sca-11.1.1.6.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/sca/build-sca-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/sca/build-sca-11.x-dependent.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy -f $MYST_HOME/lib/resources/maven/build/sca/adf-config/pom.xml -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.6.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.x-dependent.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
  
 # MDS
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/mds/build-mds-project-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/mds/build-mds-project-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
  
 # JDev
-mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/jdev/build-jdev-project-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/jdev/build-jdev-project-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
 ```
 
 ##### Deploying the library dependencies for OSB standalone build
@@ -182,4 +188,22 @@ export MYST_ARTIFACT_DEPLOY_PREFIX="deploy:deploy-file -Durl=http://admin:passwo
 set -e
 ...
 ```
+
+#### Retrieving the MyST CLI from the MyST Studio container
+
+To access the above 11g build parents, you will need to have MyST CLI installed. You can download this from the MyST website or you can access it from within an existing MyST Studio container at `/usr/local/tomcat/conf/fusioncloud/agent/myst-impl.zip`. Here is how to access it from the MyST Studio container.
+
+``` 
+docker cp myststudio_web:/usr/local/tomcat/conf/fusioncloud/agent/myst-impl.zip .
+mkdir agent
+unzip myst-impl.zip -d agent/
+cd agent/lib/resources/maven/build
+```
+
+ 
+I also found that I had to seed the following pom before the others
+ 
+/root/agent/lib/resources/maven/build/common/build-common-11.x.pom
+
+
 
