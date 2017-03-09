@@ -200,10 +200,3 @@ unzip myst-impl.zip -d agent/
 cd agent/lib/resources/maven/build
 ```
 
- 
-I also found that I had to seed the following pom before the others
- 
-/root/agent/lib/resources/maven/build/common/build-common-11.x.pom
-
-
-
