@@ -1,6 +1,4 @@
-## {{page.title}} 
-
-Are you using 11g or 12?
+### Are you using 11g or 12?
 
 This guide provide tips for using and troubleshooting the official 12c Maven Parent POMs and the Rubicon Red Maven Parent POMs provided for 11g.
 
