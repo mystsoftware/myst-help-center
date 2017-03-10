@@ -1,10 +1,14 @@
-## {{page.title}} 
+### Are you using 11g or 12?
+
+This guide provide tips for using and troubleshooting the official 12c Maven Parent POMs and the Rubicon Red Maven Parent POMs provided for 11g.
+
+### 12c Maven Build Tips 
 
 If you follow the official [Oracle Fusion Middleware Developing Applications Using Continuous Integration](https://docs.oracle.com/middleware/1212/core/MAVEN/introduction.htm) documentation you may hit some known issues when it comes to building SOA, OSB and ADF components. The majority of these issues are caused by defects in the parent seed process.
 
 We recommend that you raise a ticket with [Oracle Support](http://support.oracle.com) if you are stuck so that in the case of a defect, the root cause can be addressed in the next Oracle Middleware version. That said, we have provided below a reference of workarounds to the standard Oracle Maven build parent seed process in case it helps to unblock you.
 
-### 12.1.3 Oracle Maven Synchornization and Workarounds
+#### 12.1.3 Oracle Maven Synchornization and Workarounds
 
 Update the value of **ORACLE_HOME** to suit the target environment.
 
@@ -51,7 +55,7 @@ mvn com.oracle.maven:oracle-maven-sync:12.1.3-0-0:push \
 
 ```
 
-### 12.2.1 Oracle Maven Synchornization and Workarounds
+#### 12.2.1 Oracle Maven Synchornization and Workarounds
 
 Update the value of **ORACLE_HOME** to suit the target environment.
 
@@ -86,4 +90,113 @@ mvn com.oracle.maven:oracle-maven-sync:12.2.1-0-0:push \
 
 ```
 
+### 11g Maven Build Tips 
+
+The MyST CLI ships with Maven Parent POMs for building 11g projects. After installing MyST CLI, you can seed the parent POMs as follows.
+
+#### Installing the Maven artifacts for a local build
+
+##### Installing the POM files
+
+The below script can be used to install the parent poms into a local maven repository. 
+
+```
+# Common
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/common/build-common-11.x.pom 
+
+# OSB
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-dependent.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-standalone.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7.pom
+  
+# SOA
+mvn clean install -f $MYST_HOME/lib/resources/maven/sca/adf-config/pom.xml
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.x-dependent.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.6.pom
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.7.pom
+  
+# MDS
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/mds/build-mds-project-11.1.1.7.pom
+# JDeveloper
+mvn clean install:install -f $MYST_HOME/lib/resources/maven/build/jdev/build-jdev-project-11.1.1.7.pom
+```
+
+##### Installing the library dependencies for OSB standalone build
+
+Unlike the SOA and JDeveloper build, the OSB build can be achieved without the need to install OSB once the initial library dependency seed has been done from a machine with OSB installed. Here is how:
+
+1. Run the script from a Linux machine which has OSB 11.1.1.7 installed.
+2. Edit the file `install-dep-11.1.1.7.sh`, setting:
+ * `MYST_FMW` to point to Oracle FMW home
+ * `MYST_ARTIFACT_DEPLOY_PREFIX` to do a maven install rather than deploy. e.g (note that `MYST_ARTIFACT_DEPLOY_PREFIX` is commented out for deploy):
+```
+export MYST_FMW=/u01/app/oracle/product/fmw
+export MYST_OSB=$MYST_FMW/Oracle_OSB1
+export MYST_TEMP=/tmp
+set -e
+export MYST_ARTIFACT_DEPLOY_PREFIX=install:install-file
+#export MYST_ARTIFACT_DEPLOY_PREFIX="deploy:deploy-file -Durl=http://admin:password@127.0.0.1:8083/artifactory/libs-release-local"
+set -e
+...
+```
+
+#### Publishing to a Maven Repository
+
+This is a one-off activity that will allow all developers and the CI server to retrieve the build parents automatically on build. Before performing these steps, make sure you have the Maven `settings.xml` defined to point to your Maven Repository such as Artifactory, Nexus, Archiva etc.
+
+Run the following commands, making sure that your replace the URL with your Maven repository URL (which contains login/pwd)
+
+```
+REPO_USERNAME=admin
+REPO_PASSWORD=password
+REPO_URL=127.0.0.1:8083/artifactory/libs-release-local
+
+# Common
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/common/build-common-11.x.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_UR  
+  
+# OSB
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-dependent.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7-standalone.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/osb/build-osb-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+  
+# SOA
+mvn deploy -f $MYST_HOME/lib/resources/maven/build/sca/adf-config/pom.xml -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.6.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/sca/build-sca-11.x-dependent.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+ 
+# MDS
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/mds/build-mds-project-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+ 
+# JDev
+mvn deploy:deploy -f $MYST_HOME/lib/resources/maven/build/jdev/build-jdev-project-11.1.1.7.pom -DaltDeploymentRepository=orgrepo::default::http://$REPO_USERNAME:$REPO_PASSWORD@$REPO_URL
+```
+
+##### Deploying the library dependencies for OSB standalone build
+
+1. Run the script from a Linux machine which has OSB 11.1.1.7 installed.
+2. Edit the file `install-dep-11.1.1.7.sh`, setting:
+* `MYST_FMW` to point to Oracle FMW home
+* `MYST_ARTIFACT_DEPLOY_PREFIX` to do a maven deploy rather than install. e.g (note that `MYST_ARTIFACT_DEPLOY_PREFIX` is commented out for install):
+```
+export MYST_FMW=/u01/app/oracle/product/fmw
+export MYST_OSB=$MYST_FMW/Oracle_OSB1
+export MYST_TEMP=/tmp
+set -e
+#export MYST_ARTIFACT_DEPLOY_PREFIX=install:install-file
+export MYST_ARTIFACT_DEPLOY_PREFIX="deploy:deploy-file -Durl=http://admin:password@127.0.0.1:8083/artifactory/libs-release-local"
+set -e
+...
+```
+
+#### Retrieving the MyST CLI from the MyST Studio container
+
+To access the above 11g build parents, you will need to have MyST CLI installed. You can download this from the MyST website or you can access it from within an existing MyST Studio container at `/usr/local/tomcat/conf/fusioncloud/agent/myst-impl.zip`. Here is how to access it from the MyST Studio container.
+
+``` 
+docker cp myststudio_web:/usr/local/tomcat/conf/fusioncloud/agent/myst-impl.zip .
+mkdir agent
+unzip myst-impl.zip -d agent/
+cd agent/lib/resources/maven/build
+```
 
