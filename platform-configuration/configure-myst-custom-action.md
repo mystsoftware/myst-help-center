@@ -24,7 +24,7 @@ def myst(cfg):
         # Log the Managed Server names
         if 'servers' in cfg:
             servers=cfg['servers']
-            serversserversList=servers.split(',')
+            serversList=servers.split(',')
             for server in serversList:
                 LOG.info('Server Name: ' + cfg['core.domain.server[' + server + '].name'])
         disconnect()
