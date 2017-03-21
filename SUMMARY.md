@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [What is MyST?](what-is-myst.md)
+* [Which browsers are supported by MyST?](which-browsers-are-supported-by-myst.md)
 
 ## Platform Configuration
 
