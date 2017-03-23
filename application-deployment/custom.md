@@ -324,7 +324,7 @@ public class MyCustomMySTAction extends JavaActionRunner {
 
 ```
 
-To make the class dynamically discoverable, it must be built into a jar which includes the file `META-INF/services/com.rubiconred.myst.actions.JavaAction` with the name of the class in the contents - e.g.
+To make the class dynamically discoverable, it must be built into a jar which includes the file `META-INF/services/com.rubiconred.myst.actions.JavaActionRunner` with the name of the class in the contents - e.g.
 ```
 com.example.MyCustomMySTAction
 ```
