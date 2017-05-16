@@ -89,7 +89,7 @@ If you wanted to automatically update the Blueprint to conform to this, you coul
 jq .data < blueprint.json > new-blueprint.json
 ```
 
-Now that you have a `new-blueprint.json` which is in a format that can be pushed to MyST, you can update the contents as you see fit.
+Now that you have a `new-blueprint.json` which is in a format that can be pushed to MyST, you can update the contents as you see fit. Once you are happy with the change, you can push that to MyST as shown below.
 
 ```
 curl -k -X PUT -H "Content-Type:application/json" -H "Authorization: Bearer $MYST_TOKEN"  -d @new-blueprint.json "https://$MYST_HOST/api/v1/platform/blueprints/$ID/versions/1.0.0"
