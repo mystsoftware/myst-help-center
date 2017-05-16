@@ -13,6 +13,7 @@
 * [How do I use the myst-extension to extend MyST capabitilies?](platform-configuration/configure-myst-extension.md)
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
+* [I have broken my Blueprint/Model with bad data, is there any way I can see and manipulate the source file?](platform-configuration/rest-api.md)
 
 ## Artifact Build
 
