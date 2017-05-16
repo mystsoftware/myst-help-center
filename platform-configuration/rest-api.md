@@ -1,6 +1,6 @@
 > **WARNING:** This is an advanced instruction for manipulating MyST using the REST APIs. You should not do this unless absolutely necessary and should take a backup of the database before performing any direct manipulations using the API. You have been warned.
 
-MyST Studio is build on top of a set of REST APIs meaning any operations performed by the UI can also be automated using the REST APIs.
+MyST Studio is built on top of a set of REST APIs meaning any operations performed by the UI can also be automated using the REST APIs.
 
 In this example, we are showing how to update a Platform Blueprint using the REST API. At a minimum you will require `curl` to be installed on your machine. To make JSON manipulation easier, it is also recommended to install `jq` which is downloadable from [here](https://stedolan.github.io/jq/download/).
 
