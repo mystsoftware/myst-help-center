@@ -24,5 +24,6 @@
 
 * [Can I integrate my existing deploy scripts with MyST?](application-deployment/custom.md)
 * [Does MyST allow me to seed databases that aren't Oracle?](application-deployment/other-databases.md)
+* [Can I create SOA partitions with MyST?](application-deployment/how-do-i-create-soa-partitions-with-myst.md)
 * [Does MyST support configuring BPM FlexFields?](application-deployment/deploy-bpm-flexfields.md)
 
