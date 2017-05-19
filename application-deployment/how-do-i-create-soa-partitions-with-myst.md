@@ -7,4 +7,4 @@ You can create SOA partitions with MyST as indicated in the [MyST Supported Arti
 <composite.partition>Stock</composite.partition>
 ```
 
-Alternatively, you could use the MyST Studio  `Control` > `Custom` action under a given Platform Instance to create the partition directly before deployment with action name of `create-partition` and setting the name as a property (e.g. `-Dsca.composite.partition=Stock`).
+Alternatively, you could use the MyST Studio  `Control` > `Custom` action under a given Platform Instance to create the partition directly before deployment with an action name of `create-partition` and setting the name as a property (e.g. `-Dsca.composite.partition=Stock`).
