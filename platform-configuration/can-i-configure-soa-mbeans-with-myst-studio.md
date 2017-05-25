@@ -2,7 +2,7 @@ Yes, SOA Mbeans can be configured using MyST Studio.
 
 Below is a working example for configuring some of the commonly tuned SOA Mbean properties.
 
-# Step 1: Edit the Platform Blueprint
+## Step 1: Edit the Platform Blueprint
 1. Navigate to the Platform Blueprint which you want to change in MyST Studio ("Modeling" > "Platform Blueprints")
 2. Click "Edit Configuration"
 3. Go to "Global Variables". 
@@ -47,14 +47,14 @@ soa-infra-EMDurationWindowVal=1
 14. Click "Save".
 15. Click "Apply Changes"
 
-# Step 2: Update Platform Model based on the Blueprint changes
+## Step 2: Update Platform Model based on the Blueprint changes
 1. Go "Modeling" > "Platform Models"
 2. Select the Platform Model corresponding to the previously edited Platform Blueprint
 3. Go to "Actions" and select "Update"
 In the dialog box select "Update to latest draft" (assuming the Platform Blueprint was edited in the same version that the model is currently on).
 4. Click "Update".
 
-# Step 3: Run Configure SOA Action
+## Step 3: Run Configure SOA Action
 Now that the Platform Model has been updated to incorporate the recent Platform Blueprint changes, we can run the Configure SOA action.
 1. From the Platform Model go to to "Actions" and select "Control"
 2. Select the "Custom" action and enter the "Command" as configure-soa.
@@ -62,10 +62,10 @@ Now that the Platform Model has been updated to incorporate the recent Platform 
 3. Click "Execute"
 4. Once the action has completed click "View" under "Execute Log" to see the changes made.
 
-## Configure SOA advanced properties as part of Provisioning
+### Configure SOA advanced properties as part of Provisioning
 The above SOA configuration step can be configured to automatically run at the end of platform provisioning by adding action.configure.post=configure-soa in the Global  Variables of the Platform Blueprint
 
-# Summary of Advanced SOA Properties
+## Summary of Advanced SOA Properties
 This is a non-exhaustive list of available SOA/BPEL/EM/Mediator/BPMN Mbeans attributes that can be configured in MyST Studio.
 
 | **EM Attribute** | **Component in MyST Studio** | **Name-Value Parameter in MyST Studio** | **Available Since** |
