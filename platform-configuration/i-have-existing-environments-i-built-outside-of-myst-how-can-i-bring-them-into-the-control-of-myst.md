@@ -1,0 +1,135 @@
+MyST has comprehensive support for introspecting existing WebLogic environments so that they can be managed (including re-provisioning, updates, drift check, patching, start/stop operations and more) within MysT Studio.
+
+## Introspecting a WebLogic Domain from MyST Studio
+
+You can introspect a Platform Blueprint and/or Platform Model from a WebLogic domain home directly within MyST Studio to bring it under the control of MyST.
+Details on how to do this are documented [here](https://docs.rubiconred.com/myst-studio/platform/introspection/).
+
+It is easiest to introspect directly within MyST Studio rather than via the command-line because it provides a drop-down menu for selecting Compute Definition and the Host to introspect from.
+At introspection time MyST Studio will directly connect to the host over SSH and discover the Blueprint details from the WebLogic domain.
+
+## Introspecting a WebLogic Domain using the CLI
+
+As an alternative to the introspection capability in MyST Studio, there is command-line (CLI) introspection agent that can be ran directly from the Admin Server host.
+The CLI introspection agent will discover the configuration details from the WebLogic domain and push them directly to MyST Studio for on-going management.
+
+### Prerequisites for using the WebLogic Introspection agent
+
+#### Installing the WebLogic Introspection agent
+
+The WebLogic Introspection agent can be obtained by running the following from the MyST Studio host.
+`docker cp myststudio_web:/usr/local/tomcat/conf/fusioncloud/agent/<File Name> .`
+where `<File Name>` is one of the following depending on the operating system where you want to run MyST Studio on.
+File Name | Operating System
+------ | ----------------
+weblogic-introspection-linux-x86_64 | Linux 64 bit
+weblogic-introspection-solaris-x86_64 | Solaris 64 bit
+weblogic-introspection-solaris-sparc | Solaris SPARC
+
+Once you have obtained the file from within the container, you can copy it to any host that you want to introspect from.
+To make it readily available as `weblogic-introspection`, you should copy it to a location on the PATH, rename it and ensure it has execute permissions. For example:
+```
+scp weblogic-introspection-linux-x86_64 oracle@acme-dev.as.cloud /tmp
+mkdir -p /home/oracle/bin
+cp /tmp/weblogic-introspection-linux-x86_64 /home/oracle/bin/weblogic-introspection
+export PATH=$PATH:/home/oracle/bin
+chmod +x /home/oracle/bin/weblogic-introspection
+```
+
+#### Obtaining the MyST API Key
+
+In order to push discovered data from the command-line introspection agent to Studio, you will need to retrieve and/or regenerate an API key from MyST Studio. This can be performed as follows:
+
+1. Login to MyST Studio with an administrator account
+2. Click on "Administration" then select "Users"
+3. Under the MySTAdministrator (API User) click on drop-down and select "Show API Key"
+3. Copy the key, we will use this later. If you want, you can generate a new key at any time.
+
+#### Obtaining the IDs of referenced resources
+
+When using the CLI Introspection Agent, at times, you may need to provide IDs to reference existing components withing MyST Studio.
+Common use cases for doing this are as follows:
+- If you want your Platform Blueprint to reference a specific [Compute Definition](https://docs.rubiconred.com/myst-studio/infrastructure/compute-definitions/) other than the default one that comes with MyST Studio.
+- If you want your Platform Model to reference a specific [Environment Type](https://docs.rubiconred.com/myst-studio/infrastructure/environment-types/) other than the default "CI" environment type that comes out-of-the-box with MyST Studio.
+- If you have already introspected a Platform Blueprint and a Platform Model and now want to introspect a different Platform Model but reference the previous Platform Blueprint. For example, if you introspected the Blueprint and Model for Production and now want to introspect UAT Model while reusing the same Blueprint.
+- If you want the introspection to automatically create the hosts and credential resources in an existing Infrastructure Provider as part of the Platform Model introspection.
+
+The ID for a given resource can be obtained from the URL of the resource in MyST Studio. Below are detailed steps for obtaining the ID for given resources
+
+##### Obtaining a given Compute Definition ID
+
+You can determine the ID of a given Compute Definition as follows:
+1. From the MyST Studio console navigate to **Infrastructure** > **Compute Definition**.
+2. Click on **Edit** next to the **Compute Definition** that you want to use and take note of the ID in the URL.
+The ID is the last part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/compute-definitions/508a8b36-dc15-4252-b95d-9619865866a9` then the ID is `508a8b36-dc15-4252-b95d-9619865866a9`
+
+##### Obtaining a given Environment Type ID
+
+You can determine the ID of a given Environment Types follows:
+1. From the MyST Studio console navigate to **Infrastructure** > **Environment Types**.
+2. Click on **Edit** next to the **Environment Types** that you want to use and take note of the ID in the URL.
+The ID is the last part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/environment-types/2499e11e-7916-4b78-81a8-415cd9f34879` then the ID is `2499e11e-7916-4b78-81a8-415cd9f34879`
+
+##### Obtaining a given Infrastructure Provider ID
+
+You can determine the ID of a given Compute Definition as follows:
+1. From the MyST Studio console navigate to **Infrastructure** > **Infrastructure Providers**.
+2. Click the **Infrastructure Providers* that you want to use and take note of the ID in the URL.
+The ID is the last part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/infrastructure-providers/pre-existing/f0ae32b2-b49b-4b23-b23c-9493b2abbea0` then the ID is `f0ae32b2-b49b-4b23-b23c-9493b2abbea0`
+
+##### Obtaining a given Platform Blueprint ID
+
+If you want to introspect a Platform Model on top of an existing Platform Blueprint, you will need to provide the ID of the Platform Blueprint as part of the introspection. This can be done as follows
+1. From the MyST Studio console navigate to **Modeling** > **Platform Blueprint**.
+2. Click on the given Platform Blueprint that you want to use for your model take note of the ID in the URL.
+The ID is part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/platform-blueprints/c2a9a9c6-4dd6-44b4-8b7a-54a14a235802/1.0.0` then the ID is `c2a9a9c6-4dd6-44b4-8b7a-54a14a235802`
+
+### Introspecting a Blueprint from a WebLogic Domain using the CLI
+
+Once we have the Compute Definition ID that we want to use in our introspected blueprint, we can perform a Platform Blueprint introspection as follows:
+`weblogic-introspection -host <host> -port 443 -key <api_key> -computeId <computeId> <domain_home>`
+If you do not specific the `-computeId` flag, the agent will use the default Compute Definition that came with MyST Studio.
+
+After introspection, login to MyST Studio and check that the Blueprint exists under **Modeling** > ** Platform Blueprints**.
+Now that we have a Blueprint, we can create a new Platform Model based on that and re-provision an identical environment.
+
+### Introspecting a Blueprint and Model from a WebLogic Domain using the CLI
+
+As an alternative to introspecting a Platform Blueprint and creating our Platform Model on top of that manually, we can also introspect the Platform Blueprint and its corresponding Platform Model in one go.
+This approach is especially useful when we want to bring an existing WebLogic Domain under the control of MyST rather than introspecting it to create a copy.
+
+`weblogic-introspection -host <host> -port 443 -key <api_key> -model -infra -computeId <computeId> -envId <envId> -infraId <infraId> <domain_home>`
+
+## Introspecting a Model and reusing an existing Blueprint
+
+If we want to use an existing Platform Blueprint, we just need to provide the ID for the in addition to the other arguments (i.e. set `-bpId`)
+`weblogic-introspection -host <host> -port 443 -key <api_key> -model -infra -bpId <blueprintId> -computeId <computeId> -envId <envId> -infraId <infraId> <domain_home>`
+
+## Performing a Dry Run introspection
+
+We can skip the actual push of an introspection and just test the process, by using the flag `-skip-push`
+
+## Customising the introspection process
+
+If you want to customise the introspection process, you can run the following to extract the XSLT translations to the file system
+`weblogic-introspection -gen`
+This will result in an output similar to the following:
+```
+Write to /home/oracle/.myst/introspection/config2myst.xslt
+Write to /home/oracle/.myst/introspection/jdbc2myst.xslt
+Write to /home/oracle/.myst/introspection/jms2myst.xslt
+Write to /home/oracle/.myst/introspection/products.json
+Write to /home/oracle/.myst/introspection/config2model.xslt
+Write to /home/oracle/.myst/introspection/product-catalog.json
+```
+
+After this, you can edit any of the XSLT or JSON translators and they will be used as part of the introspection.
+
+If you want to remove your customisations, you can run `-clean`. 
+This will remove the local files, thus forcing the introspection to use the uncustomised translators on the next introspection.
+`weblogic-introspection -clean`
+
+When using introspection customisation from MyST Studio, 
+you will need to make sure the customised XSLT and JSON files exist in `~/.myst/introspection` on any host you want to introspect from.
+
+If you have made a customisation that you have found useful, consider submitting it to Rubicon Red engineering for inclusion in an upcoming release.
