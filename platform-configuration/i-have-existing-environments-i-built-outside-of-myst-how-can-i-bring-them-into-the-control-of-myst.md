@@ -20,6 +20,7 @@ The CLI introspection agent will discover the configuration details from the Web
 The WebLogic Introspection agent can be obtained by running the following from the MyST Studio host.
 `docker cp myststudio_web:/usr/local/tomcat/conf/fusioncloud/agent/<File Name> .`
 where `<File Name>` is one of the following depending on the operating system where you want to run MyST Studio on.
+
 | File Name | Operating System |
 | ------ | ---------------- |
 | weblogic-introspection-linux-x86_64 | Linux 64 bit |
