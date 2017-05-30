@@ -1,4 +1,4 @@
-MyST has comprehensive support for introspecting existing WebLogic environments so that they can be managed (including re-provisioning, updates, drift check, patching, start/stop operations and more) within MysT Studio.
+MyST has comprehensive support for introspecting existing WebLogic environments so that they can be managed (including re-provisioning, updates, drift check, patching, start/stop operations and more) within MyST Studio.
 
 ## Introspecting a WebLogic Domain from MyST Studio
 
