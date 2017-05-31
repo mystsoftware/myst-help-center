@@ -1,9 +1,10 @@
-[MyST](http://myst.rubiconred.com) has comprehensive support for introspecting existing WebLogic environments so that automated operations can be performed on them. When managed within MyST Studio, many automated operations can be performed on them including but not limited to:
- - Migration to the Cloud (Oracle or AWS)
- - Automated Upgrade (e.g. 11g to 12c)
- - Performing a configuration drift checks
- - Automated configuration updates/patching/app deployments
- - Start/stop/rolling restart operations 
+[MyST](http://myst.rubiconred.com) has comprehensive support for introspecting existing WebLogic environments so that automated operations can be performed on them such as:
+ - Automated [configuration updates](https://docs.rubiconred.com/myst-studio/platform/update/),  [patching](https://docs.rubiconred.com/myst-studio/platform/management/) and [application release](https://docs.rubiconred.com/myst-studio/deploy/application/)
+ - [Automated Upgrade](https://docs.rubiconred.com/myst-studio/platform/upgrade/) (e.g. 11g to 12c)
+ - [Migration to the Cloud](http://blog.rubiconred.com/automating-the-provisioning-of-oracle-soa-suite-on-aws/)
+ - Performing [configuration drift checks](https://docs.rubiconred.com/myst-studio/platform/management/)
+ - [Start/stop/rolling restart operations](https://docs.rubiconred.com/myst-studio/platform/management/)
+ - [Change visibility, approvals and governance](https://docs.rubiconred.com/myst-studio/release/pipeline/dashboard/)
 
 If you are wanting to perform introspection using MyST Studio, it is recommended to be on version 5.6 and above. If you want to use MyST introspection on a pre-5.6 version, it is recommended to raise a ticket with [MyST Support](http://support.rubiconred.com) who can help you work through the process and specifically point you to the relevant documentation for your version of MyST.
 
