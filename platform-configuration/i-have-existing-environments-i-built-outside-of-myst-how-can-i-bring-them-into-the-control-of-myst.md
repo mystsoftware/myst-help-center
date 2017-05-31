@@ -1,10 +1,15 @@
-MyST has comprehensive support for introspecting existing WebLogic environments so that they can be managed (including re-provisioning, updates, drift check, patching, start/stop operations and more) within MyST Studio.
+MyST has comprehensive support for introspecting existing WebLogic environments so that they can be managed within MyST Studio. When managed within MyST Studio, many automated operations can be performed on them including but not limited to:
+ - Migration to the Cloud (Oracle or AWS)
+ - Automated Upgrade (e.g. 11g to 12c)
+ - Performing a configuration drift checks
+ - Automated configuration updates/patching/app deployments
+ - Start/stop/rolling restart operations 
 
-If you are wanting to perform introspection using MyST Studio, it is recommended to be on version 5.6 and above. If you want to use MyST introspection on a pre-5.6 version, it is recommended to raise a ticket with [MyST Support](http://support.rubiconred.com) who can help you work through the process and point specifically point you to the relevant documentation for your version of MyST.
+If you are wanting to perform introspection using MyST Studio, it is recommended to be on version 5.6 and above. If you want to use MyST introspection on a pre-5.6 version, it is recommended to raise a ticket with [MyST Support](http://support.rubiconred.com) who can help you work through the process and specifically point you to the relevant documentation for your version of MyST.
 
 ## Introspecting a WebLogic Domain from MyST Studio
 
-You can introspect a Platform Blueprint and/or Platform Model from a WebLogic domain home directly within MyST Studio to bring it under the control of MyST.
+You can introspect a [Platform Blueprint ](https://docs.rubiconred.com/myst-studio/platform/blueprints/) and/or [Platform Model](https://docs.rubiconred.com/myst-studio/platform/models/) from a WebLogic domain home directly within MyST Studio to bring it under the control of MyST.
 Details on how to do this are documented [here](https://docs.rubiconred.com/myst-studio/platform/introspection/).
 
 It is easiest to introspect directly within MyST Studio rather than via the command-line because it provides a drop-down menu for selecting Compute Definition and the Host to introspect from.
