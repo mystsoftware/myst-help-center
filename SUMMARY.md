@@ -15,7 +15,7 @@
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 * [I have broken my Blueprint/Model with bad data, is there any way I can see and manipulate the source file?](platform-configuration/rest-api.md)
-* [I have existing environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
+* [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
 
 ## Artifact Build
 
