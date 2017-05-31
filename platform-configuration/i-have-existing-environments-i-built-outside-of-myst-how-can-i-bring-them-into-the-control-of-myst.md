@@ -118,6 +118,7 @@ This approach is especially useful when we want to bring an existing WebLogic Do
 ## Introspecting a Model and reusing an existing Blueprint
 
 If we want to use an existing Platform Blueprint, we just need to provide the ID for the in addition to the other arguments (i.e. set `-bpId`)
+
 `weblogic-introspection -host <host> -port 443 -key <api_key> -model -infra -bpId <blueprintId> -computeId <computeId> -envId <envId> -infraId <infraId> <domain_home>`
 
 ## Performing a Dry Run introspection
