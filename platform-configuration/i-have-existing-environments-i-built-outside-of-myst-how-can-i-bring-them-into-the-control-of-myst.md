@@ -1,4 +1,4 @@
-MyST has comprehensive support for introspecting existing WebLogic environments so that they can be managed within MyST Studio. When managed within MyST Studio, many automated operations can be performed on them including but not limited to:
+[MyST](myst.rubiconred.com) has comprehensive support for introspecting existing WebLogic environments so that they can be managed within MyST Studio. When managed within MyST Studio, many automated operations can be performed on them including but not limited to:
  - Migration to the Cloud (Oracle or AWS)
  - Automated Upgrade (e.g. 11g to 12c)
  - Performing a configuration drift checks
