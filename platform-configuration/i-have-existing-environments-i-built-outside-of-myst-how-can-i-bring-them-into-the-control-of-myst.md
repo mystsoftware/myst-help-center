@@ -55,12 +55,12 @@ In order to push discovered data from the command-line introspection agent to St
 
 #### Obtaining the IDs of referenced resources
 
-When using the CLI Introspection Agent, at times, you may need to provide IDs to reference existing components withing MyST Studio.
+When using the CLI Introspection Agent, at times, you may need to provide IDs to reference existing components within MyST Studio.
 Common use cases for doing this are as follows:
-- If you want your Platform Blueprint to reference a specific [Compute Definition](https://docs.rubiconred.com/myst-studio/infrastructure/compute-definitions/) other than the default one that comes with MyST Studio.
-- If you want your Platform Model to reference a specific [Environment Type](https://docs.rubiconred.com/myst-studio/infrastructure/environment-types/) other than the default "CI" environment type that comes out-of-the-box with MyST Studio.
-- If you have already introspected a Platform Blueprint and a Platform Model and now want to introspect a different Platform Model but reference the previous Platform Blueprint. For example, if you introspected the Blueprint and Model for Production and now want to introspect UAT Model while reusing the same Blueprint.
-- If you want the introspection to automatically create the hosts and credential resources in an existing Infrastructure Provider as part of the Platform Model introspection.
+- Customising the Platform Blueprint introspection to reference a specific [Compute Definition](https://docs.rubiconred.com/myst-studio/infrastructure/compute-definitions/) other than the default one that comes with MyST Studio.
+- Customising the Platform Model introspection to reference a specific [Environment Type](https://docs.rubiconred.com/myst-studio/infrastructure/environment-types/) other than the default "CI" environment type that comes out-of-the-box with MyST Studio.
+- Ensuring consistency between environments. In this case, you may have a Platform Blueprint and a Platform Model and now want to introspect a different Platform Model but reference the previous Platform Blueprint. For example, if you introspected the Blueprint for Production and now want to introspect the UAT Model while reusing the same Blueprint to ensure consistency of common (non-environment specific) settings with what is in production.
+- Advanced customisation to the translation between the WebLogic Domain model and the abstract MyST model which allows the domain to be lifted and shifted.
 
 The ID for a given resource can be obtained from the URL of the resource in MyST Studio. Below are detailed steps for obtaining the ID for given resources
 
