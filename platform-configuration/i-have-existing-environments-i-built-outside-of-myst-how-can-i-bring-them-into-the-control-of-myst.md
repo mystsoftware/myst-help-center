@@ -1,5 +1,7 @@
 MyST has comprehensive support for introspecting existing WebLogic environments so that they can be managed (including re-provisioning, updates, drift check, patching, start/stop operations and more) within MyST Studio.
 
+If you are wanting to perform introspection using MyST Studio, it is recommended to be on version 5.6 and above. If you want to use MyST introspection on a pre-5.6 version, it is recommended to raise a ticket with [MyST Support](http://support.rubiconred.com) who can help you work through the process and point specifically point you to the relevant documentation for your version of MyST.
+
 ## Introspecting a WebLogic Domain from MyST Studio
 
 You can introspect a Platform Blueprint and/or Platform Model from a WebLogic domain home directly within MyST Studio to bring it under the control of MyST.
