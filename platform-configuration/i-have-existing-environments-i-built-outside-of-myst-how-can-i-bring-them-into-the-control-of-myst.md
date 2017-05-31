@@ -66,28 +66,34 @@ The ID for a given resource can be obtained from the URL of the resource in MyST
 
 ##### Obtaining a given Compute Definition ID
 
-You can determine the ID of a given Compute Definition as follows:
+[Compute Definitions](https://docs.rubiconred.com/myst-studio/infrastructure/compute-definitions/) are used to indicate operating system requirements for target hosts in MyST Studio. 
+
+You can reuse an existing Compute Definition at introspection time, by referencing it's ID. This can be obtained as follows:
 1. From the MyST Studio console navigate to **Infrastructure** > **Compute Definition**.
 2. Click on **Edit** next to the **Compute Definition** that you want to use and take note of the ID in the URL.
 The ID is the last part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/compute-definitions/508a8b36-dc15-4252-b95d-9619865866a9` then the ID is `508a8b36-dc15-4252-b95d-9619865866a9`
 
 ##### Obtaining a given Environment Type ID
 
-You can determine the ID of a given Environment Types follows:
+[Environment Types](https://docs.rubiconred.com/myst-studio/infrastructure/environment-types/) are designed to help categorize Oracle Middleware Platform Instances for governance purposes. 
+
+You can reuse an existing Environment Type at introspection time,  by referencing it's ID. This can be obtained as follows:
 1. From the MyST Studio console navigate to **Infrastructure** > **Environment Types**.
 2. Click on **Edit** next to the **Environment Types** that you want to use and take note of the ID in the URL.
 The ID is the last part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/environment-types/2499e11e-7916-4b78-81a8-415cd9f34879` then the ID is `2499e11e-7916-4b78-81a8-415cd9f34879`
 
 ##### Obtaining a given Infrastructure Provider ID
 
-You can determine the ID of a given Compute Definition as follows:
+[Infrastructure Providers](https://docs.rubiconred.com/myst-studio/infrastructure/) map to a data center or a cloud provider region and typically have a set of associated host, networks, credentials and other related infrastructure resources. When you reference an infrastructure provider at introspection time, MyST will check if the host and credentials exist and if not, it will add them. After introspection, the user can then go in and enter the values (key or password) for the SSH credentials so that environments running on the given hosts can be managed by MyST.
+
+You can reuse an existing Infrastructure Provider at introspection time, by referencing it's ID. This can be obtained as follows:
 1. From the MyST Studio console navigate to **Infrastructure** > **Infrastructure Providers**.
-2. Click the **Infrastructure Providers* that you want to use and take note of the ID in the URL.
+2. Click the **Infrastructure Providers** that you want to use and take note of the ID in the URL.
 The ID is the last part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/infrastructure-providers/pre-existing/f0ae32b2-b49b-4b23-b23c-9493b2abbea0` then the ID is `f0ae32b2-b49b-4b23-b23c-9493b2abbea0`
 
 ##### Obtaining a given Platform Blueprint ID
 
-If you want to introspect a Platform Model on top of an existing Platform Blueprint, you will need to provide the ID of the Platform Blueprint as part of the introspection. This can be done as follows
+If you want to introspect a Platform Model on top of an existing Platform Blueprint, you will need to provide the ID of the Platform Blueprint as part of the introspection. This ID can be obtained as follows:
 1. From the MyST Studio console navigate to **Modeling** > **Platform Blueprint**.
 2. Click on the given Platform Blueprint that you want to use for your model take note of the ID in the URL.
 The ID is part of the URL. For example, if the URL is `https://acme-corp.cloud/console/#/platform-blueprints/c2a9a9c6-4dd6-44b4-8b7a-54a14a235802/1.0.0` then the ID is `c2a9a9c6-4dd6-44b4-8b7a-54a14a235802`
