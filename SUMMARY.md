@@ -33,5 +33,5 @@
 
 ## MyST APIs and SDK
 
-* How can I use the MyST APIs?
+* [How can I use the MyST APIs?](myst-apis-and-sdk/how-can-i-use-the-myst-apis.md)
 
