@@ -30,3 +30,8 @@
 * [How can I bulk migrate my properties to be available in the Artifact Property Registry?](application-deployment/how-can-i-bulk-migrate-my-properties-to-be-available-in-the-artifact-property-registry.md)
 * [Can I create SOA partitions with MyST?](application-deployment/how-do-i-create-soa-partitions-with-myst.md)
 * [Does MyST support configuring BPM FlexFields?](application-deployment/deploy-bpm-flexfields.md)
+
+## MyST Management
+
+* [What do I do with the MyST license?](myst-management/myst-license.md)
+
