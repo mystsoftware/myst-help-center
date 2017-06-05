@@ -32,3 +32,6 @@
 * [Does MyST support configuring BPM FlexFields?](application-deployment/deploy-bpm-flexfields.md)
 * [Can I skip the application deployment when reprovisioning an environment?](application-deployment/clear-cache/README.md)
 
+## MyST Management
+
+* [What do I do with the MyST license?](myst-management/myst-license.md)
