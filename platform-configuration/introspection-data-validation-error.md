@@ -25,7 +25,7 @@ When attempting to introspect a domain you receive the following error:
 
 # The Cause {#jive_content_id_The_Cause}
 
-For some reason there are duplicate properties defined within the JCA Adapter configuration. Often this is due to the parameters having slightly different case. e.g. privateKeyFile versus PrivateKeyFile. When MyST Studio goes to store these into the database it violates the db constraints
+For some reason there are duplicate properties defined within the JCA Adapter configuration. Often this is due to the parameters having slightly different case. e.g. privateKeyFile versus PrivateKeyFile. When MyST Studio goes to store these into the database it violates the db constraints
 
 # The Solution {#jive_content_id_The_Solution}
 
@@ -71,21 +71,73 @@ this will generate a file called blueprint
 
 There are many tools that you can use to view and edit json files. One that I particularly like is the "JSON Online Editor" which is an extension for Chrome. It easily formats the json, as well having support for searching and traversing.![](/assets/2017-06-20 11_47_48-JSON Editor Online - view, edit and format JSON online.png)
 
-The size and scope of the json document make it very difficult to compare all of the parameters for each individual JCA Adapter configuration looking for duplicates using the Online JSON Editor. There is a tool called[jq](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fstedolan.github.io%2Fjq%2F) that proves great json manipulation, in a similar fashion to the unix command sed.
+The size and scope of the json document make it very difficult to compare all of the parameters for each individual JCA Adapter configuration looking for duplicates using the Online JSON Editor. There is a tool called[jq](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fstedolan.github.io%2Fjq%2F) that proves great json manipulation, in a similar fashion to the unix command sed.
 
-If you do not want to install jq, there is an [online version](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fjqplay.org%2F) \(jqplay\) of the editor, as shown in article.
+If you do not want to install jq, there is an [online version](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fjqplay.org%2F) \(jqplay\) of the editor, as shown in article.
 
 1. Copy the contents of the blueprint file created by the introspection utility into the JSON field of jqplay
-2. Past the following into the filter field. This will filter out all of the FtpAdapter entries, and generate a list of all of the parameters per adapter configuration. This can also be used for the JMS, and Database simply by changing 
-   `rxr.wls.JcaAdapter-FtpAdapter` to `rxr.wls.JcaAdapter-JmaAdapter` and  `rxr.wls.JcaAdapter-DbAdapter` respectively. You can also traverse the document in the right hand panel without the filter to find any other adapters you wish to evaluate.
+2. Past the following into the filter field. This will filter out all of the FtpAdapter entries, and generate a list of all of the parameters per adapter configuration. This can also be used for the JMS, and Database simply by changing 
+   `rxr.wls.JcaAdapter-FtpAdapter` to `rxr.wls.JcaAdapter-JmaAdapter` and  `rxr.wls.JcaAdapter-DbAdapter` respectively. You can also traverse the document in the right hand panel without the filter to find any other adapters you wish to evaluate.
 
 ```
-.initialVersion.serviceTemplate.nodeTemplates."rxr.wls.JcaAdapter-FtpAdapter".properties.instance[] |{name: .jndiName."_value",  params: [.param[].mystId."_value"] | sort} 
+.initialVersion.serviceTemplate.nodeTemplates."rxr.wls.JcaAdapter-FtpAdapter".properties.instance[] |{name: .jndiName."_value",  params: [.param[].mystId."_value"] | sort}
 ```
 
 ![](/assets/2017-06-20 13_13_55-jq play.png)
 
-3. Either review the filtered list in qjplay or use your favourite text editor to look for duplicate entries. In the example below eis/sftp/JDEXeAppSvr has both `PrivateKeyFile` and `privateKeyFile`
+1. Either review the filtered list in qjplay or use your favourite text editor to look for duplicate entries. In the example below eis/sftp/JDEXeAppSvr has both `PrivateKeyFile` and `privateKeyFile`
+
+![](/assets/2017-06-20 13_17_26-_E__08_temp_temp.json - Notepad++.png)
+
+## Edit the Plan.xml {#jive_content_id_Edit_the_Planxml}
+
+Using your favourite text edit, open the Plan.xml for the respective JCA Adapter
+
+The aim of this step is to find both versions of the duplicate parameter, and work out which one should be removed. In some cases one parameter will have a value and the other wont, in which case it is obvious which one should be removed. In the event that both parameters have values and they differ, then a judgement call will need to be made as to which one should be removed.
+
+There are two types entries that will need to be removed from the Plan.xml
+
+* Variable definition
+* Variable assignment
+
+### Searching for the Parameter {#jive_content_id_Searching_for_theParameter}
+
+The easiest way to find what we are looking for is to perform a **case sensitive **search of the Plan.xml file for the variable assignment using the following:
+
+`[jndi-name="<jndi name>"]/connection-properties/properties/property/[name="<parameter>"]`
+
+e.g.
+
+`[jndi-name="eis/sftp/JDEXeAppSvr"]/connection-properties/properties/property/[name="PrivateKeyFile"]`
+
+This should return two results, one for the assignment of the parameter name, and one for the assignment of the parameter value. Take note of the two &lt;name&gt; elements of the variable assignments, as this is what we are going to search for to locate their respective variable definition and values.
+
+![](/assets/2017-06-20 13_24_58-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+
+Next we search for the variable definition using one of the &lt;name&gt; attributes. In our example variable name is `ConfigProperty_PrivateKeyFile_Name_14733557988300`
+
+![](/assets/2017-06-20 13_31_05-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+
+We can see in the screenshot above the variable definition and value for the parameter \(they may not always be sequential in the file\). In this case the variable has valid value.
+
+Repeat the**case sensitive**search and locate the variable assignment for the other parameter, then locate the variable definition and determine which parameter should be deleted..
+
+e.g. search for: 
+
+`[jndi-name="eis/sftp/JDEXeAppSvr"]/connection-properties/properties/property/[name="privateKeyFile"]`
+
+### Deleting the Parameter {#jive_content_id_Deleting_the_Parameter}
+
+To delete the parameter we must delete the variable assignment as well as the variable definition. In this example we are going to delete the**PrivateKeyFile**parameter that we initially searched for. 
+
+Delete the variable definition elements:  
+![](/assets/2017-06-20 13_43_55-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+
+Delete the variable assignment elements![](/assets/2017-06-20 13_47_16-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+
+## Re-Run Introspection {#jive_content_id_ReRun_Introspection}
+
+Having fixed the Plan.xml re-run the introspection. If it still fails, keep searching for more duplicates, they could be in other JCA adapter configurations.
 
 
 
