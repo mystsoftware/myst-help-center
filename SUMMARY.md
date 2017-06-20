@@ -14,6 +14,7 @@
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 * [I have broken my Blueprint/Model with bad data, is there any way I can see and manipulate the source file?](platform-configuration/rest-api.md)
+* [I am receiving "Data integrity constraints were violated while trying to persist the necessary entities" error when trying to introspect and environment](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
 
 ## Artifact Build
 
