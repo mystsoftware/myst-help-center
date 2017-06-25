@@ -17,6 +17,7 @@
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 * [I have broken my Blueprint/Model with bad data, is there any way I can see and manipulate the source file?](platform-configuration/rest-api.md)
 * [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
+* [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](introspection-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities.md)
 
 ## Artifact Build
 
@@ -36,4 +37,6 @@
 ## MyST Management
 
 * [What do I do with the MyST license?](myst-management/myst-license.md)
+
+## When trying to introspect an environment I received a notice about "Data integrity constraints". What now?
 
