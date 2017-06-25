@@ -7,6 +7,7 @@
 ## Platform Configuration
 
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
+* [Can I add more nodes to my environment with MyST?](platform-configuration/add-compute-nodes/README.md)
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
 * [Can I configure SOA MBeans with MyST Studio?](platform-configuration/can-i-configure-soa-mbeans-with-myst-studio.md)
 * [How do I run SQL scripts pre and post RCU?](platform-configuration/sql-scripts-pre-and-post-rcu.md)
@@ -16,7 +17,7 @@
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 * [I have broken my Blueprint/Model with bad data, is there any way I can see and manipulate the source file?](platform-configuration/rest-api.md)
 * [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
-* [ When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
+* Can I add more nodes to my environment with MyST?
 
 ## Artifact Build
 
