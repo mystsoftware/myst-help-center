@@ -38,5 +38,5 @@
 
 * [What do I do with the MyST license?](myst-management/myst-license.md)
 
-## When trying to introspect an environment I received a notice about "Data integrity constraints". What now?
+
 
