@@ -6,19 +6,20 @@ In this example, we are showing how to update a Platform Blueprint using the RES
 
 ## Retrieving your API key
 
-In order to interact with API, you will first need to retrieve and/or regenerate an API key from MyST Studio. This can be performed as follows:
-1. Login to MyST Studio with an administrator account
-2. Click on "Administration" then select "Users"
-3. Under the MySTAdministrator \(API User\) click on drop-down and select "Show API Key"
-![](img/howto-patch-rollstart-1.show-api-key.png)
-4. Copy the key, we will use this later in our MyST workspace. If you want, you can generate a new key at any time.
+In order to interact with API, you will first need to retrieve and/or regenerate an API key from MyST Studio. This can be performed as follows:  
+1. Login to MyST Studio with an administrator account  
+2. Click on "Administration" then select "Users"  
+3. Under the MySTAdministrator \(API User\) click on drop-down and select "Show API Key"  
+![](img/howto-patch-rollstart-1.show-api-key.png)  
+4. Copy the key, we will use this later in our MyST workspace. If you want, you can generate a new key at any time.  
 ![](img/howto-patch-rollstart-2.api-key-view.png)
 
 ## Setting up your environment
 
 The below `curl` examples will assume the following are set as environment variables
- * `MYST_TOKEN=<your api key>`
- * `MYST_HOST=<your MyST host>`
+
+* `MYST_TOKEN=<your api key>`
+* `MYST_HOST=<your MyST host>`
 
 ## Getting a list of available Blueprints
 
@@ -39,7 +40,7 @@ The `id` of a given Blueprint can be discovered within the listing of Platform B
       "id": "c2a9a9c6-4dd6-44b4-8b7a-54a14a235802",
       "name": "SOA Blueprint",
       ...
-```      
+```
 
 If you want to programmatically find the id for `SOA Blueprint` you could execute the following with `curl` and `jq`
 
@@ -61,13 +62,22 @@ Now, we are going to download that source to a file called `blueprint.json` for 
 curl -k -X GET -H "Authorization: Bearer $MYST_TOKEN"  "https://$MYST_HOST/api/v1/platform/blueprints/$ID/versions/1.0.0?suppressComputed=true&dataFilters=*" > blueprint.json
 ```
 
-**Note:** If you're blueprint is on a different version to 1.0.0, make sure you change that in your query. 
+**Note:** If you're blueprint is on a different version to 1.0.0, make sure you change that in your query.
+
+If you wish to retrieve a specific revision of a platform blueprint version, you can add %5B**pr23**%5D to the url as shown below. This will retrieve revision 23 of the platform blueprint version 1.0.0.
+
+**Note:** when accessing a specific revision of  a platform blueprint version, the curl url needs to use `http` with the appropriate port instead of using `https`
+
+```
+curl -X GET -H "Authorization: Bearer $MYST_TOKEN"  "http://$MYST_HOST:8085/api/v1/platform/blueprints/$ID/versions/1.0.0%5Bpr23%5D?suppressComputed=true&dataFilters=*" > blueprint.json
+```
 
 ## Manipulate the local Platform Blueprint source file and update MyST
 
 If you want to change the previously downloaded Blueprint you need to first extract the contents from the `data` element and create a new file.
 
 For example,
+
 ```
 {
   "data": {
@@ -76,7 +86,9 @@ For example,
        "name": "SOA Blueprint",
        ...
 ```
+
 should look like
+
 ```
 {
     "id": "c2a9a9c6-4dd6-44b4-8b7a-54a14a235802",
@@ -85,6 +97,7 @@ should look like
 ```
 
 If you wanted to automatically update the Blueprint to conform to this, you could run the following in `jq` to create a `new-blueprint.json` file from `blueprint.json`
+
 ```
 jq .data < blueprint.json > new-blueprint.json
 ```
@@ -104,3 +117,14 @@ After you have saved your Platform Blueprint change to MyST Studio, it will stil
 ```
 curl -k -X POST -H "Content-Type:application/json" -H "Authorization: Bearer $MYST_TOKEN"  "https://$MYST_HOST/api/v1/platform/blueprints/$ID/versions/1.0.0/commit"
 ```
+
+## Retrieving the Platform Model
+
+The steps to retrieve, update, and commit the platform model are the same as those for the platform blueprint. Simply change the url to use `models` instead of `blueprints`, and update the version and revision numbers to their appropriate value e.g. `1.0.0-1  `and `%5Bpm23%5D`
+
+```
+curl -X GET -H "Authorization: Bearer $MYST_TOKEN"  "http://$MYST_HOST:8085/api/v1/platform/models/$ID/versions/1.0.0-1%5Bpm23%5D?dataFilters=parent,configuration,revisionNumber" > model.json
+```
+
+
+
