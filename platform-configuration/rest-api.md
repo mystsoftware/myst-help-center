@@ -120,10 +120,10 @@ curl -k -X POST -H "Content-Type:application/json" -H "Authorization: Bearer $MY
 
 ## Retrieving the Platform Model
 
-The steps to retrieve, update, and commit the platform model are the same as those for the platform blueprint. Simply change the url to use `models` instead of `blueprints`, and update the version and revision numbers to their appropriate value e.g. `1.0.0-1  `and `%5Bpm23%5D`
+The steps to retrieve, update, and commit the platform model are the same as those for the platform blueprint. Simply change the url to use `models` instead of `blueprints`, and update the version and revision numbers to their appropriate value e.g. `1.0.0-1`and `%5Bpm23%5D`
 
 ```
-curl -X GET -H "Authorization: Bearer $MYST_TOKEN"  "http://$MYST_HOST:8085/api/v1/platform/models/$ID/versions/1.0.0-1%5Bpm23%5D?dataFilters=parent,configuration,revisionNumber" > model.json
+curl -X GET -H "Authorization: Bearer $MYST_TOKEN"  "http://$MYST_HOST:8085/api/v1/platform/models/$ID/versions/1.0.0-1%5Bpm23%5D?suppressComputed=true&dataFilters=parent,configuration,revisionNumber" > model.json
 ```
 
 
