@@ -27,21 +27,22 @@ cmo.setRemoteJNDIName('my/remotejndi')
 ```
 mkdir myst-workspace
 ```
-1. Navigate to the myst-workspace and initialize it using MyST
+1. Navigate to the myst-workspace and initialize using MyST. Ensure MYST_HOME environment variable is set to your MyST home directory.
 ```
 cd myst-workspace
+export MYST_HOME=/opt/myst-studio
 myst init
 ```
 
 ###Generate the MyST Extension
-1. Generate the myst-extension
+1. Generate the myst-extension.
 ```
 myst generate-model -Dmodel.source=wlst -Dwlst.file=/path-to-your-script/Script1487132184588.py
 ```
-2. Follow the instructions outputted by the generate-model action
+2. Follow the instructions outputted by the generate-model action.
 
 ```
- ------------------------------------------------------------------------
+------------------------------------------------------------------------
   R U B I C O N >< R E D                             
  ...delivery...deMySTified..............................................
  (c) 2011-2016 Rubicon Red Software Pty Ltd. All rights reserved
@@ -88,3 +89,7 @@ myst generate-model -Dmodel.source=wlst -Dwlst.file=/path-to-your-script/Script1
  SUCCESS - 0 Seconds
 
 ```
+
+###Applying the MyST Extension at in a Specific Resource
+If you want to add the myst-extension to a specific resource (eg. JMS Module) as opposed to the domain level you need to copy the relevant XML internal elments.
+
