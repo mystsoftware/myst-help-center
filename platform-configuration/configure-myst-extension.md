@@ -91,5 +91,5 @@ myst generate-model -Dmodel.source=wlst -Dwlst.file=/path-to-your-script/Script1
 ```
 
 ###Applying the MyST Extension at in a Specific Resource
-If you want to add the myst-extension to a specific resource (eg. JMS Module) as opposed to the domain level you need to copy the relevant XML internal elments.
+In MyST Studio if you want to add the myst-extension to a specific resource (eg. JMS Module) as opposed to the domain level you need to copy the relevant XML internal elments.
 
