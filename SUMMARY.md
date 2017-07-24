@@ -37,6 +37,5 @@
 ## MyST Management
 
 * [What do I do with the MyST license?](myst-management/myst-license.md)
-* [Can I use MyST CLI to automate actions in MyST Studio?](myst-management/myst-cli-with-myst-studio.md)
-
+* [Can I use MyST CLI with data from MyST Studio?](myst-management/myst-cli-with-myst-studio.md)
 
