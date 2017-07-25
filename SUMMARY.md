@@ -18,6 +18,7 @@
 * [How do I use the MyST REST API to see and manipulate Blueprint and Model source files?](platform-configuration/rest-api.md)
 * [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
 * [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
+* [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
 
 ## Artifact Build
 
