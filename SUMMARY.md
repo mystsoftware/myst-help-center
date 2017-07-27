@@ -10,6 +10,7 @@
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
 * [Can I configure SOA MBeans with MyST Studio?](platform-configuration/can-i-configure-soa-mbeans-with-myst-studio.md)
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
+* [Can I configure EJB Transaction Timeout through MyST?](platform-configuration/add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.md)
 * [How do I run SQL scripts pre and post RCU?](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [Can I integrate my custom scripts with MyST?](platform-configuration/configure-myst-custom-action.md)
 * [How do I configure WebLogic resources that are not available in the core MyST model?](platform-configuration/configure-myst-extension.md)

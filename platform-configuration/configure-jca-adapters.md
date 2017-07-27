@@ -1,7 +1,6 @@
-
 MyST Studio supports the automation of any JCA adapter type. JCA Adapters themselves are configured through deployment plans. MyST Studio has a mechanism for defining JCA adapter configuration so that it can be used to generate the deployment plan when the platform is automatically provisioned or updated by MyST.
 
-###Prerequisites
+### Prerequisites
 
 Oracle JCA Adapters are designed to use deployment plans. In the Oracle implementation, the deployment plan is not automatically copied to all of the nodes in a cluster.
 
@@ -64,9 +63,9 @@ Set a JNDI Name and then click on "Add One" next to "Name-Value Parameters" to a
 
 An example of common property set for Oracle XA DB Adapter instances is:
 
-| Property Name | Property Value | 
-| ------------- | -------------- |
-| xaDataSource	| jdbc/MyApplicationDataSource |
+| Property Name | Property Value |
+| --- | --- |
+| xaDataSource | jdbc/MyApplicationDataSource |
 
 Click "Save"
 
@@ -78,11 +77,12 @@ Create a logical name for your instance. This is used only for identifying the i
 
 ![](img/howto-config-jca-5.edit-instance-2.png)
 
-| Property Name | Property Value | 
-| ------------- | -------------- |	
+| Property Name | Property Value |
+| --- | --- |
 | platformClassName | DB2Platform |
-| xaDataSource	| jdbc/ExampleDB2Connection |
+| xaDataSource | jdbc/ExampleDB2Connection |
 
 Click "Save"
 
 Remember to "Apply Changes".
+
