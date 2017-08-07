@@ -87,7 +87,7 @@ As Custom Actions may contain logic that can affect the state of a given platfor
 
 Any user that is not an API user or System Administrator will be unable to view or edit custom actions. It is generally considered a good practice to give individuals user accounts with non-System Administrator access and assigning explicitly defining the roles.
 
-### (Optional) Automating the creation and updates of MyST Custom Actions
+### (Optional) Automating the creation and updates of Custom Actions
 
 It is a general good practice to store MyST custom actions in your version control system such as Git or Subversion.
 
