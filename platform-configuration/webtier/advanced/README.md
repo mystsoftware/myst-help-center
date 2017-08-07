@@ -56,9 +56,11 @@ The name of the file can be anything as long as `.conf` is the file extension. O
 To apply the changes without doing a reprovision:
 1. Run `configure-webtier` as a custom action
 2. Restart all servers
+3. Notice that any `moduleconf` files have been replaced and automatically copied to all servers.
 
 ### What about httpd.conf, ssh.conf and admin.conf?
 
+Performing advanced customisations to `httpd.conf`, `admin.conf` and `sshd.conf` is not as straight forward as defining custom routing rules under `moduleconf`. For this reason, it is preferable to define all customisation via `moduleconf`. In an event this approach is not feasible, it would be possible to customise these files using the combination of a template and a custom action which executes the template customisation.
 To update these files you would need to 
 1. create a template and register it as a custom action (e.g. `Plain text` type at `resources/custom/httpd/httpd.conf`)
 2. create a custom action (e.g. `update-webtier-httpd-conf`) which programmatically takes the template and writes it to the desired location
@@ -67,7 +69,7 @@ To update these files you would need to
 Below is an example **Jython Action** for replacing `httpd.conf` with a template 
 
 ```
-from com.rubiconred.myst.model.generate import WebtierModuleConfGenerator
+from com.rubiconred.myst.config import ConfigUtils
 import os
 
 def myst(cfg):
@@ -79,12 +81,6 @@ def myst(cfg):
             cfg.setProperty("ohs.instance.host",cfg["core.node["+ohs_node+"].host"])
             cfg.setProperty("ohs.component.name",cfg["core.webtier.node["+ohs_node+"].component-name"])
             cfg.setProperty("ohs.instance.home",cfg["core.webtier.node["+ohs_node+"].instance-home"])
-            originalValue=cfg.getProperty("core.webtier.moduleconf-source.directory")
-            cfg.setProperty("core.webtier.moduleconf-source.directory","${myst.workspace}/resources/custom/httpd")
-            tmpOhsConfDir = File(cfg['session.tmpdir']+"/staging/"+cfg['ohs.component.name'])
-            gen = WebtierModuleConfGenerator(cfg.configuration.getModel(), tmpOhsConfDir)
-            gen.process()
-            replacedFile = File(tmpOhsConfDir,'httpd.conf')
-            os.system("cp " + tmpOhsConfDir + "/httpd.conf "+cfg['ohs.instance.home']+"/httpd.conf")
-            cfg.setProperty("core.webtier.moduleconf-source.directory",originalValue)
+            os.system("cp resources/custom/httpd/httpd.conf "+cfg['ohs.instance.home']+"/httpd.conf")
+            ConfigUtils.findAndReplaceFile(File(cfg['ohs.instance.home']+"/httpd.conf"), cfg.configuration.getProperties(), false)
 ```
