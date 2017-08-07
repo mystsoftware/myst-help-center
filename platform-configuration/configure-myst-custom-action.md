@@ -73,7 +73,7 @@ def myst(cfg):
 
 ### Creating Custom Actions in MyST Studio
 
-1. Click Administrators > Custom Actions > Create New
+1. Click Administration > Custom Actions > Create New
 1. Fill in the mandatory/optional fields
     * **NOTE** - 'Name' becomes the myst custom action name
 ![WebLogic Record](/platform-configuration/configure-myst-custom-action/create-custom-action.png)
