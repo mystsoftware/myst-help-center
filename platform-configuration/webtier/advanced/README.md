@@ -1,6 +1,6 @@
-MyST has out of the box support for customising webtier routing rules and standard settings as described [here](https://docs.rubiconred.com/myst-studio/platform/resources/weblogic/servers/web-tier.html). This approach takes the inputs from attributes defined in the MyST Platform Definition and uses these to generate the `moduleconf\*.conf` files and `httpd.conf`, `admin.conf` and `sshd.conf`. But what if you want full control over the files being created? 
+MyST has out of the box support for customising webtier routing rules and standard settings as described [here](https://docs.rubiconred.com/myst-studio/platform/resources/weblogic/servers/web-tier.html). This approach takes the inputs from attributes defined in the MyST Platform Definition and uses these to generate the `moduleconf\*.conf` files and `httpd.conf`, `admin.conf` and `sshd.conf`. But what if you want full control over the files being created?
 
-In this case, you may find it more fitting to define a template file for replacement when the webtier is configured at provision-time. 
+In this case, you may find it more fitting to define a template file for replacement when the webtier is configured at provision-time.
 
 ### MyST Webtier Template - A working example
 
@@ -40,39 +40,40 @@ Notice that we have replaced `osb_domain` with `${core.domain.name}` so that it 
 
 We can register our template with MyST as follows:
 
-1. Click **Administration** > **Custom Actions** > **Create New**
+1. Click **Administration** &gt; **Custom Actions** &gt; **Create New**
 2. Fill in the mandatory/optional fields. Be sure to choose `Plain text` for the **Resource Type** and take note of the **Target Location**, we will provide this value to our Platform Blueprint later. The name is for display only, choose something that will make it clear what the action is to be used for.
-![](/assets/Screenshot 2017-08-07 11.29.05.png)
+   ![](/assets/Screenshot 2017-08-07 11.29.05.png)
 3. Click Save.
 
 The name of the file can be anything as long as `.conf` is the file extension. Oracle Webtier will dynamically discover any files under `moduleconf` with this extension and MyST will copy any files to `moduleconf` that exist in the source directory which we indicate in the next step.
 
 ### Updating our Platform Blueprint to use the Webtier template
 
-1. In the Platform Blueprint editor, navigate to **Webtier Configuration**. Enter the value of **Moduleconf Source** > **Directory** to `${myst.workspace}/resources/custom/ohs`
+1. In the Platform Blueprint editor, navigate to **Webtier Configuration**. Enter the value of **Moduleconf Source** &gt; **Directory** to `${myst.workspace}/resources/custom/ohs`
 2. Save the changes
 3. During a provision, the custom webtier routing rules will be taken from the Webtier template.
 
-To apply the changes without doing a reprovision:
-1. Run `configure-webtier` as a custom action
-2. Restart all servers
+To apply the changes without doing a reprovision:  
+1. Run `configure-webtier` as a custom action  
+2. Restart all servers  
 3. Notice that any `moduleconf` files have been replaced and automatically copied to all servers.
 
 ### What about httpd.conf, ssh.conf and admin.conf?
 
-Performing advanced customisations to `httpd.conf`, `admin.conf` and `sshd.conf` is not as straight forward as defining custom routing rules under `moduleconf`. For this reason, it is preferable to define all customisation via `moduleconf`. In an event this approach is not feasible, it would be possible to customise these files using the combination of a template and a custom action which executes the template customisation.
-To update these files you would need to 
-1. create a template and register it as a custom action (e.g. `Plain text` type at `resources/custom/httpd/httpd.conf`)
-2. create a custom action (e.g. `update-webtier-httpd-conf`) which programmatically takes the template and writes it to the desired location
-3. reference the custom action after `configure-webtier` (e.g. `action.configure-webtier.post=update-webtier-httpd-conf`)
+Performing advanced customisations to `httpd.conf`, `admin.conf` and `sshd.conf` is not as straight forward as defining custom routing rules under `moduleconf`. For this reason, it is preferable to define all customisation via `moduleconf`. In an event this approach is not feasible, it would be possible to customise these files using the combination of a template and a custom action which executes the template customisation.  
+To update these files you would need to   
+1. create a template and register it as a custom action \(e.g. `Plain text` type at `resources/custom/httpd/httpd.conf`\)  
+2. create a custom action \(e.g. `update-webtier-httpd-conf`\) which programmatically takes the template and writes it to the desired location  
+3. reference the custom action after `configure-webtier` \(e.g. `action.configure-webtier.post=update-webtier-httpd-conf`\)
 
-Below is an example **Jython Action** for replacing `httpd.conf` with a template 
+Below is an example **Jython Action** for replacing `httpd.conf` with a template
 
 ```
 from com.rubiconred.myst.config import ConfigUtils
 import os
 
 def myst(cfg):
+    webtier = cfg.configuration.getModel().getCore().getWebtier()
     node_list = webtier.getNodeList()
     if node_list:
         nodes = node_list.getNodeArray()
@@ -82,5 +83,8 @@ def myst(cfg):
             cfg.setProperty("ohs.component.name",cfg["core.webtier.node["+ohs_node+"].component-name"])
             cfg.setProperty("ohs.instance.home",cfg["core.webtier.node["+ohs_node+"].instance-home"])
             os.system("cp resources/custom/httpd/httpd.conf "+cfg['ohs.instance.home']+"/httpd.conf")
-            ConfigUtils.findAndReplaceFile(File(cfg['ohs.instance.home']+"/httpd.conf"), cfg.configuration.getProperties(), false)
+            ConfigUtils.findAndReplaceFile(File(cfg['ohs.instance.home']+"/httpd.conf"), cfg.configuration.getProperties(), true)
 ```
+
+
+
