@@ -25,8 +25,8 @@ It is recommended to upgrade to the latest version of MyST Studio to apply the l
 
 **NOTE:** If you have followed the instructions above please be aware that MyST will continue to display the old license until it expires. Once expired MyST will automatically apply the new license.
 
-### What about the MyST.lic file I use to receive?
-When renewing your license the `MyST-<name>-.lic.tar.gz` file now comes bundled with a license (`MyST.lic`) and an API key (`api.key`).
+### What about the MyST.lic file I used to receive?
+When renewing your license, you will recieve a `MyST-<name>-.lic.tar.gz` file which comes bundled with the license (`MyST.lic`) and an API key (`api.key`).
 
 **NOTE:** If your version of MyST only requires `MyST.lic` you can simply extract the license file from `MyST-<name>.lic.tar.gz`.
 
