@@ -4,9 +4,9 @@ https://docs.rubiconred.com/myst-studio/installation/myst-studio/#installation-u
 
 ### Updating the License
 #### MyST Studio
-#####Prerequisite
-1. No data is expected to be lost however, as a precaution run the `backup-database.sh` script to backup your MyST Studio database.
-2. You have received a new license file from Rubicon Red.
+##### Prerequisites
+1. Run the `backup-database.sh` script to backup your MyST Studio database. This will allow you to easily rollback from an upgrade, if needed.
+2. Ensure you have a license bundle from Rubicon Red.
 
 #####5.6.5+
 1. Log into MyST Studio
