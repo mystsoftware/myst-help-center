@@ -4,9 +4,9 @@ https://docs.rubiconred.com/myst-studio/installation/myst-studio/#installation-u
 
 ### Updating the License
 #### MyST Studio
-##### Prerequisites
-1. Run the `backup-database.sh` script to backup your MyST Studio database. This will allow you to easily rollback from an upgrade, if needed.
-2. Ensure you have a license bundle from Rubicon Red.
+#####Prerequisite
+1. No data is expected to be lost however, as a precaution run the `backup-database.sh` script to backup your MyST Studio database.
+2. You have received a new license file from Rubicon Red.
 
 #####5.6.5+
 1. Log into MyST Studio
@@ -25,8 +25,8 @@ It is recommended to upgrade to the latest version of MyST Studio to apply the l
 
 **NOTE:** If you have followed the instructions above please be aware that MyST will continue to display the old license until it expires. Once expired MyST will automatically apply the new license.
 
-### What about the MyST.lic file I used to receive?
-When renewing your license, you will recieve a `MyST-<name>-.lic.tar.gz` file which comes bundled with the license (`MyST.lic`) and an API key (`api.key`).
+### What about the MyST.lic file I use to receive?
+When renewing your license the `MyST-<name>-.lic.tar.gz` file now comes bundled with a license (`MyST.lic`) and an API key (`api.key`).
 
 **NOTE:** If your version of MyST only requires `MyST.lic` you can simply extract the license file from `MyST-<name>.lic.tar.gz`.
 
