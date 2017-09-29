@@ -10,6 +10,7 @@
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
 * [Can I configure SOA MBeans with MyST Studio?](platform-configuration/can-i-configure-soa-mbeans-with-myst-studio.md)
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
+* [Can I configure EJB Transaction Timeout through MyST?](platform-configuration/add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.md)
 * [How do I run SQL scripts pre and post RCU?](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [Can I integrate my custom scripts with MyST?](platform-configuration/configure-myst-custom-action.md)
 * [How do I configure WebLogic resources that are not available in the core MyST model?](platform-configuration/configure-myst-extension.md)
@@ -19,6 +20,7 @@
 * [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
 * [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
 * [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
+* [How do I perform advanced webtier customisations using MyST?](platform-configuration/webtier/advanced/README.md)
 * [How to deploy SQL in 12c using SQL\*Plus?](platform-configuration/deploy-sql-12c-using-sqlplus.md)
 
 ## Artifact Build
