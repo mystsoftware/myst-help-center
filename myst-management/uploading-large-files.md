@@ -2,8 +2,8 @@ Need a way to upload files that are too large for support.rubiconred.com? You ca
 
 ## Setup
 1. Download a client.
-  1. In this example we use [CloudBerry Explorer](https://www.cloudberrylab.com/explorer/amazon-s3.aspx)
-  1. Alternatively other clients or command line tools are available
+1. In this example we use [CloudBerry Explorer](https://www.cloudberrylab.com/explorer/amazon-s3.aspx)
+1. Alternatively other clients or command line tools are available
 
 ## Uploading Files
 1. Log into http://support.rubiconred.com
@@ -18,7 +18,7 @@ Need a way to upload files that are too large for support.rubiconred.com? You ca
 1. Click the **External Bucket** icon
 <br>![](/myst-management/img/uploading-large-files-04.png)<br><br>
 1. Enter details of the external bucket
-<br>![]()<br><br>
+<br>![](/myst-management/img/uploading-large-files-05.png)<br><br>
 1. Double click the external bucket
 <br>![](/myst-management/img/uploading-large-files-06.png)<br><br>
 1. You can now upload files to this bucket
