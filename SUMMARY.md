@@ -43,4 +43,5 @@
 
 * [What do I do with the MyST license?](myst-management/myst-license.md)
 * [Can I use MyST CLI with data from MyST Studio?](myst-management/myst-cli-with-myst-studio.md)
+* [Uploading large files?](myst-management/uploading-large-files.md)
 
