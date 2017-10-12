@@ -11,13 +11,13 @@ This step is required for general command prompt internet access via the forward
 Note: This level of configuration is for the current shell only, you can permanently apply this configuration in ~/.bashrc or ~/.bash\_profile.
 
 **Steps**
+```
+export http_proxy='http://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'
 
-`export http_proxy='http://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'`
+export https_proxy='<Protocol>://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'
 
-`export https_proxy='<Protocol>://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'`
-
-`export  no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"`
-
+export  no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"
+```
 
 
 **Testing HTTP**:
