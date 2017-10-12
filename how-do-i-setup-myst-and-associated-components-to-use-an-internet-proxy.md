@@ -100,12 +100,13 @@ For information regarding NTML Authentication Issue:
 * [\[JENKINS-3350\] Connect to update center via HTTP proxy that requires NTLM authentication - Jenkins JIRA](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fissues.jenkins-ci.org%2Fbrowse%2FJENKINS-3350)
 
 The solution to this problem is to modify the jenkins yml file:
-
-vi$MYSTSTUDIO\_HOME/conf/ci/docker-compose-base.yml
+```
+vi $MYSTSTUDIO\_HOME/conf/ci/docker-compose-base.yml
+```
 
 Add the following line after the Port definition:  
-environment:
 ```
+environment:
 * JAVA\_OPTS=-Dhttp.auth.preference="basic"
 ```
 
