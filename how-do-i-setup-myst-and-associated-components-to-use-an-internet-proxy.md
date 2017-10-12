@@ -168,18 +168,18 @@ Artifactory Console &gt; Admin &gt; Remote &gt; Click on any Remote Repository \
 
 Add the below section to the global maven settings.xml file right after the root &lt;settings&gt; element.
 ```
-&lt;proxies&gt;  
-&lt;proxy&gt;  
-&lt;id&gt;proxy&lt;/id&gt;  
-&lt;active&gt;true&lt;/active&gt;  
-&lt;protocol&gt;http&lt;/protocol&gt;  
-&lt;username&gt;&lt;Domain&gt;%5C&lt;Username&gt;&lt;/username&gt;  
-&lt;password&gt;&lt;Password&gt;&lt;/password&gt;  
-&lt;host&gt;&lt;ProxyHost&gt;&lt;/host&gt;  
-&lt;port&gt;&lt;ProxyPort&gt;&lt;/port&gt;  
-&lt;nonProxyHosts&gt;&lt;NoProxy&gt;&lt;/nonProxyHosts&gt;  
-&lt;/proxy&gt;  
-&lt;/proxies&gt;
+<proxies>  
+<proxy>  
+<id>proxy</id>  
+<active>true</active>  
+<protocol>http</protocol>  
+<username><Domain>%5C<Username></username>  
+<password><Password></password>  
+<host><ProxyHost></host>  
+<port><ProxyPort></port>  
+<nonProxyHosts><NoProxy></nonProxyHosts>  
+</proxy>  
+</proxies>
 ```
 **Testing Prerequisite**:
 
@@ -189,12 +189,12 @@ mkdir /tmp/TestMaven
 
 vi pom.xml
 
-&lt;project&gt;  
-&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;  
-&lt;groupId&gt;com.mycompany.app&lt;/groupId&gt;  
-&lt;artifactId&gt;my-app&lt;/artifactId&gt;  
-&lt;version&gt;1&lt;/version&gt;  
-&lt;/project&gt;
+<project>  
+<modelVersion>4.0.0</modelVersion>  
+<groupId>com.mycompany.app</groupId>  
+<artifactId>my-app</artifactId>  
+<version>1</version>  
+</project>
 ```
 
 **Testing For Maven:**
