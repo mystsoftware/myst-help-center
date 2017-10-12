@@ -188,7 +188,10 @@ Follow the below steps:
 mkdir /tmp/TestMaven
 
 vi pom.xml
+```
 
+Add the below content and save the file.
+```
 <project>  
 <modelVersion>4.0.0</modelVersion>  
 <groupId>com.mycompany.app</groupId>  
