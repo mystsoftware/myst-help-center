@@ -44,4 +44,5 @@
 * [What do I do with the MyST license?](myst-management/myst-license.md)
 * [Can I use MyST CLI with data from MyST Studio?](myst-management/myst-cli-with-myst-studio.md)
 * [Uploading large files?](myst-management/uploading-large-files.md)
+* [How do I setup MyST and associated components to use an Internet Proxy?](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
 
