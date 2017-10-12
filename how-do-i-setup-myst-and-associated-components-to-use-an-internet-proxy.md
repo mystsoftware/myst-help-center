@@ -21,12 +21,14 @@ export  no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"
 
 
 **Testing HTTP**:
-
+```
 wget[http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm!\[\]\(/assets/shell\_test\_http.png](http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm![]%28/assets/shell_test_http.png)\)
+```
 
 **Testing HTTPS**:
-
+```
 wget[https://github.com/docker/compose/releases/download/1.14.0/docker-compose-$\(uname-s\)-$\(name](https://github.com/docker/compose/releases/download/1.14.0/docker-compose-$%28uname-s%29-$%28name) -m\)
+```
 
 ![](/assets/shell_test_https.png)
 
