@@ -10,7 +10,8 @@ This step is required for general command prompt internet access via the forward
 
 Note: This level of configuration is for the current shell only, you can permanently apply this configuration in ~/.bashrc or ~/.bash\_profile.
 
-**Steps**
+### Steps
+
 ```
 export http_proxy='http://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'
 
@@ -19,13 +20,14 @@ export https_proxy='<Protocol>://<Domain>%5C<Username>:<Password>@<ProxyHost>:<P
 export  no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"
 ```
 
+### Testing HTTP
 
-**Testing HTTP**:
 ```
 wget[http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm!\[\]\(/assets/shell\_test\_http.png](http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm![]%28/assets/shell_test_http.png)\)
 ```
 
-**Testing HTTPS**:
+### Testing HTTPS
+
 ```
 wget[https://github.com/docker/compose/releases/download/1.14.0/docker-compose-$\(uname-s\)-$\(name](https://github.com/docker/compose/releases/download/1.14.0/docker-compose-$%28uname-s%29-$%28name) -m\)
 ```
@@ -38,7 +40,8 @@ This step is required for yum to access internet resources via the forward proxy
 
 Note: This level of configuration is for yum only.
 
-**Steps**
+### Steps
+
 ```
 vi /etc/yum.conf
 
@@ -46,9 +49,11 @@ proxy=[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%
 proxy\_username=&lt;Username&gt;  
 proxy\_password=&lt;Password&gt;
 ```
-**Testing**:
+
+### Testing
 
 If you can install xclock, run the following command to test yum internet connectivity.
+
 ```
 sudo yum install xclock
 ```
@@ -59,7 +64,8 @@ This step is required for docker to access internet resources via the forward pr
 
 Note: This level of configuration is for docker service only, it doesn't automatically apply proxy configuration to the docker container \(e.g. /bin/bash\).
 
-**Steps**
+### Steps
+
 ```
 cat &lt;&lt;EOF \| sudo tee -a /etc/sysconfig/docker  
 http\_proxy='[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2F)&lt;Domain&gt;%5C&lt;Username&gt;:&lt;Password&gt;@&lt;ProxyHost&gt;:&lt;ProxyPort&gt;'  
@@ -75,7 +81,7 @@ sudo systemctl daemon-reload
 sudo service docker restart
 ```
 
-**Testing**:
+### Testing
 
 Run command 'docker info' and check the Http Proxy and Https Proxy settings where '\' backslash is replaced with '%5C'.![](/assets/docker_test_docker_info.png)
 
@@ -89,7 +95,7 @@ This step is required for Jenkins to access internet resources via the forward p
 
 Note: This level of configuration is for Jenkins only, this proxy setting doesn't automatically apply on any other applications.
 
-**Steps \(For NTML Forward Proxy Only\)**
+### Steps \(For NTML Forward Proxy Only\)
 
 Jenkins cannot communicate to proxy server that requires NTML Authentication.The solution is to force the JVMto enable "basic" authentication \(Not NTML Authentication\).
 
@@ -100,11 +106,13 @@ For information regarding NTML Authentication Issue:
 * [\[JENKINS-3350\] Connect to update center via HTTP proxy that requires NTLM authentication - Jenkins JIRA](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fissues.jenkins-ci.org%2Fbrowse%2FJENKINS-3350)
 
 The solution to this problem is to modify the jenkins yml file:
+
 ```
 vi $MYSTSTUDIO\_HOME/conf/ci/docker-compose-base.yml
 ```
 
-Add the following line after the Port definition:  
+Add the following line after the Port definition:
+
 ```
 environment:
 * JAVA\_OPTS=-Dhttp.auth.preference="basic"
@@ -114,13 +122,13 @@ The Jenkins JVM will use basic authentication to the proxy, not NTLM authenicati
 
 Once the yml file is modified, run /myst-studio/bin/restart.sh to bounce the jenkins container \(This will also bounce all other docker containers\).
 
-**Steps \(For Any Forward Proxy\)**
+### Steps \(For Any Forward Proxy\)
 
 Provide the proxy configuration in the Jenkins console. For example:![](/assets/jenkins_step_console_config.png)
 
 Note: The Advanced &gt; Validate Proxy button will return "Failed to connect to[http://www.google.com](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2Fwww.google.com)\(code 407\).", but the connection should still work. Simply ignore this error.
 
-**Testing**:
+### Testing
 
 Jenkins Console &gt; Jenkins &gt; Manage Jenkins &gt; Manage Plugins &gt; Click Check Now and make sure there is no error.
 
@@ -132,31 +140,34 @@ This issue is similar to the Jenkins issue \(4\).
 
 Note: This level of configuration is for Artifactory only, this proxy setting doesn't automatically apply on any other applications.
 
-**Steps \(For NTML Forward Proxy Only\)**
+### Steps \(For NTML Forward Proxy Only\)
 
 Artifactory cannot communicate to proxy server that requires NTML Authentication. The solution is to force the JVM to enable "basic" authentication \(Not NTML Authentication\).
 
 The solution to this problem is to modify the jenkins yml file:
+
 ```
 vi $MYSTSTUDIO\_HOME/conf/maven/docker-compose.yml
 ```
 
-Add the following line after the Port definition:  
+Add the following line after the Port definition:
+
 ```
 environment:
-	JAVA\_OPTS=-Dhttp.auth.preference="basic"
+    JAVA\_OPTS=-Dhttp.auth.preference="basic"
 ```
+
 The Artifactory JVM will use basic authentication to the proxy, not NTLM authenication.
 
 Once the yml file is modified, run /myst-studio/bin/restart.sh to bounce the artifactory container \(This will also bounce all other docker containers\).
 
-**Steps \(For Any Forward Proxy\)**
+### Steps \(For Any Forward Proxy\)
 
 Provide the proxy configuration in the Artifactory console. For example:
 
 ![](/assets/artifactory_step_proxy_config.png)
 
-**Testing**:
+### Testing
 
 Artifactory Console &gt; Admin &gt; Remote &gt; Click on any Remote Repository \(e.g. jcenter\) &gt; Click Test and make sure there is no error.
 
@@ -164,9 +175,10 @@ Artifactory Console &gt; Admin &gt; Remote &gt; Click on any Remote Repository \
 
 **This step is required for maven to access internet resources. Note: This step isn't required if Artifactory is configured with Maven in settings.xml, because Artifactory will access Internet on behalf of Maven.  **
 
-**Steps:**
+### Steps
 
 Add the below section to the global maven settings.xml file right after the root &lt;settings&gt; element.
+
 ```
 <proxies>  
 <proxy>  
@@ -181,9 +193,11 @@ Add the below section to the global maven settings.xml file right after the root
 </proxy>  
 </proxies>
 ```
-**Testing Prerequisite**:
+
+### Testing Prerequisite
 
 Follow the below steps:
+
 ```
 mkdir /tmp/TestMaven
 
@@ -191,6 +205,7 @@ vi pom.xml
 ```
 
 Add the below content and save the file.
+
 ```
 <project>  
 <modelVersion>4.0.0</modelVersion>  
@@ -200,18 +215,23 @@ Add the below content and save the file.
 </project>
 ```
 
-**Testing For Maven:**
+### Testing For Maven
 
 Run run the following command to test Maven's Internet connectivity.
+
 ```
 mvn -U -X clean install
 ```
 
-**Testing For Maven + Artifactory \(If Artifactory is configured in Maven settings.xml\):**
+### Testing For Maven + Artifactory \(If Artifactory is configured in Maven settings.xml\)
 
 Perform Step \(5\) to configure Artifactory to have correct Internet connectivity.
 
 Run run the following command to test Maven's Internet connectivity via Artifactory.
+
 ```
 mvn -U -X clean install
 ```
+
+
+
