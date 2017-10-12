@@ -2,9 +2,9 @@ If you are behind a forward proxy server and need to perform tasks that access t
 
 Note: Throughout this article the '\' character is sometimes escaped as '%5c'.
 
-# Forward Proxy Configurations {#jive_content_id_Forward_Proxy_Configuations}
+# Forward Proxy Configurations
 
-## Shell {#jive_content_id_1_Shell}
+## Shell
 
 Note: This level of configuration is for the current shell only, you can permanently apply this configuration in ~/.bashrc or ~/.bash\_profile.
 
@@ -13,7 +13,7 @@ Note: This level of configuration is for the current shell only, you can permane
 ```
 export http_proxy='http://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'
 export https_proxy='<Protocol>://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'
-export  no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"
+export no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"
 ```
 
 ### Testing HTTP
@@ -30,7 +30,7 @@ wget[https://github.com/docker/compose/releases/download/1.14.0/docker-compose-$
 
 ![](/assets/shell_test_https.png)
 
-## Yum {#jive_content_id_2_Yum}
+## Yum
 
 Note: This level of configuration is for yum only.
 
@@ -39,8 +39,8 @@ Note: This level of configuration is for yum only.
 ```
 vi /etc/yum.conf
 
-proxy=[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2F)<ProxyHost>:<ProxyPort>  
-proxy\_username=<Username>  
+proxy=http://<ProxyHost>:<ProxyPort>
+proxy\_username=<Username>
 proxy\_password=<Password>
 ```
 
@@ -52,24 +52,24 @@ Install xclock to test yum internet connectivity.
 sudo yum install xclock
 ```
 
-## Docker {#jive_content_id_3Docker}
+## Docker
 
 Note: This level of configuration is for the docker service only and doesn't automatically apply the proxy configuration to the docker container \(e.g. /bin/bash\).
 
 ### Steps
 
 ```
-cat <<EOF \| sudo tee -a /etc/sysconfig/docker  
-http\_proxy='[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2F)<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'  
-https\_proxy='<Protocol>://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'  
+cat <<EOF \| sudo tee -a /etc/sysconfig/docker
+http_proxy='http://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'
+https_proxy='<Protocol>://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'
 EOF
 ```
 
 Note: The no\_proxy configuration is not required here. The docker service uses these proxy settings to pull images from internet, and docker won't be communicating to the CI server \(or any internal servers\). However, there should be no harm setting no\_proxy.
 
 ```
-sudo sed -i '/\\[Service\\]/a EnvironmentFile=/etc/sysconfig/docker' /usr/lib/systemd/system/docker.service  
-sudo systemctl daemon-reload  
+sudo sed -i '/\\[Service\\]/a EnvironmentFile=/etc/sysconfig/docker' /usr/lib/systemd/system/docker.service
+sudo systemctl daemon-reload
 sudo service docker restart
 ```
 
@@ -80,7 +80,7 @@ Run command 'docker info' and check the Http Proxy and Https Proxy settings wher
 
 Run a command where docker requires internet activity (e.g. /opt/app/myst-studio/bin/start.sh). If successful then the proxy is configured correctly.
 
-## Jenkins \(For NTLM Forward Proxy\) {#jive_content_id_4Jenkins_For_NTLM_Forward_Proxy}
+## Jenkins \(For NTLM Forward Proxy\) 
 
 Note: This level of configuration is for Jenkins only, this proxy setting doesn't automatically apply on any other applications.
 
@@ -89,8 +89,8 @@ Note: This level of configuration is for Jenkins only, this proxy setting doesn'
 Jenkins cannot communicate to proxy server that requires NTML Authentication. The solution is to force the JVM to enable "basic" authentication \(Not NTML Authentication\).
 
 For information regarding NTML Authentication Issue:
-* [java - Jenkins proxy 407 error - Stack Overflow](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F29682844%2Fjenkins-proxy-407-error)
-* [\[JENKINS-3350\] Connect to update center via HTTP proxy that requires NTLM authentication - Jenkins JIRA](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fissues.jenkins-ci.org%2Fbrowse%2FJENKINS-3350)
+* [java - Jenkins proxy 407 error - Stack Overflow](https://www.google.com.au/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiw7MOhmOzWAhWBTrwKHaT4DQMQFggmMAA&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F29682844%2Fjenkins-proxy-407-error&usg=AOvVaw0G2PuSd6kHfWEjurUApi0R)
+* [\[JENKINS-3350\] Connect to update center via HTTP proxy that requires NTLM authentication - Jenkins JIRA](https://www.google.com.au/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwj18vmRmOzWAhWEv7wKHSvPA7YQFggmMAA&url=https%3A%2F%2Fissues.jenkins-ci.org%2Fbrowse%2FJENKINS-3350&usg=AOvVaw0xjsM0Ge8qTN-JvxIGtJNO)
 
 The solution to this problem is to modify the jenkins yml file:
 
@@ -113,14 +113,14 @@ Once the yml file is modified, run /myst-studio/bin/restart.sh to bounce the jen
 
 Provide the proxy configuration in the Jenkins console. For example:![](/assets/jenkins_step_console_config.png)
 
-Note: The Advanced > Validate Proxy button will return "Failed to connect to[http://www.google.com](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2Fwww.google.com)\(code 407\).", but the connection should still work. Simply ignore this error.
+Note: The Advanced > Validate Proxy button will return "Failed to connect to http://www.google.com (code 407).", but the connection should still work. Simply ignore this error.
 
 ### Testing
 
 1. Jenkins Console > Jenkins > Manage Jenkins > Manage Plugins
 2. Click Check Now and make sure there is no error.
 
-## Artifactory \(For NTLM Forward Proxy\) {#jive_content_id_5_ArtifactoryFor_NTLM_Forward_Proxy}
+## Artifactory \(For NTLM Forward Proxy\)
 
 Note: This level of configuration is for Artifactory only, this proxy setting doesn't automatically apply on any other applications.
 
@@ -138,7 +138,7 @@ Add the following line after the Port definition:
 
 ```
 environment:
-    JAVA\_OPTS=-Dhttp.auth.preference="basic"
+JAVA\_OPTS=-Dhttp.auth.preference="basic"
 ```
 
 The Artifactory JVM will use basic authentication to the proxy, not NTLM authenication.
@@ -155,7 +155,7 @@ Provide the proxy configuration in the Artifactory console. For example:
 
 Artifactory Console > Admin > Remote > Click on any Remote Repository \(e.g. jcenter\) > Click Test and make sure there is no error.
 
-## Maven {#jive_content_id_6_Maven}
+## Maven
 
 Note: This step isn't required if Artifactory is configured with Maven in settings.xml, because Artifactory will access Internet on behalf of Maven.
 
@@ -164,17 +164,17 @@ Note: This step isn't required if Artifactory is configured with Maven in settin
 Add the below section to the global maven settings.xml file right after the root \<settings\> element.
 
 ```
-<proxies>  
-<proxy>  
-<id>proxy</id>  
-<active>true</active>  
-<protocol>http</protocol>  
-<username><Domain>%5C<Username></username>  
-<password><Password></password>  
-<host><ProxyHost></host>  
-<port><ProxyPort></port>  
-<nonProxyHosts><NoProxy></nonProxyHosts>  
-</proxy>  
+<proxies>
+<proxy>
+<id>proxy</id>
+<active>true</active>
+<protocol>http</protocol>
+<username><Domain>%5C<Username></username>
+<password><Password></password>
+<host><ProxyHost></host>
+<port><ProxyPort></port>
+<nonProxyHosts><NoProxy></nonProxyHosts>
+</proxy>
 </proxies>
 ```
 
@@ -190,11 +190,11 @@ vi pom.xml
 Add the below content and save the file.
 
 ```
-<project>  
-<modelVersion>4.0.0</modelVersion>  
-<groupId>com.mycompany.app</groupId>  
-<artifactId>my-app</artifactId>  
-<version>1</version>  
+<project>
+<modelVersion>4.0.0</modelVersion>
+<groupId>com.mycompany.app</groupId>
+<artifactId>my-app</artifactId>
+<version>1</version>
 </project>
 ```
 
@@ -215,6 +215,5 @@ Run run the following command to test Maven's Internet connectivity via Artifact
 ```
 mvn -U -X clean install
 ```
-
 
 
