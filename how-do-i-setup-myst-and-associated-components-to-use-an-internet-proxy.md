@@ -45,9 +45,9 @@ Note: This level of configuration is for yum only.
 ```
 vi /etc/yum.conf
 
-proxy=[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2F)&lt;ProxyHost&gt;:&lt;ProxyPort&gt;  
-proxy\_username=&lt;Username&gt;  
-proxy\_password=&lt;Password&gt;
+proxy=[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2F)<ProxyHost>:<ProxyPort>  
+proxy\_username=<Username>  
+proxy\_password=<Password>
 ```
 
 ### Testing
@@ -67,9 +67,9 @@ Note: This level of configuration is for docker service only, it doesn't automat
 ### Steps
 
 ```
-cat &lt;&lt;EOF \| sudo tee -a /etc/sysconfig/docker  
-http\_proxy='[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2F)&lt;Domain&gt;%5C&lt;Username&gt;:&lt;Password&gt;@&lt;ProxyHost&gt;:&lt;ProxyPort&gt;'  
-https\_proxy='&lt;Protocol&gt;://&lt;Domain&gt;%5C&lt;Username&gt;:&lt;Password&gt;@&lt;ProxyHost&gt;:&lt;ProxyPort&gt;'  
+cat <<EOF \| sudo tee -a /etc/sysconfig/docker  
+http\_proxy='[http://](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2F)<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'  
+https\_proxy='<Protocol>://<Domain>%5C<Username>:<Password>@<ProxyHost>:<ProxyPort>'  
 EOF
 ```
 
@@ -126,11 +126,11 @@ Once the yml file is modified, run /myst-studio/bin/restart.sh to bounce the jen
 
 Provide the proxy configuration in the Jenkins console. For example:![](/assets/jenkins_step_console_config.png)
 
-Note: The Advanced &gt; Validate Proxy button will return "Failed to connect to[http://www.google.com](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2Fwww.google.com)\(code 407\).", but the connection should still work. Simply ignore this error.
+Note: The Advanced > Validate Proxy button will return "Failed to connect to[http://www.google.com](https://rubiconred.jiveon.com/external-link.jspa?url=http%3A%2F%2Fwww.google.com)\(code 407\).", but the connection should still work. Simply ignore this error.
 
 ### Testing
 
-Jenkins Console &gt; Jenkins &gt; Manage Jenkins &gt; Manage Plugins &gt; Click Check Now and make sure there is no error.
+Jenkins Console > Jenkins > Manage Jenkins > Manage Plugins > Click Check Now and make sure there is no error.
 
 ## Artifactory \(For NTLM Forward Proxy\) {#jive_content_id_5_ArtifactoryFor_NTLM_Forward_Proxy}
 
@@ -169,7 +169,7 @@ Provide the proxy configuration in the Artifactory console. For example:
 
 ### Testing
 
-Artifactory Console &gt; Admin &gt; Remote &gt; Click on any Remote Repository \(e.g. jcenter\) &gt; Click Test and make sure there is no error.
+Artifactory Console > Admin > Remote > Click on any Remote Repository \(e.g. jcenter\) > Click Test and make sure there is no error.
 
 ## Maven {#jive_content_id_6_Maven}
 
@@ -177,7 +177,7 @@ Artifactory Console &gt; Admin &gt; Remote &gt; Click on any Remote Repository \
 
 ### Steps
 
-Add the below section to the global maven settings.xml file right after the root &lt;settings&gt; element.
+Add the below section to the global maven settings.xml file right after the root <settings> element.
 
 ```
 <proxies>  
