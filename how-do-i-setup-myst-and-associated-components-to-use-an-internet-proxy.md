@@ -22,6 +22,8 @@ export no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"
 wget http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm
 ```
 
+![](/assets/shell_test_http.PNG)
+
 ### Testing HTTPS
 
 ```
@@ -89,8 +91,9 @@ Note: This level of configuration is for Jenkins only, this proxy setting doesn'
 Jenkins cannot communicate to proxy server that requires NTML Authentication. The solution is to force the JVM to enable "basic" authentication (Not NTML Authentication).
 
 For information regarding NTML Authentication Issue:
-* [java - Jenkins proxy 407 error - Stack Overflow](https://www.google.com.au/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiw7MOhmOzWAhWBTrwKHaT4DQMQFggmMAA&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F29682844%2Fjenkins-proxy-407-error&usg=AOvVaw0G2PuSd6kHfWEjurUApi0R)
-* [[JENKINS-3350] Connect to update center via HTTP proxy that requires NTLM authentication - Jenkins JIRA](https://www.google.com.au/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwj18vmRmOzWAhWEv7wKHSvPA7YQFggmMAA&url=https%3A%2F%2Fissues.jenkins-ci.org%2Fbrowse%2FJENKINS-3350&usg=AOvVaw0xjsM0Ge8qTN-JvxIGtJNO)
+* [java - Jenkins proxy 407 error - Stack Overflow](https://stackoverflow.com/questions/29682844/jenkins-proxy-407-error)
+* [[JENKINS-3350] Connect to update center via HTTP proxy that requires NTLM authentication - Jenkins JIRA](https://issues.jenkins-ci.org/browse/JENKINS-3350)
+
 
 The solution to this problem is to modify the jenkins yml file:
 
