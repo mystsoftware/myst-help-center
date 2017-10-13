@@ -22,7 +22,7 @@ export no_proxy="127.0.0.1, localhost,<CiServerIPHostName>,<CiServerIP>"
 wget http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm
 ```
 
-![](/assets/shell_test_http.PNG)
+If the file is downloaded successfully, the proxy configuration is setup correctly. Now you can remove the file.
 
 ### Testing HTTPS
 
@@ -30,7 +30,7 @@ wget http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm
 wget https://github.com/docker/compose/releases/download/1.14.0/docker-compose-$(uname -s)-$(name -m)
 ```
 
-![](/assets/shell_test_https.png)
+If the file is downloaded successfully, the proxy configuration is setup correctly. Now you can remove the file.
 
 ## Yum
 
@@ -78,7 +78,6 @@ sudo service docker restart
 ### Testing
 
 Run command 'docker info' and check the Http Proxy and Https Proxy settings where '\' backslash is replaced with '%5C'.
-![](/assets/docker_test_docker_info.png)
 
 Run a command where docker requires internet activity (e.g. /opt/app/myst-studio/bin/start.sh). If successful then the proxy is configured correctly.
 
