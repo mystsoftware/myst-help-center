@@ -23,6 +23,7 @@
 * [How do I perform advanced webtier customisations using MyST?](platform-configuration/webtier/advanced/README.md)
 * [How to deploy SQL in 12c using SQL\*Plus?](platform-configuration/deploy-sql-12c-using-sqlplus.md)
 * [Provisioning Oracle Data Integrator 12c?](platform-configuration/provisioning-oracle-data-integrator-12c.md)
+* [How do I shutdown or start-up some of my servers?](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
 
 ## Artifact Build
 
