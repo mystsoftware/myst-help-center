@@ -34,6 +34,8 @@ To configure the SSL on the Admin server, select the Blueprint as above and Edit
 
 Save and commit you changes to the blueprint.
 
+The following is an example of the SSL configuration:![](/assets/SSL configuration.png)
+
 ### Configure the Managed Servers
 
 Configuring the manager servers is exactly the same as the Admin except it must be done in the models and needs to be done for each managed server you wish to configure SSL for.
@@ -48,8 +50,6 @@ It is best to configure this before you provision your environment for the first
 * Apply the configuration to the Admin server but set the Ssl Configuration &gt; Enabled" to false. This will configure the keystores but not enable the SSL listener.
 * In the WebLogic console, enable the SSL listener manually
 * Now set the Ssl Configuration &gt; Enabled to True
-
-
 
 
 
