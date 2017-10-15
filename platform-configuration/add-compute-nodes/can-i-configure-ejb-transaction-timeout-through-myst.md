@@ -67,7 +67,7 @@ _**Note**: At the moment, all the BPM -EJB beans are not supported, here is the 
 
 #### **Reflect the Changes to your Environment**
 
-To reflect these changes to your environment the SOA servers must first be shutdown (but the Admin Server must be up). The following FAQ could be used to stop the SOA Servers [](/platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md). This is to allow MyST to update the soa-infra application with the new configuration.
+To reflect these changes to your environment the SOA servers must first be shutdown (but the Admin Server must be up). The following [FAQ](/platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md) could be used to stop the SOA Servers. This is to allow MyST to update the soa-infra application with the new configuration.
 Once the SOA Servers are stopped, perform an update as normal, once this is complete you can start the SOA servers again.
 
 
