@@ -1,4 +1,4 @@
-# How do I configure SSL on my Managed Servers?
+# How do I configure SSL on my Domain?
 
 ### Prerequistes
 
