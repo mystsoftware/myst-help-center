@@ -72,4 +72,4 @@ core.deployment[x].type=application
 
 Ensure the application is built and exists at the location indicated by the `core.deployment[x].artifact.location` property.
 
-Run `./myst-deploy.sh` to deploy the built-artifact to your local environment.
+Run `myst-deploy` to deploy the built-artifact to your local environment.
