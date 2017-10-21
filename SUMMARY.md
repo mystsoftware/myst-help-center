@@ -34,6 +34,7 @@
 ## Application Deployment
 
 * [Can I integrate my existing deploy scripts with MyST?](application-deployment/custom.md)
+* [How can I test a deployment against my local development environment?](application-deployment/local/README.md)
 * [Does MyST allow me to seed databases that aren't Oracle?](application-deployment/other-databases.md)
 * [Can I do a bulk import of artifacts and application blueprints?](application-deployment/can-i-do-a-bulk-import-of-artifacts-and-application-blueprints.md)
 * [How can I bulk migrate my properties to be available in the Artifact Property Registry?](application-deployment/how-can-i-bulk-migrate-my-properties-to-be-available-in-the-artifact-property-registry.md)
