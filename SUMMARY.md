@@ -25,6 +25,7 @@
 * [Provisioning Oracle Data Integrator 12c?](platform-configuration/provisioning-oracle-data-integrator-12c.md)
 * [How do I shutdown or start-up some of my servers?](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
 * [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
+* [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
 
 ## Artifact Build
 
