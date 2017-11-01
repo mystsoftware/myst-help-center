@@ -2,7 +2,7 @@
 
 MyST will introspect WebLogic domains so that they can be brought under the management of MyST. Occasionally, you may discover an unconventional domain which can not be immediately managed by MyST even after the introspection. This is usually caused by a domain that has been setup with undesirable hacks which would make it heavily deviate from a standard archetype of a WebLogic domain. This article is for tracking instances where additional tweaks are required before an introspected domain can be functional. 
 
-### Unconventional 12c dual node manager pointing to one
+### Unconventional 12c dual machines with one node manager
 
 #### Background
 
