@@ -70,6 +70,8 @@ Below is an example **Jython Action** for replacing `httpd.conf` with a template
 
 ```
 from com.rubiconred.myst.config import ConfigUtils
+from java.io import File
+from java.util import Properties
 import os
 
 def myst(cfg):
@@ -79,12 +81,12 @@ def myst(cfg):
         nodes = node_list.getNodeArray()
         for node in nodes:
             ohs_node = node.getId()
-            cfg.setProperty("ohs.instance.host",cfg["core.node["+ohs_node+"].host"])
-            cfg.setProperty("ohs.component.name",cfg["core.webtier.node["+ohs_node+"].component-name"])
-            cfg.setProperty("ohs.instance.home",cfg["core.webtier.node["+ohs_node+"].instance-home"])
-            os.system("cp resources/custom/httpd/httpd.conf "+cfg['ohs.instance.home']+"/httpd.conf")
-            ConfigUtils.findAndReplaceFile(File(cfg['ohs.instance.home']+"/httpd.conf"), cfg.configuration.getProperties(), true)
+            props = Properties()
+            props.setProperty("ohs.instance.host",cfg["core.node["+ohs_node+"].host"])
+            props.setProperty("ohs.component.name",cfg["core.webtier.node["+ohs_node+"].component-name"])
+            props.setProperty("ohs.instance.home",cfg["core.webtier.node["+ohs_node+"].instance-home"])
+            replacedFile = ConfigUtils.findAndReplaceFile(File("resources/custom/httpd/httpd.conf"), props, 1)
+            os.system("cp "+replacedFile.getAbsolutePath()+" "+cfg['ohs.instance.home']+"/httpd.conf")
 ```
 
-
-
+**Note:** The `1` flag for the 3rd argument of `findAndReplaceFile` indicates to allow for unresolved properties. This can be useful if you have webtier properties that are in the same property reference syntax as what MyST expects. To cause MyST to fail if properties are not replaced you can use `0` instead.
