@@ -10,7 +10,7 @@ Since 12c, it has been necessary for there to be a separate node manager for the
 
 #### Problem
 
-A customer has followed an unconventional solution to make the Admin Server  node manager configured on `localhost:5556` and the Managed Server node manager configured on `<actual hostname>:5556`. This tricks WebLogic into thinking there are two node managers when there is only one. This would never be recommend but if it has already been done, MyST needs to provide a way to manage this unconventional environment.
+A customer has followed an unconventional solution to make the Admin Server  node manager configured on `localhost:5556` and the Managed Server node manager configured on `<actual hostname>:5556`. This tricks WebLogic into thinking there are two node managers when there is only one. This would never be recommended but if it has already been done, MyST needs to provide a way to manage this unconventional environment.
 
 #### Solution
 
