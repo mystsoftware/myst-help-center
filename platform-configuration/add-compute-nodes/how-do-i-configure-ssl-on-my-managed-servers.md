@@ -27,10 +27,13 @@ To configure the SSL on the Admin server, select the Blueprint as above and Edit
 | :--- | :--- | :--- |
 | Custom Identity KeyStore | rxr.def.Keystore-1 | This refers to the first Keystore you configured in the above step |
 | Custom Trust KeyStore | rxr.def.Keystore-2 | This refers to the second Keystore you configured in the above step |
+| Administration Port | &lt;Any Port&gt; | Set value different to Listen and SSL Listen ports |
 | Ssl Configuration &gt; Enabled | True | Setting this to true will enable the SSL listen port on the server |
 | Ssl Configuration &gt; Listen Port | &lt;Any Port&gt; | Set this to the port you wish the server to listen on. |
 | Ssl Configuration &gt; Server Private Key Alias | &lt;Alias&gt; | This is the name of the alias in the Custom Identity KeyStore which will be used as the identity for this server |
 | Ssl Configuration &gt; Server Private Key Password | &lt;Password&gt; | This is the password you used for the private key above. |
+| Ssl Configuration &gt; User Server Certs | &lt;boolean&gt; | Set to true/false |
+| Ssl Configuration &gt; Jsse Enabled | &lt;boolean&gt; | Set to true/false |
 
 Save and commit you changes to the blueprint.
 
