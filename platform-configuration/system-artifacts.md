@@ -61,7 +61,7 @@ Deployments of system-artifacts can be achieved in two ways, either from the MyS
 
     core.deployment\[ID\].param\[phase\]=create-resource-post
 
-    core.deployment\[ID\].type=wspolicy 
+    core.deployment\[ID\].type=wspolicy
 ```
 
 * The property highlighted above core.deployment\[ID\].param\[phase\] defines the phase where the system-artifact has to be deployed, you can either set it to pre/post to any action in the provisioning life-cycle.
