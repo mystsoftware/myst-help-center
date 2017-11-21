@@ -1,0 +1,8 @@
+version: '2'
+services:
+  docs:
+    image: yanqd0/gitbook
+    ports:
+     - 4000:4000
+    volumes:
+     - .:/srv/gitbook
