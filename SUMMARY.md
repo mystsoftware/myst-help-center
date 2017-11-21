@@ -20,7 +20,13 @@
 * [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
 * [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
 * [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
-* [Can I control deployments of system-artifacts during provisioning?](platform-configuration/system-artifacts.md)
+* [How do I perform advanced webtier customisations using MyST?](platform-configuration/webtier/advanced/README.md)
+* [How to deploy SQL in 12c using SQL\*Plus?](platform-configuration/deploy-sql-12c-using-sqlplus.md)
+* [Provisioning Oracle Data Integrator 12c?](platform-configuration/provisioning-oracle-data-integrator-12c.md)
+* [How do I shutdown or start-up some of my servers?](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
+* [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
+* [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
+* [How do I deploy artifacts during provisioning?](platform-configuration/system-artifacts/README.md)
 
 ## Artifact Build
 
@@ -30,6 +36,7 @@
 ## Application Deployment
 
 * [Can I integrate my existing deploy scripts with MyST?](application-deployment/custom.md)
+* [How can I test a deployment against my local development environment?](application-deployment/local/README.md)
 * [Does MyST allow me to seed databases that aren't Oracle?](application-deployment/other-databases.md)
 * [Can I do a bulk import of artifacts and application blueprints?](application-deployment/can-i-do-a-bulk-import-of-artifacts-and-application-blueprints.md)
 * [How can I bulk migrate my properties to be available in the Artifact Property Registry?](application-deployment/how-can-i-bulk-migrate-my-properties-to-be-available-in-the-artifact-property-registry.md)
@@ -41,4 +48,6 @@
 
 * [What do I do with the MyST license?](myst-management/myst-license.md)
 * [Can I use MyST CLI with data from MyST Studio?](myst-management/myst-cli-with-myst-studio.md)
+* [Uploading large files?](myst-management/uploading-large-files.md)
+* [How do I setup MyST and associated components to use an Internet Proxy?](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
 
