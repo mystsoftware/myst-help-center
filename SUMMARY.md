@@ -26,6 +26,7 @@
 * [How do I shutdown or start-up some of my servers?](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
 * [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
 * [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
+* [How do I deploy artifacts during provisioning?](platform-configuration/system-artifacts/README.md)
 
 ## Artifact Build
 
