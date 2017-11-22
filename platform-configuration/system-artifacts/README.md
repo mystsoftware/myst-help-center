@@ -20,7 +20,7 @@ How to control the deployment phase of system-artifacts during the provisioning 
 
 Phase deployment feature is introduced in the MyST 5.8.2 version and customers using the earlier versions can achieve provisioning-time deployments by defining a Global Variable property **action.create-resource.pre=download-deploy-artifacts,deploy** where **create-resource** is the name of the action.
 
-![Console](assets/deployment-properties.png)
+![](/assets/deployment-properties.png)
 
 ### Drawback with earlier approach ###
 
@@ -38,7 +38,7 @@ Deployments of system-artifacts can be achieved in two ways, either from the MyS
 - Login to MyST Studio, navigate to Platform Blueprint/Platform Model -> Edit Configuration -> Global Variable.
 - Add the core.deployment properties of the system-artifact as shown in the below screenshot.
 
-![Console](assets/earlier-version.png)
+![](/assets/earlier-version.png)
 
 - The property highlighted above core.deployment[ID].param[phase] defines the phase where the system-artifact has to be deployed, you can either set it to pre/post to any action in the provisioning life-cycle.
 - For instance if you want to schedule the deployment before the action create-resource then you can set it as shown in the above screenshot.
