@@ -30,8 +30,16 @@ Oracle Data Integrator 12.2.1.2.6 is an enterprise install with a J2EE agent.
   <br>**NOTE**: Use a load balanced URL for `<HOST>` if the environment is highly available
 ![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi-console-physicalagent-03.png)
 
+#### Starting the ODI Agent
+1. In the WebLogic Administration console select Deployments. Navigate through the table of deployments until `oraclediagent` is visible.
+![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi_weblogic_console_agentfailed.png)
+2. If the state of the application is shown as Failed, select the Control tab on the Deployments screen.
+3. Select the checkbox for the `oraclediagent` application, then from the Start drop-down at the bottom of the table Start Servicing all requests.
+![](/platform-configuration/provisioning-oracle-data-integrator-12c/start-odi-agent-manually.png)
+
 #### Validation
-1. In the ODI Console right click and Test Connection the OracleDIAgent<br>![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi-console-physicalagent-04.png)<br><br>
+1. In the ODI Console right click and Refresh to display the newly created agent.
+2. Right click and Test Connection the OracleDIAgent<br>![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi-console-physicalagent-04.png)<br><br>
 2. A successful connection message will display<br>![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi-console-physicalagent-05.png)<br><br>
 3. Go to the Enterprise Manager console to ensure the ODI target appears.<br>![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi-validation-01.png)
 
