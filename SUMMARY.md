@@ -27,6 +27,7 @@
 * [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
 * [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
 * [How do I deploy artifacts as part of a provisioning?](platform-configuration/system-artifacts/README.md)
+* [What can I do to troubleshoot failed MyST actions?](platform-configuration/troubleshooting-update-or-provision-failures.md)
 
 ## Artifact Build
 
