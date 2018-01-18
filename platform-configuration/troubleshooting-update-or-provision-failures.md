@@ -13,7 +13,7 @@ The create-domain action is a subset of the MyST Provision or Re-Provision actio
    For example if you specify the same ports twice this log file will show a port clash when creating a domain.
 
 ## Null Pointer Exception (NPE)
-The NPE generally means a required MyST property has not been set OR has been overriden to be blank (null). For blank (null) see [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md) for more troubleshooting information.
+The NPE generally means a required MyST property has not been set OR has been overriden to be blank (null). For blank (null) see [During execution I get a java.lang.NullPointerException](/platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md) for more troubleshooting information.
 
 If a resource was recently updated/added to MyST it's possible there is a missing property. For example when creating a JDBC DataSource the NAME property may have been missed.
 
