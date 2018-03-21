@@ -2,7 +2,7 @@ When developing Oracle Service Bus (OSB) services there are scenarios where OSB 
 
 1. Change 'HTTPS required' from 'false' to 'true'
 2. Change 'Authentication' from 'None' to 'Client Certificate'
-3. Attaching or detaching an OWSM Policy
+3. Attach or detach an OWSM Policy
 
 
 ### Prerequisites
@@ -31,8 +31,9 @@ A myst configuration plan must be used. You can define the myst configuration pl
 
 Create a MyST Configuration Plan as follows. Take note of the following elements:
 
-* `fileset` is file in which myst applies the config plan
-* `replace` is a property variable which can be customised per environment in the Stream Model
+* `include` is a wildcard of files processed by the myst config plan
+* `fileset` is file in which myst applies the myst config plan
+* `replace` is a property variable which can be customized per environment in the Stream Model
 
 
 ```xml
@@ -91,7 +92,7 @@ For **non-production** environments you can use the default values by typing or 
 
 ![](img/osb-change-transport-details-stream_model03_nonprod.png)
 
-For **production** environments you will use the opposite values.
+For **production** environments you will use the opposite values. ProxyClientAuth needs to be empty so MyST does not make any changes.
 
 ![](img/osb-change-transport-details-stream_model03_prod.png)
 
