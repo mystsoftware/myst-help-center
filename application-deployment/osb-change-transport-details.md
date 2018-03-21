@@ -1,4 +1,4 @@
-When developing Oracle Service Bus (OSB) services you may come across scenarios where environment specific customizations are required. This article extends the [MyST Configuration Plans](https://docs.rubiconred.com/myst-studio/howtos/use-myst-generic-configuration-plans.html) documentation to give examples of how to:
+When developing Oracle Service Bus (OSB) services there are scenarios where OSB customization files cannot be used but you require environment specific customizations. This article extends the [MyST Configuration Plans](https://docs.rubiconred.com/myst-studio/howtos/use-myst-generic-configuration-plans.html) documentation to give examples of how to:
 
 1. Change 'HTTPS required' from 'false' to 'true'
 2. Change 'Authentication' from 'None' to 'Client Certificate'
