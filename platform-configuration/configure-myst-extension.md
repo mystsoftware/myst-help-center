@@ -5,7 +5,8 @@ MyST provides an intuitive data model to define your Fusion Middleware model tha
 ###Prerequisites
 ####Create the WLST Script
 1. Easiest way to do this is using the WebLogic console recording ![WebLogic Record](/platform-configuration/configure-myst-extension/WebLogic-Console-Record.png)
-1. Here is an example of a WebLogic recorded wlst script:
+1. Here is an example of a WebLogic recorded wlst script
+1. Remove any WLST code that is not relevant
 
 ```python
 cd('/')
