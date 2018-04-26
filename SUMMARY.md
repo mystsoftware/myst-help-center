@@ -13,7 +13,7 @@
 * [Can I configure EJB Transaction Timeout through MyST?](platform-configuration/add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.md)
 * [How do I run SQL scripts pre and post RCU?](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [Can I integrate my custom scripts with MyST?](platform-configuration/configure-myst-custom-action.md)
-* [How do use myst-extension to configure WebLogic resources not in MyST?](platform-configuration/configure-myst-extension.md)
+* [How do I use myst-extension to configure WebLogic resources not in MyST?](platform-configuration/configure-myst-extension.md)
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 * [How do I use the MyST REST API to see and manipulate Blueprint and Model source files?](platform-configuration/rest-api.md)
