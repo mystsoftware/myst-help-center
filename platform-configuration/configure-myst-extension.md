@@ -111,6 +111,9 @@ This example shows myst-extension applied at a managed server level (as opposed 
  6 - Click 'Save' then 'Apply Changes'
 ```
 
-2. Because you are already at the server level you only need to copy elements inside of WLS_ESS1. ![](configure-myst-extension/myst-studio-extension.png)
+2. Because you are already at the server level you only need to copy elements inside of WLS_ESS1. 
+
+   ![](configure-myst-extension/myst-studio-extension.png)
 3. This is visible in wlst.sh
+
    ![](configure-myst-extension/wlst.png)
