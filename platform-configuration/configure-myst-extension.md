@@ -7,7 +7,7 @@ MyST provides an intuitive data model to define your Fusion Middleware model tha
 1. Easiest way to do this is using the WebLogic console recording ![WebLogic Record](/platform-configuration/configure-myst-extension/WebLogic-Console-Record.png)
 1. Here is an example of a WebLogic recorded wlst script:
 
-```
+```python
 cd('/')
 cmo.createForeignJNDIProvider('MyForeignJNDIProvider')
 
@@ -24,13 +24,13 @@ cmo.setRemoteJNDIName('my/remotejndi')
 
 ####Create a MyST Workspace
 1. Create a new folder for our MyST workspace.
-```
+```bash
 mkdir myst-workspace
 ```
 1. Navigate to the myst-workspace and initialize using MyST. Ensure MYST_HOME environment variable is set to your MyST home directory.
-```
+```bash
 cd myst-workspace
-export MYST_HOME=/opt/myst-studio
+export MYST_HOME=/opt/myst-studio; export PATH=$PATH:$MYST_HOME
 myst init
 ```
 
@@ -93,3 +93,27 @@ myst generate-model -Dmodel.source=wlst -Dwlst.file=/path-to-your-script/Script1
 ###Applying the MyST Extension at in a Specific Resource
 In MyST Studio if you want to add the myst-extension to a specific resource (eg. JMS Module) as opposed to the domain level you need to copy the relevant XML internal elments.
 
+This example shows myst-extension applied at a managed server level (as opposed to the domain level).
+
+1. Run instructions above to generate the myst-extension
+
+```
+ If you are using MyST Studio.
+ 1 - Navigate to your Platform Blueprint
+ 2 - Click on 'Edit Configuration'
+ 3 - Go to 'WebLogic Domains' and click on the domain
+ 4 - Select 'Show advanced properties' and click 'Edit'
+ 5 - Copy and paste the following under Myst Extension
+<wlst-object name="WLS_ESS1" type="Servers">
+  <attribute name="MaxOpenSockCount" type="number">2048</attribute>
+  <attribute name="AcceptBacklog" type="number">375</attribute>
+</wlst-object>
+ 6 - Click 'Save' then 'Apply Changes'
+```
+
+2. Because you are already at the server level you only need to copy elements inside of WLS_ESS1. 
+
+   ![](configure-myst-extension/myst-studio-extension.png)
+3. This is visible in wlst.sh
+
+   ![](configure-myst-extension/wlst.png)
