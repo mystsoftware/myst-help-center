@@ -1,6 +1,14 @@
-## Provisioning Oracle Order and Service Management 12c
+## Provisioning Oracle Order and Service Management 7.5.3
 
-In order to provision Oracle Order and Service Management \(OSM\) 12c successfully with MyST Studio, a number of properties must be defined for the OSM product in your configuration model.
+### Preparing database privileges
+
+In order to provision Oracle Order and Service Management \(OSM\) 7.5.3 successfully, the database used by the environment must be prepared by executing the following SQL for the sys user:
+
+`grant create any context to sys with admin option;`
+
+### Defining required properties
+
+In order to provision Oracle Order and Service Management \(OSM\) 7.5.3 successfully with MyST Studio, a number of properties must be defined for the OSM product in your configuration model.
 
 To define the required properties:
 
@@ -8,7 +16,7 @@ To define the required properties:
 2. Click Edit Configuration at the top-right of MyST Studio
 3. Navigate to 'Oracle Order and Service Management' in the Product section of the model tree displayed on the left-hand side.
 
-![](/assets/provisioning-osm-product-properties.png) 
+![](/assets/provisioning-osm-product-properties.png)
 
 The required properties are:
 
