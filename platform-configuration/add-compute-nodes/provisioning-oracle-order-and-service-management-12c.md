@@ -22,7 +22,6 @@ The required properties are:
 
 | Property | Expected value |
 | :--- | :--- |
-| frontend-http-port | HTTP port used by front-end load balancer directing traffic to OSM. |
 | db-default-tablespace | Default tablespace OSM tables will be installed in. |
 | db-model-data-tablespace | Tablespace OSM model tables will be created in. |
 | db-model-index-tablespace | Tablespace OSM model index tables will be created in. |
