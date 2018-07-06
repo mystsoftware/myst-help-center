@@ -65,18 +65,18 @@ curl -k https://${MYST_HOST}/api/v1/administration/configuration/properties \
 This should output something similar to the following:
 ```
 {
-	"data": {
-		"fc.host.address": "localhost",
-		"fc.quiet_period_sec.platform_instance": "15",
-		"fc.quiet_period_sec.release_pipeline": "60",
-		"fc.port": "8085",
-		"fc.oauth.endpoint": "http://localhost:8080/security"
-	},
-	"meta": {
-		"status": "SUCCESS",
-		"code": "0",
-		"timeStamp": "2018-07-06 03:44:15.019 +0000"
-	}
+  "data": {
+    "fc.host.address": "localhost",
+    "fc.quiet_period_sec.platform_instance": "15",
+    "fc.quiet_period_sec.release_pipeline": "60",
+    "fc.port": "8085",
+    "fc.oauth.endpoint": "http://localhost:8080/security"
+  },
+  "meta": {
+    "status": "SUCCESS",
+    "code": "0",
+    "timeStamp": "2018-07-06 03:44:15.019 +0000"
+  }
 }
 ```
 
@@ -88,7 +88,10 @@ curl -X PATCH -k https://${MYST_HOST}/api/v1/administration/configuration/proper
   -H 'Content-Type: application/json'
   -d \
   '{
-    "fc.mock.enabled": "false"
+    "smtp.user.name": "<email>",
+    "smtp.password": "<password>",
+    "smtp.host": "smtp.gmail.com",
+    "smtp.port": "587"
   }'
 ```
 
