@@ -13,7 +13,7 @@
 * [Can I configure EJB Transaction Timeout through MyST?](platform-configuration/add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.md)
 * [How do I run SQL scripts pre and post RCU?](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [Can I integrate my custom scripts with MyST?](platform-configuration/configure-myst-custom-action.md)
-* [How do I configure WebLogic resources that are not available in the core MyST model?](platform-configuration/configure-myst-extension.md)
+* [How do I use myst-extension to configure WebLogic resources not in MyST?](platform-configuration/configure-myst-extension.md)
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 * [How do I use the MyST REST API to see and manipulate Blueprint and Model source files?](platform-configuration/rest-api.md)
@@ -23,10 +23,12 @@
 * [How do I perform advanced webtier customisations using MyST?](platform-configuration/webtier/advanced/README.md)
 * [How to deploy SQL in 12c using SQL\*Plus?](platform-configuration/deploy-sql-12c-using-sqlplus.md)
 * [Provisioning Oracle Data Integrator 12c?](platform-configuration/provisioning-oracle-data-integrator-12c.md)
+* [Provisioning Oracle Order and Service Management 12c](platform-configuration/add-compute-nodes/provisioning-oracle-order-and-service-management-12c.md)
 * [How do I shutdown or start-up some of my servers?](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
 * [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
 * [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
 * [How do I deploy artifacts as part of a provisioning?](platform-configuration/system-artifacts/README.md)
+* [What can I do to troubleshoot failed MyST actions?](platform-configuration/troubleshooting-update-or-provision-failures.md)
 
 ## Artifact Build
 
@@ -43,6 +45,7 @@
 * [Can I create SOA partitions with MyST?](application-deployment/how-do-i-create-soa-partitions-with-myst.md)
 * [Does MyST support configuring BPM FlexFields?](application-deployment/deploy-bpm-flexfields.md)
 * [Can I skip the application deployment when reprovisioning an environment?](application-deployment/clear-cache/README.md)
+* [At deploy time can I use MyST to change transport details of an OSB project?](application-deployment/osb-change-transport-details.md)
 
 ## MyST Management
 
@@ -50,5 +53,6 @@
 * [What do I do with the MyST license?](myst-management/myst-license.md)
 * [Can I use MyST CLI with data from MyST Studio?](myst-management/myst-cli-with-myst-studio.md)
 * [Uploading large files?](myst-management/uploading-large-files.md)
+* [How do I solve authentication errors when MyST connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
 * [How do I setup MyST and associated components to use an Internet Proxy?](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
 
