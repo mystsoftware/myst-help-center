@@ -14,29 +14,16 @@ MyST has a default email notification mechanism. When enabled, MyST users will r
 
 ### Configuring Email Notification via fc-configuration.properties
 
-To configure via the fc-configuration.properties, update  `/usr/local/tomcat/conf/fusioncloud/fc-configuration.properties` with the following
+To configure via the fc-configuration.properties, update  `/usr/local/tomcat/conf/fusioncloud/fc-configuration.properties` with the following.
 
 ```
 smtp.user.name=<email>
 smtp.password=<password>
 smtp.host=smtp.gmail.com
-smtp.port= 587
+smtp.port=587
 ```
 
-Once MyST is restarted (or the configuration is reload via the API), the password in the file will be automatically encrypted and the Email notification sender will be configured. If the configuration details are incorrect, you will see a related exception in the MyST log.
-
-The following curl snippet shows us how to reload the configuration via the REST API.
-
-```
-curl -X POST -k https://${MYST_HOST}/api/v1/administration/configuration/reload \
-  -H "Authorization: Bearer ${MYST_TOKEN}" \
-  -H 'Content-Type: application/json'
-  -d '{
-    "reloadConfiguredProperties": true,
-    "reloadArtifactMetadata": false,
-    "reloadDictionaries": false
-  }'
-```  
+Once MyST is restarted, the password in the file will be automatically encrypted and the Email notification sender will be configured. If the configuration details are incorrect, you will see a related exception in the MyST log.
 
 ### Configuring Email Notification via the REST API
 
@@ -57,6 +44,9 @@ Set `MYST_TOKEN` as an environment variable containing the MyST Studio API Key a
 
 Run the following
 ```
+MYST_HOST=<YOUR_MYST_HOST>
+MYST_TOKEN=<YOUR_MYST_API_TOKEN>
+
 curl -k https://${MYST_HOST}/api/v1/administration/configuration/properties \
   -H "Authorization: Bearer ${MYST_TOKEN}" \
   -H 'Content-Type: application/json'
@@ -83,11 +73,13 @@ This should output something similar to the following:
 #### Apply email configuration
 
 ```
+MYST_HOST=<YOUR_MYST_HOST>
+MYST_TOKEN=<YOUR_MYST_API_TOKEN>
+
 curl -X PATCH -k https://${MYST_HOST}/api/v1/administration/configuration/properties \
   -H "Authorization: Bearer ${MYST_TOKEN}" \
-  -H 'Content-Type: application/json'
-  -d \
-  '{
+  -H 'Content-Type: application/json' \
+  -d '{
     "smtp.user.name": "<email>",
     "smtp.password": "<password>",
     "smtp.host": "smtp.gmail.com",
