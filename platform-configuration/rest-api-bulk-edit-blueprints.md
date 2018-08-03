@@ -1,8 +1,8 @@
-> **WARNING:** This is an advanced instruction for manipulating MyST using the REST APIs. You should not do this unless absolutely necessary and should take a backup of the database before performing any direct manipulations using the API. You have been warned.
+> **NOTE:** This is an advanced instruction for manipulating MyST using the REST APIs. Take a **backup** of the database before performing any direct manipulations using the API.
 
 If you are looking to set common properties against a Platform Blueprint this guide will show you how. Adding the commands into a parameterized script would allow you to bulk edit the properties and Platform Blueprints.
 
-In this example, we are showing how to update a Platform Blueprint using the REST API. At a minimum you will require `curl` to be installed on your machine. To make JSON manipulation easier, it is also recommended to install `jq` which is downloadable from [here](https://stedolan.github.io/jq/download/).
+In this example, we explain how to update a Platform Blueprint using the REST API. At a minimum you will require `curl` to be installed on your machine. To make JSON manipulation easier, it is also recommended to install `jq` which is downloadable from [here](https://stedolan.github.io/jq/download/).
 
 ## Retrieving your API key
 

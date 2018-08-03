@@ -1,4 +1,4 @@
-> **WARNING:** This is an advanced instruction for manipulating MyST using the REST APIs. You should not do this unless absolutely necessary and should take a backup of the database before performing any direct manipulations using the API. You have been warned.
+> **NOTE:** This is an advanced instruction for manipulating MyST using the REST APIs. Take a **backup** of the database before performing any direct manipulations using the API.
 
 MyST Studio is built on top of a set of REST APIs meaning any operations performed by the UI can also be automated using the REST APIs.
 
