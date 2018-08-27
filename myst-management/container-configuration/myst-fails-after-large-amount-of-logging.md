@@ -23,7 +23,7 @@ Caused by: java.sql.BatchUpdateException: Packet for query is too large (6472818
 ```
 
 ## Solution
-Increase the max_allowed_packet for MyST Studio database container by adding the following. In this example **10M** is used.
+Increase the `max_allowed_packet` for MyST Studio database container by adding the following. In this example **10M** is used.
 
 1. Backup your MyST Studio database
   `cd /opt/myst-studio/bin`
