@@ -52,6 +52,7 @@
 
 * [How do I setup notifications from MyST?](myst-management/notifications/README.md)
 * [What do I do with the MyST license?](myst-management/myst-license.md)
+* [Why does MyST Studio UI show a failure after running for a long time or a lot of logging?](myst-management/container-configuration/myst-fails-after-large-amount-of-logging.md)
 * [Can I use MyST CLI with data from MyST Studio?](myst-management/myst-cli-with-myst-studio.md)
 * [Uploading large files?](myst-management/uploading-large-files.md)
 * [How do I solve authentication errors when MyST connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
