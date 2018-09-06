@@ -25,6 +25,7 @@
 * [How to deploy SQL in 12c using SQL\*Plus?](platform-configuration/deploy-sql-12c-using-sqlplus.md)
 * [Provisioning Oracle Data Integrator 12c?](platform-configuration/provisioning-oracle-data-integrator-12c.md)
 * [Provisioning Oracle Order and Service Management 12c](platform-configuration/add-compute-nodes/provisioning-oracle-order-and-service-management-12c.md)
+* [Provisioning Axway API Gateway](platform-configuration/axway/README.md)
 * [How do I shutdown or start-up some of my servers?](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
 * [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
 * [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
@@ -57,4 +58,3 @@
 * [Uploading large files?](myst-management/uploading-large-files.md)
 * [How do I solve authentication errors when MyST connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
 * [How do I setup MyST and associated components to use an Internet Proxy?](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
-
