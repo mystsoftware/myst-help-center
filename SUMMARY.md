@@ -48,6 +48,7 @@
 * [Does MyST support configuring BPM FlexFields?](application-deployment/deploy-bpm-flexfields.md)
 * [Can I skip the application deployment when reprovisioning an environment?](application-deployment/clear-cache/README.md)
 * [At deploy time can I use MyST to change transport details of an OSB project?](application-deployment/osb-change-transport-details.md)
+* [Deploying ESS using MyST Deployment SDK?](myst-apis-and-sdk/deploying-ess-using-deployment-sdk.md)
 
 ## MyST Management
 
