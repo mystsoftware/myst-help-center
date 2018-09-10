@@ -2,7 +2,7 @@
 
 # Developing an ESS Application
 
-The article at [SOA 12c–Creating ESS Job metadata (JDeveloper) | Siva's Blog](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fsvgonugu.com%2F2015%2F05%2F24%2Fsoa-12ccreating-ess-job-metadata-jdeveloper%2F) provides a very good step by step guide on creating an ESS project in JDeveloper. Do however, make note of the following improvements.
+The article at [SOA 12c–Creating ESS Job metadata (JDeveloper) | Siva's Blog](https://svgonugu.com/2015/05/24/soa-12ccreating-ess-job-metadata-jdeveloper/) provides a very good step by step guide on creating an ESS project in JDeveloper. Do however, make note of the following improvements.
 
 ## Picking a Build Tool
 
