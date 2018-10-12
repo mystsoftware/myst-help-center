@@ -93,10 +93,6 @@ The next MyST release will provide support for the following:
 - API Gateway updating external connection settings, environment settings, certificate configuration, sign response policy, and primary store configuration.
 - API Manager additional configuration support
 
-## Axway Lifecycle management
-
-- Support for start, stop, restart and destroy via the standard lifecycle management functions from MyST Studio.
-
 ## Property computation
 
 A number of properties related to Cassandra configuration and the Admin API Gateway currently require manual configuration, but could have intelligent default values set by MyST model computation. This model computation is being implemented currently.
