@@ -161,9 +161,9 @@ The available properties are detailed in the next section under ESS Artifact Typ
   <artifactId>ESSSampleAppl</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>ear</packaging>
+  <name>ESSSampleAppl</name>
 
   <properties>
-    <name>ESSSampleAppl</name>
     <myst.component.type>ess</myst.component.type>
     <ess.name>ESSSampleAppl</ess.name>
     <ess.target>ess_cluster</ess.target>
