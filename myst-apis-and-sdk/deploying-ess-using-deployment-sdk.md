@@ -160,9 +160,11 @@ The available properties are detailed in the next section under ESS Artifact Typ
   <groupId>ESSSampleAppl</groupId>
   <artifactId>ESSSampleAppl</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>ear</packaging>
+  <name>ESSSampleAppl</name>
 
   <properties>
+    <myst.component.type>ess</myst.component.type>
     <ess.name>ESSSampleAppl</ess.name>
     <ess.target>ess_cluster</ess.target>
     <!--ess.redeploy>true</ess.redeploy-->    <!-- defaults to true -->
