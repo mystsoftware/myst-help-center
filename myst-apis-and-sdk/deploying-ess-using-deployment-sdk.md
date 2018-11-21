@@ -320,6 +320,7 @@ def myst(conf):
   application_present = conf.getProperty('core.deployment[' + artifact_id + '].present')
   application_stageMode = conf.getProperty('core.deployment[' + artifact_id + '].param[stage-mode]')
   application_redeploy = conf.getProperty('core.deployment[' + artifact_id + '].param[redeploy]')
+  ignoreMissingConfigPlan=conf.getProperty('core.deployment[' + artifact_id + '].param[ignore-missing-myst-config-plan]')
   
   if application_present is None:
     application_present = 'true'
@@ -329,7 +330,7 @@ def myst(conf):
     # check if a configuration plan needs to be applied before deployment
     application_configPlanApply=conf.getProperty('core.deployment[' + artifact_id + '].param[myst-config-plan-apply]')
     application_configPlanLocation=conf.getProperty('core.deployment[' + artifact_id + '].param[myst-config-plan-location]')
-    application_location = apply_myst_config_plan(conf, application_location, application_configPlanApply, application_configPlanLocation)
+    application_location = apply_myst_config_plan(conf, application_location, application_configPlanApply, ignoreMissingConfigPlan, application_configPlanLocation)
   
   username, password, host = validate_args(conf)
   connect(username, password, host)
