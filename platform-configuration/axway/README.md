@@ -58,6 +58,9 @@ For example:
 | `admin-host` | `192.168.146.222` | IP address/host API Manager is configured on |
 | `admin-password` | `welcome1` | Password used to authenticate for administration functions |
 | `admin-port` | `8090` | Port used for administration traffic |
+| `certificate-cer-file` | `<full path to file>` | Certificate file for admin gateway to use in certificate store (.cer file) |
+| `certificate-issuing-file` | `<full path to file>` | Issuing authority certificate to use as part of certificate store (.cer file) |
+| `certificate-root-file` | `<full path to file>` | Root certificate to use as part of certificate store (.cer file) |
 | `group` | `Internal` | Group API Manager is configured as a member of |
 | `groups` | `Internal,External` | Comma-separated list of all defined groups in API Manager instance |
 | `management-address` | `192.186.146.222` | IP address/host used for management traffic |
