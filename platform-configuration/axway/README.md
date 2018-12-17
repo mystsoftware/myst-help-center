@@ -34,7 +34,8 @@ This section provides an example configuration for each supported product, listi
 
 | Name	| Example Value	| Explanation |
 | ----- | --------------| --------- |
-| `group`	| `Internal` |	Group API Gateway Server is configured as a member of |
+| `api-manager-hosts`	| `ip-192-168-146-224.us-west-2.compute.internal` |	Comma-separated list of fully-qualified domain names for hosts where API Manager will be configured  |
+| `certificate-folder` | `/u01/communal/certificates/NonProd/Internal/Servers/esidev` | Directory to find certificate files in |
 | `license-path` | `/home/oracle/Axway.lic` |	Full path to license file on each node configured for API Gateway. This property is also used by API Gateway Manager. |
 | `os-group` | `oinstall` |	OS group to use when creating product installation |
 | `os-user` | `oracle` |	OS user to use when creating product installation |
@@ -46,10 +47,12 @@ This section provides an example configuration for each supported product, listi
 To specify the respective Gateway group for each node in a configuration with Axway Gateway Server targeted to it, specify a global variable with the following syntax:
 
 `<fqdn>.group=<Group Name>`
-  
+
 For example:
 
 `ip-192-168-146-231.us-west-2.compute.internal.group=Internal`
+
+Each server with an Axway Gateway requires this parameter to be set. Currently MyST Studio will also auto-generate a recommended parameter for each relevant server using the IP address of the server. This variable will not be used during configuration, but should be set to the same group name. This duplication will be removed in the next release of MyST Studio.
 
 ### Axway API Gateway Manager
 
@@ -58,10 +61,10 @@ For example:
 | `admin-host` | `192.168.146.222` | IP address/host API Manager is configured on |
 | `admin-password` | `welcome1` | Password used to authenticate for administration functions |
 | `admin-port` | `8090` | Port used for administration traffic |
+| `certificate-folder` | `/u01/communal/certificates/NonProd/Internal/Servers/esiadmin` | Directory to find certificate files in |
 | `certificate-cer-file` | `<full path to file>` | Certificate file for admin gateway to use in certificate store (.cer file) |
 | `certificate-issuing-file` | `<full path to file>` | Issuing authority certificate to use as part of certificate store (.cer file) |
 | `certificate-root-file` | `<full path to file>` | Root certificate to use as part of certificate store (.cer file) |
-| `group` | `Internal` | Group API Manager is configured as a member of |
 | `groups` | `Internal,External` | Comma-separated list of all defined groups in API Manager instance |
 | `management-address` | `192.186.146.222` | IP address/host used for management traffic |
 | `os-group` | `oinstall` | OS group to use when creating product installation |
@@ -94,21 +97,20 @@ Given the length of values for Cassandra Database parameters, explanations are n
 | `ssl-truststore-password` | `welcome1` |
 | `user` | `oracle` |
 
+# Troubleshooting Axway Provisioning
+
+Provisioning Axway environments can be complicated, particularly when determining why provisioning might have failed, in a configuration that can span multiple nodes. To assist with troubleshooting, especially in the early stages of the lifecycle of Axway support within MyST, a number of log files are created capturing output from particular steps in provisioning. These files exist in the temporary workspaces created by the MyST agent, and should be captured in a generated support artifact.
+
+| File | Information |
+| ---- | ------------|
+| `configure-admin.log` | Contains output from installation, patching and configuration of an Axway Admin Gateway node. Created by the Python script `configure-axway-admin-python.py` |
+| `configure-axway.log` | Contains output from installation, patching and configuration of an Axway Gateway node. Created by the Python script `configure-axway-python.py` |
+| `kill-Internal.log` | Contains output from killing any running Gateway process prior to a new installation of Axway software. Created by the Python script `kill-process-matching-and-wait.py` |
+| `kill-Node.log` | Contains output from killing any running node manager process prior to a new installation of Axway software. Created by the Python script `kill-process-matching-and-wait.py` |
+
 # Axway Support Roadmap
 
-The next MyST release will provide support for the following:
-
-## Axway advanced configuration
-
-- Admin Gateway post-provisioning certificate configuration
-- API Gateway 100 continue configuration
-- API Gateway updating trace configuration
-- API Gateway updating external connection settings, environment settings, certificate configuration, sign response policy, and primary store configuration.
-- API Manager additional configuration support
-
-## Property computation
-
-A number of properties related to Cassandra configuration and the Admin API Gateway currently require manual configuration, but could have intelligent default values set by MyST model computation. This model computation is being implemented currently.
+Upcoming MyST releases will provide support for the following:
 
 ## Removal of redundant cluster configuration for Cassandra
 
