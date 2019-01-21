@@ -1,4 +1,4 @@
-When the MyST host CPU is high then UI response times may be affected due to resource constraints. Consider the following options to improving CPU performance.
+Consider the following options to improving performance around MyST.
 
 ### Linux Entropy (random/urandom)
 The OS may be running out of entropy. See the Oracle Support article below for more information. Changing from `/dev/random` to `/dev/./urandom` not only significantly improves OFMW but will improve MyST SSH connectivity time as MyST also relies on Java.

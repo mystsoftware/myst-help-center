@@ -53,7 +53,7 @@
 
 ## MyST Management
 
-* [MyST performance issues causing slow UI response times?](myst-management/performance/README.md)
+* [MyST performance management?](myst-management/performance/README.md)
 * [How do I setup notifications from MyST?](myst-management/notifications/README.md)
 * [What do I do with the MyST license?](myst-management/myst-license.md)
 * [Why does MyST Studio UI show a failure after running for a long time or a lot of logging?](myst-management/container-configuration/myst-fails-after-large-amount-of-logging.md)
