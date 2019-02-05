@@ -42,6 +42,12 @@ This section provides an example configuration for each supported product, listi
 | `python-path` | `/usr/local/bin/python2.7` |	Full path to Python 2.7 (or above) binary on each node configured for API Gateway. This property is also used by API Gateway Manager, and in a model containing both API Gateway Server and Cassandra DB, can be used by Cassandra DB.  |
 | `service-pack-file` | `	APIGateway_7.5.3_SP6_Core_linux-x86-64_BN2018032339.tar.gz` |	Name of Axway API Gateway service pack file to install as part of patching product installation. This file will be found under the directory indicated by the install.dir MyST global variable. |
 
+#### Global Variables
+
+| Name	| Example Value	| Explanation |
+| ----- | --------------| --------- |
+| `base.log.dir` | `/u01/app/logs` | Root directory under which Axway log files are created |
+
 #### Multiple Axway Gateway Server Groups
 
 To specify the respective Gateway group for each node in a configuration with Axway Gateway Server targeted to it, specify a global variable with the following syntax:
