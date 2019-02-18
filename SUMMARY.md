@@ -39,7 +39,7 @@
 * [I have existing 11g automated builds using Maven. How do I update them for 12c?](artifact-build/maven-11g-to-12c.md)
 
 ## Application Deployment
-
+* [How do I use MyST to copy files to a host?](application-deployment/how-do-i-copy-files-to-a-linux-host-using-myst.md)
 * [Can I integrate my existing deploy scripts with MyST?](application-deployment/custom.md)
 * [How can I test a deployment against my local development environment?](application-deployment/local/README.md)
 * [Does MyST allow me to seed databases that aren't Oracle?](application-deployment/other-databases.md)
