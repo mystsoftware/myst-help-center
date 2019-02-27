@@ -54,6 +54,7 @@
 ## MyST Management
 
 * [MyST performance management?](myst-management/performance/README.md)
+* [MyST can't connect? Should I test SSH connectivity?](myst-management/ssh-key-pair-connectivity-with-myst.md)
 * [How do I setup notifications from MyST?](myst-management/notifications/README.md)
 * [What do I do with the MyST license?](myst-management/myst-license.md)
 * [Why does MyST Studio UI show a failure after running for a long time or a lot of logging?](myst-management/container-configuration/myst-fails-after-large-amount-of-logging.md)
