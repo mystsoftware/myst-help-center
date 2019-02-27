@@ -1,6 +1,28 @@
-Yes, SOA Mbeans can be configured using MyST Studio.
+Yes, SOA Mbeans can be configured using MyST Studio. Additionally, BPEL EJB transaction timeouts can be set.
+
+# BPEL EJB Transaction Timeout
+
+See more information in Oracle document [880313.1](https://support.oracle.com/epmos/faces/DocContentDisplay?id=880313.1). 
+
+These instructions can also be found here: [Can I configure EJB Transaction Timeout through MyST](add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.html)
+
+## Step 1:
+
+*NOTE:* This property is applied via the MyST '**update**' action only when soa-infra is **shutdown**.
+
+1. Modeling > Platform Blueprint
+2. Click Products > Oracle SOA Suite
+3. Add a parameter<br>![](/img/ejb-timeout-01.png)
+4. Shutdown the SOA managed servers in order to apply these changes
+5. Run the MyST '**update**' action to apply changes to soa-infra application
+
+
+
+# SOA MBEANs
 
 Below is a working example for configuring some of the commonly tuned SOA Mbean properties.
+
+*NOTE:* These properties are applied via the MyST '**configure-soa**' action and when soa-infra is **running**.
 
 ## Step 1: Edit the Platform Blueprint
 
