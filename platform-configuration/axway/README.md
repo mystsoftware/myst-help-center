@@ -47,18 +47,18 @@ This section provides an example configuration for each supported product, listi
 | Name	| Example Value	| Explanation |
 | ----- | --------------| --------- |
 | `base.log.dir` | `/u01/app/logs` | Root directory under which Axway log files are created |
-| `<fqdn>.group=<Group Name>` | `Internal` | See section below titled **Multiple Axway Gateway Server Groups** |
-| `<fqdn>.private=<Private Address>` | `hostname1-priv` | See section below titled **Private Listen or Host Addresses** |
+| `<node-id>.group=<Group Name>` | `Internal` | See section below titled **Multiple Axway Gateway Server Groups** |
+| `<node-id>.private=<Private Address>` | `hostname1-priv` | See section below titled **Private Listen or Host Addresses** |
 
 #### Multiple Axway Gateway Server Groups
 
 To specify the respective Gateway group for each node in a configuration with Axway Gateway Server targeted to it, specify a global variable with the following syntax:
 
-`<fqdn>.group=<Group Name>`
+`<node-id>.group=<Group Name>`
 
 For example:
 
-`ip-192-168-146-231.us-west-2.compute.internal.group=Internal`
+`rxr.infra.Compute-1.group=Internal`
 
 Each server with an Axway Gateway requires this parameter to be set. Currently MyST Studio will also auto-generate a recommended parameter for each relevant server using the IP address of the server. This variable will not be used during configuration, but should be set to the same group name. This duplication will be removed in the next release of MyST Studio.
 
@@ -66,11 +66,11 @@ Each server with an Axway Gateway requires this parameter to be set. Currently M
 
 An *optional* 'private' global variable for node indicating private address.
 
-`<fqdn>.private=<Private Address>`
+`<node-id>.private=<Private Address>`
 
 For example:
 
-`ip-192-168-146-231.us-west-2.compute.internal.private=ip-192-168-146-231.us-west-2.compute.internal-priv`
+`rxr.infra.Compute-1.private=ip-192-168-146-231.us-west-2.compute.internal-priv`
 
 ### Axway API Gateway Manager
 
