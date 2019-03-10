@@ -41,3 +41,9 @@ In this example you will need access to the `id_rsa` public key.
 4. Test connection # from AdminServer to Managed Server 2
    1. `ssh -i id_rsa oracle@ManagedServer2`
 5. And so on...
+
+### SUDOERS Disable requiretty
+
+If the logs throw errors about the myst remote agent then make sure to disable requiretty for the SSH user that MyST is connecting with. See here for requiretty settings:
+https://docs.rubiconred.com/myst-studio/infrastructure/providers/hosts/
+
