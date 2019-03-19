@@ -35,6 +35,7 @@ This section provides an example configuration for each supported product, listi
 | Name	| Example Value	| Explanation |
 | ----- | --------------| --------- |
 | `api-manager-hosts`	| `ip-192-168-146-224.us-west-2.compute.internal` |	Comma-separated list of fully-qualified domain names for hosts where API Manager will be configured  |
+| `certificate-cer-file` | `/u01/communal/certificates/NonProd/Internal/Servers/esidev/esidev.cer` | Certificate file used in LDAP configuration |
 | `certificate-folder` | `/u01/communal/certificates/NonProd/Internal/Servers/esidev` | Directory to find certificate files in |
 | `license-path` | `/home/oracle/Axway.lic` |	Full path to license file on each node configured for API Gateway. This property is also used by API Gateway Manager. |
 | `os-group` | `oinstall` |	OS group to use when creating product installation |
@@ -84,9 +85,13 @@ For example:
 | `certificate-issuing-file` | `<full path to file>` | Issuing authority certificate to use as part of certificate store (.cer file) |
 | `certificate-root-file` | `<full path to file>` | Root certificate to use as part of certificate store (.cer file) |
 | `groups` | `Internal,External` | Comma-separated list of all defined groups in API Manager instance |
+| `ldap-url` | `ldaps://hostname.domain:636` | URL to locate LDAP server used by Gateway Manager |
 | `management-address` | `192.186.146.222` | IP address/host used for management traffic |
 | `os-group` | `oinstall` | OS group to use when creating product installation |
 | `os-user` | `oracle` | OS user to use when creating product installation |
+| `process-account` | `SJRB\procdev_oag_internal` | LDAP username used by process |
+| `process-account-password` | `welcome1` | LDAP password used by process |
+
 | `site-port` | `8095` | Port to use for gateway traffic |
 
 ### Apache Cassandra Database
