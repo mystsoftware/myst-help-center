@@ -8,38 +8,38 @@ In this example, we explain how to create Stream types using the REST API. At a 
 
 In order to interact with API, you will first need to retrieve and/or regenerate an API key from MyST Studio. This can be performed as follows:  
 
-1. Login to MyST Studio with an administrator account  
-2. Click on "Administration" > "Users"  
-3. Under the MySTAdministrator \(API User\) click on drop-down and select "Show API Key"  
+- Login to MyST Studio with an administrator account  
+- Click on "Administration" > "Users"  
+- Under the MySTAdministrator \(API User\) click on drop-down and select "Show API Key"  
    ![](img/howto-patch-rollstart-1.show-api-key.png)  
-4. Copy the key, we will use this later in our Jenkins. If you want, you can generate a new key at any time.  
+- Copy the key, we will use this later in our Jenkins. If you want, you can generate a new key at any time.  
    ![](img/howto-patch-rollstart-2.api-key-view.png)
-5. In Jenkins go to Manage Jenkins > Configure System
-6.  Create new Environment variables for MyST Studio Host and MyST Studio API key.
+- In Jenkins go to Manage Jenkins > Configure System
+- Create new Environment variables for MyST Studio Host and MyST Studio API key.
    ![](img/create-environment-variables-in-jenkins.png)
 
 ## Retrieving API from MyST studio
 
 In order to POST data to MyST studio, we need URL and payload that needs to be posted which will be creating our resources. This can be performed as follows:
 
-1. Login to MyST Studio and hover over to the component you want to create. In our example as we are creating Stream Types, we go to the Stream Types section under Release Management.
-2. Open Developer Tools in your Browser (Google Chrome recommended) by pressing **F12** on your Keyboard.
-3. Create a Stream Type so that we can view the API key which is being used to create Stream Type.
-4. Now, as we can see there are many APIs getting called and posted. We have to select **POST** action which will have API and payload respectively.
+- Login to MyST Studio and hover over to the component you want to create. In our example as we are creating Stream Types, we go to the Stream Types section under Release Management.
+- Open Developer Tools in your Browser (Google Chrome recommended) by pressing **F12** on your Keyboard.
+- Create a Stream Type so that we can view the API key which is being used to create Stream Type.
+- Now, as we can see there are many APIs getting called and posted. We have to select **POST** action which will have API and payload respectively.
    ![](img/selecting-api-from developer-tools.png)
-5. Now, scroll down to bottom to view Request payload. Click on "**view source**" which give source payload which we can use to parameterize and use multiple types.
+- Now, scroll down to bottom to view Request payload. Click on "**view source**" which give source payload which we can use to parameterize and use multiple types.
    ![](img/viewing-source-payload-in-developer-tools.png)
-6. Save the payload and we will use it in next section.
+- Copy and Save the payload and we will use it in next section.
 
 ## Jenkins Job Setup
 
 In order to reuse the source payload to create Multiple Stream Types, we parameterize the fields which we pass when we create manually. Below steps guide the procedure:
 
-1. Create a FreeStyle Jenkins Job with Name “Stream Type Creation”
+- Create a FreeStyle Jenkins Job with Name “**Stream Type Creation**”
 
-2. Add two parameters “Name” and “Description”
+- Add two parameters “**Name**” and “**Description**”
 
-3.  In the Build section add a Execute shell which will publish Stream Type Data to MyST studio using curl commands as below:
+- In the Build section add a Execute shell which will publish Stream Type Data to MyST studio using curl commands as below:
 
    ```
    StreamTypeData='{"name":"'${Name}'","description":"'${Description}'"}'  
@@ -48,13 +48,16 @@ In order to reuse the source payload to create Multiple Stream Types, we paramet
 
    ![](img/jenkins-build-execute-shell-command.png)
 
-4. Save the job
+- Save the job.
 
-5. Click Build with Parameters and provide “Name” and “Description”.
+- Click **Build with Parameters** to build the job and provide “**Name**” and “**Description**”. Press **Build**.
+  ![](img/jenkins-build-with-parametrs.png)
 
-6. The Job will post the Data to MyST Studio and Stream Type will be created successfully
+- The Job will post the Data to MyST Studio and Stream Type will be created successfully
    ![](img/jenkins-build-success-console-output.png)
 
-7. Verify the resource created in MyST Studio.
+- Verify the resource created in MyST Studio.
    ![](img/myst-studio-stream-type-output.png)
+
+
 
