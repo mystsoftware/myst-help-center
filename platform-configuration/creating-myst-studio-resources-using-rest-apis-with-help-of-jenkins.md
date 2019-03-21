@@ -61,3 +61,4 @@ In order to reuse the source payload to create Multiple Stream Types, we paramet
 
 
 
+For more information on REST APIs used in MyST, please refer [MyST Studio REST API](https://generator.swagger.io/?url=https://docs.rubiconred.com/api/swagger.json)
