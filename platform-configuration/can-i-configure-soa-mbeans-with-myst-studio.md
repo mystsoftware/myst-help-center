@@ -62,6 +62,10 @@ Below is a working example for configuring some of the commonly tuned SOA Mbean 
    bpmn-RecoveryConfig.StartupScheduleConfig.subsequentTriggerDelay=900
    soa-infra-EMDurationWindowUnits=minutes
    soa-infra-EMDurationWindowVal=1
+   workflow-AcknowlegdeFyiUponRead=false
+   workflow-HWFFailureRetryCount=1
+   workflow-MaxNumberOfEmailAttachments=-1
+   workflow-MaxSizeOfEmailAttachmentsInKB=1
    ```
 10. Click "Done" then "Save".
 11. Go to "WebLogic Domains" and expand the domain.
@@ -124,6 +128,10 @@ This is a non-exhaustive list of available SOA/BPEL/EM/Mediator/BPMN Mbeans attr
 | em.props &gt; oracle.sysman.emas.discovery.wls.FMW\_DISCOVERY\_MAX\_CACHE\_AGE | Global Variables | oracle.sysman.emas.discovery.wls.FMW\_DISCOVERY\_MAX\_CACHE\_AGE | 2.5.1+ |
 | em.props &gt; oracle.sysman.emas.discovery.wls.FMW\_DISCOVERY\_MAX\_WAIT\_TIME | Global Variables | oracle.sysman.emas.discovery.wls.FMW\_DISCOVERY\_MAX\_WAIT\_TIME | 2.5.1+ |
 | em.props &gt; LargeRepository | Global Variables | LargeRepository | 4.0.0+ |
+| WorkflowConfig > AcknowlegdeFyiUponRead | Blueprint &gt; Products &gt; Oracle SOA Suite | workflow-AcknowlegdeFyiUponRead | 6.5.0+ |
+| WorkflowConfig > HWFFailureRetryCount | Blueprint &gt; Products &gt; Oracle SOA Suite | workflow-HWFFailureRetryCount | 6.5.0+ |
+| WorkflowConfig > MaxNumberOfEmailAttachments | Blueprint &gt; Products &gt; Oracle SOA Suite | workflow-MaxNumberOfEmailAttachments | 6.5.0+ |
+| WorkflowConfig > MaxSizeOfEmailAttachmentsInKB | Blueprint &gt; Products &gt; Oracle SOA Suite | workflow-MaxSizeOfEmailAttachmentsInKB | 6.5.0+ |
 
 
 
