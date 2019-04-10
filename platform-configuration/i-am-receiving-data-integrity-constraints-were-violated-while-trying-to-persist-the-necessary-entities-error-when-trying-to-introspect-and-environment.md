@@ -1,4 +1,4 @@
-# The Problem {#jive_content_id_The_Problem}
+# The Problem
 
 When attempting to introspect a domain you receive the following error:
 
@@ -21,19 +21,19 @@ When attempting to introspect a domain you receive the following error:
      at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:213)
 ```
 
-# The Cause {#jive_content_id_The_Cause}
+# The Cause
 
 For some reason there are duplicate properties defined within the JCA Adapter configuration. Often this is due to the parameters having slightly different case. e.g. privateKeyFile versus PrivateKeyFile. When MyST Studio goes to store these into the database it violates the db constraints
 
-# The Solution {#jive_content_id_The_Solution}
+# The Solution
 
 Manually manipulate the Plan.xml for the JCA Adapter and remove the duplicate configuration. This document will step you through some of the tools to make this as easy as possible.
 
-## Generate the Introspection JSON {#jive_content_id_Generate_the_Introspection_JSON}
+## Generate the Introspection JSON
 
-By using the command line introspection utility we are able to generate the json representation of the domain that is pushed to MyST Studio. If you are not familiar with the command line utility, more information on it can be found [here](/platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.html)
+By using the command line introspection utility we are able to generate the json representation of the domain that is pushed to MyST Studio. If you are not familiar with the command line utility, more information on it can be found [here](/platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.html).
 
-### Getting the Utility {#jive_content_id_Getting_the_Utility}
+### Getting the Utility
 
 The WebLogic Introspection agent can be obtained by running the following from the MyST Studio host.
 
@@ -57,21 +57,21 @@ export PATH=$PATH:/home/oracle/bin
 chmod +x /home/oracle/bin/weblogic-introspection
 ```
 
-### Running the Utility {#jive_content_id_Running_the_Utility}
+### Running the Utility
+
+This will generate a file called blueprint
 
 ```
 weblogic-introspection -skip-push -export <path to domain files>
 ```
 
-this will generate a file called blueprint
-
-## Reviewing the JSON {#jive_content_id_Reviewing_the_JSON}
+## Reviewing the JSON
 
 There are many tools that you can use to view and edit json files. One that I particularly like is the "JSON Online Editor" which is an extension for Chrome. It easily formats the json, as well having support for searching and traversing.![](/assets/2017-06-20 11_47_48-JSON Editor Online - view, edit and format JSON online.png)
 
-The size and scope of the json document make it very difficult to compare all of the parameters for each individual JCA Adapter configuration looking for duplicates using the Online JSON Editor. There is a tool called[jq](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fstedolan.github.io%2Fjq%2F) that proves great json manipulation, in a similar fashion to the unix command sed.
+The size and scope of the json document make it very difficult to compare all of the parameters for each individual JCA Adapter configuration looking for duplicates using the Online JSON Editor. There is a tool called [jq](https://stedolan.github.io/jq/) that proves great json manipulation, in a similar fashion to the unix command sed.
 
-If you do not want to install jq, there is an [online version](https://rubiconred.jiveon.com/external-link.jspa?url=https%3A%2F%2Fjqplay.org%2F) \(jqplay\) of the editor, as shown in article.
+If you do not want to install jq, there is an [online version](https://jqplay.org/) \(jqplay\) of the editor, as shown in article.
 
 1. Copy the contents of the blueprint file created by the introspection utility into the JSON field of jqplay
 2. Past the following into the filter field. This will filter out all of the FtpAdapter entries, and generate a list of all of the parameters per adapter configuration. This can also be used for the JMS, and Database simply by changing 
@@ -87,7 +87,7 @@ If you do not want to install jq, there is an [online version](https://rubiconre
 
 ![](/assets/2017-06-20 13_17_26-_E__08_temp_temp.json - Notepad++.png)
 
-## Edit the Plan.xml {#jive_content_id_Edit_the_Planxml}
+## Edit the Plan.xml
 
 Using your favourite text edit, open the Plan.xml for the respective JCA Adapter
 
@@ -98,7 +98,7 @@ There are two types entries that will need to be removed from the Plan.xml
 * Variable definition
 * Variable assignment
 
-### Searching for the Parameter {#jive_content_id_Searching_for_theParameter}
+### Searching for the Parameter
 
 The easiest way to find what we are looking for is to perform a **case sensitive **search of the Plan.xml file for the variable assignment using the following:
 
@@ -124,7 +124,7 @@ e.g. search for:
 
 `[jndi-name="eis/sftp/JDEXeAppSvr"]/connection-properties/properties/property/[name="privateKeyFile"]`
 
-### Deleting the Parameter {#jive_content_id_Deleting_the_Parameter}
+### Deleting the Parameter
 
 To delete the parameter we must delete the variable assignment as well as the variable definition. In this example we are going to delete the**PrivateKeyFile**parameter that we initially searched for.
 
@@ -133,7 +133,7 @@ Delete the variable definition elements:
 
 Delete the variable assignment elements![](/assets/2017-06-20 13_47_16-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
 
-## Re-Run Introspection {#jive_content_id_ReRun_Introspection}
+## Re-Run Introspection
 
 Having fixed the Plan.xml re-run the introspection. If it still fails, keep searching for more duplicates, they could be in other JCA adapter configurations.
 
