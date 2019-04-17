@@ -1,7 +1,5 @@
 Consider the following options to improving performance around MyST.
 
-
-
 ### Log file size / Packet Size exceeds
 
 Log files/Logging service capture and provide all the necessary information from the instances. The file size of these log files eventually grow in size and could be the reason to cause few problems while they get pushed to the database. Similarly, the failed support artifacts are also pushed to the database and the length of the query could trigger the errors if breached.
