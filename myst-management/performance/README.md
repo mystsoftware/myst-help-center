@@ -1,13 +1,14 @@
 Consider the following options to improving performance around MyST.
 
-
-
 ### Log file size / Packet Size exceeds
 
 Log files/Logging service capture and provide all the necessary information from the instances. The file size of these log files eventually grow in size and could be the reason to cause few problems while they get pushed to the database. Similarly, the failed support artifacts are also pushed to the database and the length of the query could trigger the errors if breached.
-A few errors  are listed here.. 'Packet for Query is too large' or 'Due to bigger in size, not able to persist support artifact'.
+Examples of errors are:
+1. Packet for query is too large
+2. Due to bigger in size, not able to persist support artifact to the database
 
-Example:  *ERROR o.h.e.j.s.SqlExceptionHelper   - **Packet for query is too large (25134496 > 4194304)**.*
+Errors can be found in the myststudio_web container:
+`ERROR o.h.e.j.s.SqlExceptionHelper   - Packet for query is too large (25134496 > 4194304)`
 
 The log file errors are due to server logs not being able to be pushed to the database, as there is a limit in the size defined for the length of the query is larger than the maximum length. This can be solved by changing the value on the server by setting the ***max_allowed_packet*** variable.
 
