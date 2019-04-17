@@ -8,14 +8,15 @@ Examples of errors are:
 2. Due to bigger in size, not able to persist support artifact to the database
 
 Errors can be found in the myststudio_web container:
-`ERROR o.h.e.j.s.SqlExceptionHelper   - Packet for query is too large (25134496 > 4194304)`
+
+```ERROR o.h.e.j.s.SqlExceptionHelper   - Packet for query is too large (25134496 > 4194304)```
 
 The log file errors are due to server logs not being able to be pushed to the database, as there is a limit in the size defined for the length of the query is larger than the maximum length. This can be solved by changing the value on the server by setting the ***max_allowed_packet*** variable.
 
 Please find the process to change the ***max_allowed_packet size***, below:
 
 1. Add the line below to increase the max_allowed_packet to 32 megabytes to the 'db' docker service. Please be mindful of the formatting (spaces).
-    ***command: --max_allowed_packet=32M***
+    `command: --max_allowed_packet=32M`
 2. Stop using *stop.sh*
 3. Start using *start.sh*  -  this will recreate the database container with the new max_allowed_packet changes.
 
