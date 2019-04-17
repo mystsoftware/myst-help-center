@@ -1,4 +1,4 @@
-Consider the following options to improving performance around MyST
+Consider the following options to improving performance around MyST.
 
 ### Log file size / Packet Size exceeds
 
