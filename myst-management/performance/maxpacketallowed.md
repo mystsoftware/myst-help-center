@@ -1,6 +1,6 @@
 ## Packet Size Breach / Support Artifact failure
 
-### Diagnosis:
+### Diagnosis: 
 
 Packet size *(max_allowed_packet_size)* can be altered in the 'db' docker service, for issues faced during deployments. Validation can be done once the failed deployments are successfully deployed, after increasing the packet size.
 
