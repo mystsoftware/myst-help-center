@@ -2,7 +2,7 @@
 
 ### Diagnosis: 
 
-Packet size *(max_allowed_packet_size)* can be altered in the 'db' docker service, for issues faced during deployments. Validation can be done once the failed deployments are successfully deployed, after increasing the packet size.
+Packet size *(max_allowed_packet_size)* can be altered in the 'db' docker service, for issues faced as Myst fails to push the files. The Myst studio action fails, but the Myst agent could continue to run as normal. Validation can be done once the failed-files are successfully pushed, as we increase the packet size.
 
 One or more of the following issues are observed:
 
@@ -22,7 +22,7 @@ One or more of the following issues are observed:
 
 ### Cause:
 
-MyST Deployment-activities sometimes may contain large number of Artifacts, which generate support Artifacts. These Support-Artifacts need to get uploaded to the Database, and the ***max_allowed_packet_size*** setting by-default is not big enough to allow them. Hence, the large number of failures in deployments, is due to the Support-Artifacts exceeding the limit of the default-value.
+MyST Deployment-activities sometimes may contain large number of Artifacts, which generate support Artifacts. These Support-Artifacts need to get uploaded to the Database, and the ***max_allowed_packet_size*** setting by-default is not big enough to allow them. The '.log' files could also exceed this size, where MyST Studio action fails., but the MyST agent continues to run normally. Hence, the large number of failures in deployments, is due to the Support-Artifacts exceeding the limit of the default-value.
 
 ### Resolution:
 
@@ -30,15 +30,27 @@ MyST Deployment-activities sometimes may contain large number of Artifacts, whic
 
 Please find the process to change the ***max_allowed_packet size***, below:
 
-1. Add the line below to increase the max_allowed_packet to 32 megabytes to the 'db' docker-compose.yml, in docker service. Please be mindful of the formatting (spaces).
+1. Backup your Myst Studio database
+   
+
+cd  /opt/myst-studio/bin
+
+./backup-database.sh
+
+2. Add the line below to increase the max_allowed_packet to 32 megabytes to the 'db' docker-compose.yml, in docker service. Please be mindful of the formatting (spaces).
    ***command: --max_allowed_packet=32M***
 
    ![](C:\Users\admin\Desktop\000\088.jpg)
 
-2. Stop using *stop.sh*
+3. Stop using *stop.sh*
 
-3. Start using *start.sh*  -  this will recreate the database container with the new max_allowed_packet changes.
-
-
+4. Start using *start.sh*  -  this will recreate the database container with the new max_allowed_packet changes.
 
 *The value/size of the **max_allowed_packet** can be set (to any value), based on one's requirement*
+
+
+
+### Raise a MyST Support Ticket
+
+If the above fixes don't help with MyST performance issues then raise a [support ticket](https://support.rubiconred.com) for us to assist.
+

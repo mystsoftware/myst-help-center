@@ -1,27 +1,5 @@
 Consider the following options to improving performance around MyST.
 
-### Log file size / Packet Size exceeds
-
-Log files/Logging service capture and provide all the necessary information from the instances. The file size of these log files eventually grow in size and could be the reason to cause few problems while they get pushed to the database. Similarly, the failed support artifacts are also pushed to the database and the length of the query could trigger the errors if breached.
-Examples of errors are:
-1. Packet for query is too large
-2. Due to bigger in size, not able to persist support artifact to the database
-
-Errors can be found in the myststudio_web container:
-
-```ERROR o.h.e.j.s.SqlExceptionHelper   - Packet for query is too large (25134496 > 4194304)```
-
-The log file errors are due to server logs not being able to be pushed to the database, as there is a limit in the size defined for the length of the query is larger than the maximum length. This can be solved by changing the value on the server by setting the ***max_allowed_packet*** variable.
-
-Please find the process to change the ***max_allowed_packet size***, below:
-
-1. Add the line below to increase the max_allowed_packet to 32 megabytes to the 'db' docker service. Please be mindful of the formatting (spaces).
-    `command: --max_allowed_packet=32M`
-2. Stop using *stop.sh*
-3. Start using *start.sh*  -  this will recreate the database container with the new max_allowed_packet changes.
-
-*The value/size of the **max_allowed_packet** can be set (to anything), based on one's requirement.*
-
 ### Linux Entropy (random/urandom)
 
 The OS may be running out of entropy. See the Oracle Support article below for more information. Changing from `/dev/random` to `/dev/./urandom` not only significantly improves OFMW but will improve MyST SSH connectivity time as MyST also relies on Java.
@@ -48,5 +26,36 @@ Don't forget to restart the container.
 docker restart myststudio_web
 ```
 
+
+
+## Tuning Memory parameters
+
+Memory parameters can also be tuned to improve the performance. In order to tune the memory, you can apply the following parameters in the ***docker-compose.yml*** file, as shown below. Restarting Myst would make the changes take effect with the new values. 
+
+```
+    environment:
+      CATALINA_OPTS: "-Xmx3072m -Xms3072m"
+```
+
+(Please be careful of the formatting)
+
+
+
+## Improve Performance using Logging/Log rotation :
+
+Performance can be improved by rotating log files, which can turn huge in size, resulting in MyST's performance degradation. We can apply log-rotation inside the ***docker-compose.yml*** file, as below..
+
+Add the following under the required container, in the above file..
+(Please be careful of the formatting)
+
+![](C:\Users\admin\Desktop\000\logf.jpg)
+
+You can set the values suitable as per your environment.
+
+Restart MyST Studio for the changes to take effect.
+
+
+
 ### Raise a MyST Support Ticket
+
 If the above fixes don't help with MyST performance issues then raise a [support ticket](https://support.rubiconred.com) for us to assist.
