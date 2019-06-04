@@ -20,7 +20,7 @@
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 * [How do I use the MyST REST API to see and manipulate Blueprint and Model source files?](platform-configuration/rest-api.md)
 * [How do I use the MyST REST API to apply common settings across Platform Blueprints?](platform-configuration/rest-api-bulk-edit-blueprints.md)
-* [How do I use the MyST REST API to automate creation of resources in MyST using Jenkins?](platform-configuration/creating-myst-studio-resources-using-rest-apis-with-help-of-jenkins.md)
+* [How do I use the MyST REST API to automate creation of resources in MyST with the help of Jenkins?](platform-configuration/creating-myst-studio-resources-using-rest-apis-with-help-of-jenkins.md)
 * [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
 * [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
 * [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
