@@ -11,16 +11,15 @@ OWSM policies can be built as per one's requirement, and can applied through Art
 **FORWARD Registration to upload WSM Policies as a Third Party Artifact:**
 
 - Upload your policies as a Zip.file using the Artifactory. Once the policies are build as a package, you can use the Artifactory to upload/deploy them.
-
 - Hover onto DEPLOY button and upload the WSM Policy Artifacts
 
-  ![1566294570878](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566294570878.png)
+![](\img\howto-register-owsm-artifactory.jpg)
 
 
 
 - Select the Type of Package and drop/upload the files into the Artifactory. 
 
-  ![1566304640584](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566304640584.png)
+  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566304640584.png" alt="1566304640584" style="zoom:25%;" />
 
 
 
@@ -28,13 +27,13 @@ OWSM policies can be built as per one's requirement, and can applied through Art
 
 One needs to navigate through Artifacts, to apply the Policies in MyST. Policies need to be registered as a 'Third Party Artifact'.
 
-![1566305990277](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566305990277.png)
+<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566305990277.png" alt="1566305990277" style="zoom:25%;" />
 
 
 
 - Fill in the following with the rightful information to register the Artifact.
 
-  ![1566306927551](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566306927551.png)
+  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566306927551.png" alt="1566306927551" style="zoom:25%;" />
 
   Now you can see that you have applied the Artifacts as OWSM policies, and is being reflected in 'Artifacts' under 'Release Management'.
 
@@ -44,7 +43,7 @@ One needs to navigate through Artifacts, to apply the Policies in MyST. Policies
 
 - Before that, create the pom.xml file in the specific format as below...
 
-  ![1567143726069](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1567143726069.png)
+  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1567143726069.png" alt="1567143726069" style="zoom:25%;" />
 
 - <directory> - Mention the location where your code is being put.
 
