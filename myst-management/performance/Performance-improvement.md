@@ -55,7 +55,7 @@ logging:
   max-file: "5"
 ```
 
-![](C:\Users\admin\Desktop\000\logf.jpg)
+![](img/performance-param.jpg)
 
 You can set the values suitable as per your environment.
 
