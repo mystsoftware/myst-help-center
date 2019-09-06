@@ -14,4 +14,4 @@ Please use the below configuration format to remove the extension defined..
 
 **<attribute name="_present">0</attribute>**
 
-![](\img\removing-wl-resource.jpg)
+![](img/removing-wl-resource.jpg)

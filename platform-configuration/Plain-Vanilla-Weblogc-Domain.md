@@ -9,13 +9,13 @@ This documents provides steps to provision a plain WebLogic Domain of Managed Se
 
 1. Create a New Blueprint, and select ONLY WebLogic as a product.. and Click next
 
-   ![](\img\vanilla-weblogic-product.png)
+   ![](img/vanilla-weblogic-product.png)
 
 
 
 2. Provide the ‘number of nodes’ as per requirement & Click Next
 
-   ![](\img\vanilla-weblogic-component.png)
+   ![](img/vanilla-weblogic-component.png)
 
    
 
@@ -39,7 +39,7 @@ Provide name, compute node & listen address of the machine and Click OK.
 
 
 
-![](\img\vanilla-weblogic-machine.png)
+![](img/vanilla-weblogic-machine.png)
 
 Now create a CLUSTER by clicking the Add                                                    icon…
 
@@ -49,7 +49,7 @@ Click Edit configuration, Click on     to create new cluster.
 
 Provide name, compute group & cluster address of the cluster
 
-![](\img\vanilla-weblogic-cluster.png)
+![](img/vanilla-weblogic-cluster.png)
 
 Once you create a Cluster with the above details, you’ll be able to see a Server created under Managed Servers (in Weblogic Domain Configuration)
 
@@ -71,4 +71,4 @@ Once you create a Cluster with the above details, you’ll be able to see a Serv
 
 ###### *DONOT add Machines, Clusters in the Blueprint., but, rather it is to be done in the Model*
 
-![](\img\vanilla-weblogic-server.png)
+![](img/vanilla-weblogic-server.png)
