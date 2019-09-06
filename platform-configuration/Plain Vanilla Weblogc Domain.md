@@ -9,11 +9,15 @@ This documents provides steps to provision a plain WebLogic Domain of Managed Se
 
 1. Create a New Blueprint, and select ONLY WebLogic as a product.. and Click next
 
-![1564576025641](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564576025641.png)
+   ![](\img\vanilla-weblogic-product.png)
+
+
 
 2. Provide the ‘number of nodes’ as per requirement & Click Next
 
-   ![1564576089490](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564576089490.png)
+   ![](\img\vanilla-weblogic-component.png)
+
+   
 
 3. Create your Blueprint by defining other configurations as per your requirement & Click Finish.
 
@@ -33,19 +37,19 @@ Click Edit configuration, Click on ![1564576210744](C:\Users\admin\AppData\Roami
 
 Provide name, compute node & listen address of the machine and Click OK.
 
-![1564576269291](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564576269291.png)
 
 
+![](\img\vanilla-weblogic-machine.png)
 
 Now create a CLUSTER by clicking the Add                                                    icon…
 
 Go to the Model created >> WebLogic Domain Configuration >> Weblogic Clusters. 
 
-Click Edit configuration, Click on     to create new cluster. 
+Click Edit configuration, Click on     to create new cluster.
 
 Provide name, compute group & cluster address of the cluster
 
-![1564576306089](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564576306089.png)
+![](\img\vanilla-weblogic-cluster.png)
 
 Once you create a Cluster with the above details, you’ll be able to see a Server created under Managed Servers (in Weblogic Domain Configuration)
 
@@ -67,4 +71,4 @@ Once you create a Cluster with the above details, you’ll be able to see a Serv
 
 ###### *DONOT add Machines, Clusters in the Blueprint., but, rather it is to be done in the Model*
 
-![1564576461404](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564576461404.png)
+![](\img\vanilla-weblogic-server.png)

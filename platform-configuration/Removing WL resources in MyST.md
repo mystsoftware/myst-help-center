@@ -14,5 +14,4 @@ Please use the below configuration format to remove the extension defined..
 
 **<attribute name="_present">0</attribute>**
 
-![1566310875553](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566310875553.png)
-
+![](\img\removing-wl-resource.jpg)

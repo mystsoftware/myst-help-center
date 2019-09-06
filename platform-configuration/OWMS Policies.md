@@ -17,23 +17,25 @@ OWSM policies can be built as per one's requirement, and can applied through Art
 
 
 
-- Select the Type of Package and drop/upload the files into the Artifactory. 
+- Select the Type of Package and drop/upload the files into the Artifactory.
 
-  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566304640584.png" alt="1566304640584" style="zoom:25%;" />
-
-
+  
+  
+  <img src="\img\owsm-deploy-method.jpg" style="zoom:50%;" />
+  
+  
 
 ### Applying WSM Policies in MyST:
 
 One needs to navigate through Artifacts, to apply the Policies in MyST. Policies need to be registered as a 'Third Party Artifact'.
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566305990277.png" alt="1566305990277" style="zoom:25%;" />
+![](\img\owsm-register-artifact.jpg)
 
 
 
 - Fill in the following with the rightful information to register the Artifact.
 
-  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1566306927551.png" alt="1566306927551" style="zoom:25%;" />
+  <img src="\img\owsm-artifact-properties.jpg" style="zoom:50%;" />
 
   Now you can see that you have applied the Artifacts as OWSM policies, and is being reflected in 'Artifacts' under 'Release Management'.
 
@@ -43,7 +45,7 @@ One needs to navigate through Artifacts, to apply the Policies in MyST. Policies
 
 - Before that, create the pom.xml file in the specific format as below...
 
-  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1567143726069.png" alt="1567143726069" style="zoom:25%;" />
+  ![](\img\owsm-pom-file.JPG)
 
 - <directory> - Mention the location where your code is being put.
 
