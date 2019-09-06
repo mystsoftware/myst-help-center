@@ -7,33 +7,66 @@
 ## Platform Configuration
 
 * [Can I bring my SOA CS domains under the management of MyST?](platform-configuration/introspection/soacs/README.md)
+
 * [What's required to configure a VIP with an Admin Server and perform a failover?](platform-configuration/using-adminserver-with-vip-and-failing-over.md)
+
 * [Can I add more nodes to my environment with MyST?](platform-configuration/add-compute-nodes/README.md)
+
 * [Can I apply patches with MyST to one server at a time?](platform-configuration/apply-rolling-patches.md)
+
 * [Can I configure SOA MBeans with MyST Studio?](platform-configuration/can-i-configure-soa-mbeans-with-myst-studio.md)
+
 * [Can MyST be used to configure JCA Adapters?](platform-configuration/configure-jca-adapters.md)
+
 * [Can I configure EJB Transaction Timeout through MyST?](platform-configuration/add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.md)
+
 * [How do I run SQL scripts pre and post RCU?](platform-configuration/sql-scripts-pre-and-post-rcu.md)
+
 * [Can I integrate my custom scripts with MyST?](platform-configuration/configure-myst-custom-action.md)
+
 * [How do I use myst-extension to configure WebLogic resources not in MyST?](platform-configuration/configure-myst-extension.md)
+
 * [MyST is complaining about the JDK version. How can I fix this?](platform-configuration/jdk-issue.md)
+
 * [Upgrading to v5.5.1.0+ created new RCU properties. What now?](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
+
 * [How do I use the MyST REST API to see and manipulate Blueprint and Model source files?](platform-configuration/rest-api.md)
+
 * [How do I use the MyST REST API to apply common settings across Platform Blueprints?](platform-configuration/rest-api-bulk-edit-blueprints.md)
+
 * [I have existing WebLogic environments I built outside of MyST, how can I bring them into the control of MyST?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
+
 * [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
+
 * [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
+
 * [How do I perform advanced webtier customisations using MyST?](platform-configuration/webtier/advanced/README.md)
+
 * [How to deploy SQL in 12c using SQL\*Plus?](platform-configuration/deploy-sql-12c-using-sqlplus.md)
+
 * [Provisioning Oracle Data Integrator 12c?](platform-configuration/provisioning-oracle-data-integrator-12c.md)
+
 * [Provisioning Oracle Order and Service Management 12c](platform-configuration/add-compute-nodes/provisioning-oracle-order-and-service-management-12c.md)
+
 * [Provisioning Axway API Gateway](platform-configuration/axway/README.md)
+
 * [How do I shutdown or start-up some of my servers?](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
+
 * [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
+
 * [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
+
 * [How do I deploy artifacts as part of a provisioning?](platform-configuration/system-artifacts/README.md)
+
 * [What can I do to troubleshoot failed MyST actions?](platform-configuration/troubleshooting-update-or-provision-failures.md)
+
 * [How do I create OWSM Policies?](platform-configuration/OWSM-Policies.md)
+
+* [How to create a Plain Vanilla Weblogic Domain ?](platform-configuration/Plain-Vanilla-Weblogic-Domain.md)
+
+* [How to remove Weblogic resources from Myst ?](platform-configuration/Removing-WL-resources-in-MyST.md)
+
+  
 
 ## Artifact Build
 
@@ -64,3 +97,4 @@
 * [Uploading large files?](myst-management/uploading-large-files.md)
 * [How do I solve authentication errors when MyST connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
 * [How do I setup MyST and associated components to use an Internet Proxy?](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
+* [How to improve performance of Myst ?](platform-configuration/Performance-improvement.md)
