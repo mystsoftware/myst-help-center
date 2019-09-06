@@ -33,6 +33,7 @@
 * [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
 * [How do I deploy artifacts as part of a provisioning?](platform-configuration/system-artifacts/README.md)
 * [What can I do to troubleshoot failed MyST actions?](platform-configuration/troubleshooting-update-or-provision-failures.md)
+* [How do I create OWSM Policies?](platform-configuration/OWSM-Policies.md)
 
 ## Artifact Build
 
