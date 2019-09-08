@@ -53,4 +53,4 @@ One needs to navigate through Artifacts, to apply the Policies in MyST. Policies
 
 - Configure and Build the Jenkins job, to push the WSM package into the Atrifactory.
 
-- Go to MyST Studio and Deploy your WSM Policies in the Pipeline.
+- Go to MyST Studio, and Deploy your WSM Policies in the Pipeline.

@@ -16,7 +16,7 @@ One or more of the following issues are observed:
 
 - SqlExceptionHelper - Packet for query is too large
 - Due to bigger in size, not able to persist support artifact
-- logExceptions Packet for query is too large
+- logExceptions Packet for query is too large.
 
 ![](C:\Users\admin\Desktop\000\sql.jpg)
 

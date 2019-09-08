@@ -10,7 +10,7 @@ Once the extensions for the resources have been setup, you can also remove them 
 
 As the process of 'Generating a MyST extension' is completed, you can remove the extension you have generated, in the same way you have defined it inside the model. Consider the extension you want to remove and use it's attribute for its removal.
 
-Please use the below configuration format to remove the extension defined..
+Please use the below configuration format to remove the extension defined...
 
 **<attribute name="_present">0</attribute>**
 

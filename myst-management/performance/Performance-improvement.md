@@ -43,7 +43,7 @@ Memory parameters can also be tuned to improve the performance. In order to tune
 
 ## Improve Performance using Logging/Log rotation :
 
-Performance can be improved by rotating log files, which can turn huge in size, resulting in MyST's performance degradation. We can apply log-rotation inside the ***docker-compose.yml*** file, as below..
+Performance can be improved by rotating log files, which can turn huge in size, resulting in MyST's performance degradation. We can apply log-rotation inside the ***docker-compose.yml*** file, as below...
 
 Add the following under the required container, in the above file..
 (Please be careful of the formatting)

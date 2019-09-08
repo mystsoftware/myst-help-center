@@ -5,7 +5,7 @@ This documents provides steps to provision a plain WebLogic Domain of Managed Se
 
 
 
-**Creation of Blueprint only with WebLogic**
+**Creation of Blueprint only with WebLogic**:
 
 1. Create a New Blueprint, and select ONLY WebLogic as a product.. and Click next
 
