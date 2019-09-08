@@ -97,4 +97,4 @@
 * [Uploading large files?](myst-management/uploading-large-files.md)
 * [How do I solve authentication errors when MyST connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
 * [How do I setup MyST and associated components to use an Internet Proxy?](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
-* [How to improve performance of Myst ?](platform-configuration/Performance-improvement.md)
+* [How to improve performance of Myst ?](myst-management/performance/Performance-improvement.md)
