@@ -47,9 +47,9 @@ One needs to navigate through Artifacts, to apply the Policies in MyST. Policies
 
   ![](img/owsm-pom-file.JPG)
 
-- <directory> - Mention the location where your code is being put.
+- *directory* - Mention the location where your code is being put.
 
-- <extrac-files> - Mention the files with a comma(,) if more than one., and with '*', if you want to extract all the files.
+- *extract-files* - Mention the files with a comma(,) if more than one., and with '*', if you want to extract all the files.
 
 - Configure and Build the Jenkins job, to push the WSM package into the Atrifactory.
 
