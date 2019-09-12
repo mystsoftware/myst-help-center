@@ -14,7 +14,7 @@ Note :- This workaround is available for versions of MyST later than 6.0.0
 
 <img src="img/Compare-source-view.PNG" style="zoom: 50%;" />
 
-3. Navigate to Actions -> View Commit History and get the json payload for the pm versions you wish to compare.
+3. Navigate to Actions -> View Commit History and get the json payload for the pm versions, you wish to compare.
 
 ![](img/compare-view-commit.PNG)
 

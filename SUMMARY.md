@@ -66,7 +66,7 @@
 
 * [How to remove Weblogic resources from Myst ?](platform-configuration/Removing-WL-resources-in-MyST.md)
 
-* [How to compare Platform Blueprints / Platform Models in Myst ?](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
+* [How to compare Platform Blueprints / Platform Models in Myst?](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
 
   
 
