@@ -34,6 +34,10 @@
 * [Can I bring my oddball domains under the management of MyST?](platform-configuration/introspection/odd-domain/README.md)
 * [How do I deploy artifacts as part of a provisioning?](platform-configuration/system-artifacts/README.md)
 * [What can I do to troubleshoot failed MyST actions?](platform-configuration/troubleshooting-update-or-provision-failures.md)
+#* [How do I create OWSM Policies?](platform-configuration/OWSM-Policies.md)
+#* [How to create a Plain Vanilla Weblogic Domain?](platform-configuration/Plain-Vanilla-Weblogic-Domain.md)
+#* [How to remove Weblogic resources from Myst?](platform-configuration/Removing-WL-resources-in-MyST.md)
+* [How to compare Platform Blueprints / Platform Models in Myst?](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
 
 ## Artifact Build
 
