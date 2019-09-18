@@ -5,9 +5,9 @@ There are many different ways to compare Platform Blueprint or Platform Model co
 *Note: This functionality is available for MyST 6.0.0+*
 
 1. Navigate to Platform Model -> Actions -> Configuration and change the tab to **Source View.**
-2. Select the **View** drop-down and change it to **Code.**
+2. Select the **View** drop-down and change it to **Code.**  
    <img src="img/compare-source-view.png" style="zoom: 50%;" />
-3. Navigate to Actions -> View Commit History and get the JSON payload for the pm versions you want to compare.
+3. Navigate to Actions -> View Commit History and get the JSON payload for the pm versions you want to compare.  
    ![](img/compare-view-commit.PNG)
 
 *TIP: Use a compare tool to help here.*
@@ -16,17 +16,17 @@ There are many different ways to compare Platform Blueprint or Platform Model co
 
 MyST 'properties' action gives you a complete report of all the properties, parameters and configurations of a Platform Model.
 
-1. In the model, navigate to **Actions > Control**
+1. In the model, navigate to **Actions > Control**  
    <img src="img/compare-model-action.png" style="zoom:50%;" />
-2. Select the action as 'Custom', and enter '**properties**' as the custom name, and execute the action.
+2. Select the action as 'Custom', and enter '**properties**' as the custom name, and execute the action.  
    <img src="img/compare-model-custom-action.png" style="zoom: 33%;" />
 3. The output will display a `key=pair` formatted properties which can be used as a comparison
 
 ## Using the Report View
 
-1. Navigate to **Actions > View Report** to view the generated report of the model.
+1. Navigate to **Actions > View Report** to view the generated report of the model.  
    <img src="img/compare-model-report.png" style="zoom:33%;" />
-2. You can also compare the below properties from the **View Report**
+2. You can also compare the below properties from the **View Report**  
    <img src="img/compare-model-view-report.png" style="zoom:33%;" />
 
 ## Using Payload from the REST API
@@ -39,9 +39,9 @@ Similar to the source code view, the REST APIs can also be used to compare the B
 2. Navigate to **Network** and enable the **Preserve log**  by checking the box.
 3. Navigate to your desired Blueprint and browse to its configuration.
    You'll now see that a **log** with a name 'data' is being generated. Click on it to view the source code.
-4. After you click on the data **log**, navigate to **Response** tab to view the source code of the Blueprint.
+4. After you click on the data **log**, navigate to **Response** tab to view the source code of the Blueprint.  
    ![](img/compare-network-data.png)
-5. Click on **Response** tab
+5. Click on **Response** tab  
    ![](img/compare-response-sourcecode.png)
 6. Retrieve the code and use compare tools to compare your Blueprints.
 
