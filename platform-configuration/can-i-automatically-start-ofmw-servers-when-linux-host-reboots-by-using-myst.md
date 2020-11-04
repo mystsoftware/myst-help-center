@@ -4,73 +4,13 @@ Yes, you can start servers automatically by creating the Systemd scripts from My
 
 # Prerequisites
 
-1. Ensure `oracle` user has access to create `/u01/app/oracle/bin` directory
-2. Create plain text files in myst [custom action](https://help.mystsoftware.com/platform-configuration/configure-myst-custom-action#creating-custom-actions-in-myst-studio).
+- Ensure `oracle` user has access to create `/u01/app/oracle/bin` directory
+- Create plain text files in myst [custom action](https://help.mystsoftware.com/platform-configuration/configure-myst-custom-action#creating-custom-actions-in-myst-studio)
    - (name: `ofmw-systemd-control`) (location: `systemd/ofmw-systemd-control.py`)
-   ```
-   #!/usr/bin/python
-   import sys
-   from java.io import FileInputStream
    
-   # hardcoded
-   command = 'start'
+   - paste the code in the **content** section
    
-   def control_ofmw():
-       # Setup properties
-       print 'ofmw-system-d-control: Initialising properties'
-       properties = '/u01/app/oracle/bin/ofmw.properties'
-       propInputStream = FileInputStream(properties)
-       cfg = Properties()
-       cfg.load(propInputStream)
-   
-       servers = cfg.get('servers').split(',')
-       for server in servers:
-           domainName = cfg.get('domainName')
-           nmHostname = cfg.get('nmHostname')
-           serverType = cfg.get('serverType')
-           domainHome = cfg.get('domainHome')
-           nmPort = int(cfg.get('nmPort'))
-           nmUserFile = domainHome + '/nodemanager/userConfigFile'
-           nmKeyFile = domainHome + '/nodemanager/userKeyFile'
-   
-           print 'ofmw-system-d-control: Connecting to nodemanager'
-           try:
-               nmConnect(userConfigFile=nmUserFile,userKeyFile=nmKeyFile,host=nmHostname,port=nmPort,domainName=domainName,domainDir=domainHome,verbose='true')
-           except Exception, e:
-               dumpStack()
-               print str(e)
-   
-           # Control OFMW via nodemanager
-           if command == 'start':
-               try:
-                   if serverType == 'ohs':
-                       nmStart(server, serverType='OHS')
-                   else:
-                       nmStart(server)
-               except WLSTException, e:
-                   if 'already running or in the process of starting/restarting' in str(e):
-                       print 'ofmw-system-d-control: Process starting or already running: ' + server
-                       pass
-                   else:
-                       print 'ofmw-system-d-control: Error running nmStart() for: ' + server
-                       print 'ofmw-system-d-control: ' + str(e)
-                       dumpStack()
-           elif command == 'stop':
-               print 'ofmw-system-d-control: Stopping OFMW server: ' + server
-               if serverType == 'ohs':
-                   nmkill(server, serverType='OHS')
-               else:
-                   nmkill(server)
-           nmDisconnect()
-   
-   control_ofmw()
-   
-   ```
-   
-   
-   - (name: `ofmw-systemd-control-wrapper`) (location: `systemd/ofmw-systemd-control-wrapper.sh`)
-   
-     ```
+   - ```
      #!/usr/bin/python
      import sys
      from java.io import FileInputStream
@@ -127,14 +67,79 @@ Yes, you can start servers automatically by creating the Systemd scripts from My
              nmDisconnect()
      
      control_ofmw()
-     
      ```
    
-3. Create a `WLST Action` in the myst custom action
-   - `ofmw-systemd-create-ofmw-properties.py`
+     
+   
+   - (name: `ofmw-systemd-control-wrapper`) (location: `systemd/ofmw-systemd-control-wrapper.sh`)
+   
+      - paste the code in the **content** section
+   
+      - ```
+        #!/usr/bin/python
+        import sys
+        from java.io import FileInputStream
+        
+        # hardcoded
+        command = 'start'
+        
+        def control_ofmw():
+            # Setup properties
+            print 'ofmw-system-d-control: Initialising properties'
+            properties = '/u01/app/oracle/bin/ofmw.properties'
+            propInputStream = FileInputStream(properties)
+            cfg = Properties()
+            cfg.load(propInputStream)
+        
+            servers = cfg.get('servers').split(',')
+            for server in servers:
+                domainName = cfg.get('domainName')
+                nmHostname = cfg.get('nmHostname')
+                serverType = cfg.get('serverType')
+                domainHome = cfg.get('domainHome')
+                nmPort = int(cfg.get('nmPort'))
+                nmUserFile = domainHome + '/nodemanager/userConfigFile'
+                nmKeyFile = domainHome + '/nodemanager/userKeyFile'
+        
+                print 'ofmw-system-d-control: Connecting to nodemanager'
+                try:
+                    nmConnect(userConfigFile=nmUserFile,userKeyFile=nmKeyFile,host=nmHostname,port=nmPort,domainName=domainName,domainDir=domainHome,verbose='true')
+                except Exception, e:
+                    dumpStack()
+                    print str(e)
+        
+                # Control OFMW via nodemanager
+                if command == 'start':
+                    try:
+                        if serverType == 'ohs':
+                            nmStart(server, serverType='OHS')
+                        else:
+                            nmStart(server)
+                    except WLSTException, e:
+                        if 'already running or in the process of starting/restarting' in str(e):
+                            print 'ofmw-system-d-control: Process starting or already running: ' + server
+                            pass
+                        else:
+                            print 'ofmw-system-d-control: Error running nmStart() for: ' + server
+                            print 'ofmw-system-d-control: ' + str(e)
+                            dumpStack()
+                elif command == 'stop':
+                    print 'ofmw-system-d-control: Stopping OFMW server: ' + server
+                    if serverType == 'ohs':
+                        nmkill(server, serverType='OHS')
+                    else:
+                        nmkill(server)
+                nmDisconnect()
+        
+        control_ofmw()
+        ```
+
+
+- Create a `WLST Action` in the myst custom action`ofmw-systemd-create-ofmw-properties.py` and paste the below code in the **content** section
+
    ```
    import os
-from com.rubiconred.myst.util import SSHUtil
+   from com.rubiconred.myst.util import SSHUtil
    
    propertiesDir = '/u01/app/oracle/bin'
    propertiesFile = propertiesDir + '/ofmw.properties'
@@ -278,7 +283,8 @@ from com.rubiconred.myst.util import SSHUtil
        nmDisconnect()
    
    ```
-4. Run Myst custom action `ofmw-systemd-create-ofmw-properties`   to create
+   
+- Run Myst custom action `ofmw-systemd-create-ofmw-properties`   to create
    - `/u01/app/oracle/bin/ofmw.properties`
    - `$ASERVER/nodemanager/userConfigFile`
    - `$ASERVER/nodemanager/userKeyFile`
