@@ -7,6 +7,7 @@ If a MyST update action fails you can look at logs to have a rough idea of where
 
 ## MyST create-domain failure
 The create-domain action is a subset of the MyST Provision or Re-Provision action. If create-domain fails there are log files help identify the root cause.
+
 1. `wlst.log` shows the WLST commands run with the last entry being the failure.
 2. `myst-diagnostic.log` provides debugging and a `dumpStack()` of WLST upon error
 3. `<myst_workspace>/wlstOfflineLogs_appsoa/wlst_YYYYMMDD.log` provides an extremely valuable capture of create-domain information.
