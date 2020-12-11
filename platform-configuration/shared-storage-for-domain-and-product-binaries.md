@@ -21,6 +21,14 @@ After provisioning a domain with the **maximum size of nodes** are you scaling n
 
 #### Updating the NodeManager
 
+The NodeManager normally runs on each node under the same NodeManager home directory eg. `${[rxr.wls.Domain-1].domainAserverHome}/nodemanager`.
+
+We want the NodeManager configuration files on shared storage by adding override java arguments which start the NodeManager in a different homes.
+
+1. Go to **Platform Blueprint** > **WebLogic Domain Configuration** > **Machines**
+2. Click **Show advanced properties**
+3. Add the below properties to their respective NodeManagers
+
 ###### AdminServer
 
 ```shell
@@ -31,6 +39,32 @@ After provisioning a domain with the **maximum size of nodes** are you scaling n
 
 ```shell
 -DDomainsFile=${[rxr.wls.Domain-1].domainMserverHome}/nodemanager/nodemanager.domains -DNodeManagerHome=${[rxr.wls.Domain-1].domainMserverHome}/nodemanager/soa-01 -DLogFile=${[rxr.wls.Domain-1].domainMserverHome}/nodemanager/soa-01/nodemanager.log
+```
+
+Here is an example of a two node environment.
+
+```
+└── shared_storage
+    ├── aserver
+    │   └── soa-as
+    │       ├── nodemanager.log
+    │       ├── nodemanager.log.lck
+    │       ├── nodemanager.process.id
+    │       ├── nodemanager.process.lck
+    │       └── nodemanager.properties
+    └── mserver
+        ├── soa-01
+        │   ├── nodemanager.log
+        │   ├── nodemanager.log.lck
+        │   ├── nodemanager.process.id
+        │   ├── nodemanager.process.lck
+        │   └── nodemanager.properties
+        ├── soa-02
+            ├── nodemanager.log
+            ├── nodemanager.log.lck
+            ├── nodemanager.process.id
+            ├── nodemanager.process.lck
+            └── nodemanager.properties
 ```
 
 
