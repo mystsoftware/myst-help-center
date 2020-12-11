@@ -13,7 +13,7 @@ Myst supports standby nodes which are inaccessible via an SSH connection. Contin
 1. Go to **Platform Blueprint** > **Global Variables**
 2. Create a new global variable:
    `validation.ssh=false`
-3. Run the **update** action *making sure all your nodes are active initially.*
+3. Run the **update** action *making sure all your nodes are initially active.*
 
 
 
