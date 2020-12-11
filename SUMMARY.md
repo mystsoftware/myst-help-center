@@ -6,7 +6,8 @@
 
 ## Platform Configuration
 
-* [Need to limit SSH validation for standby bodes in a disaster recovery (DR) configuration?](platform-configuration/limiting-ssh-validation-for-standby-nodes.md)
+* [Have shared directories for aserver/mserver domains and product binaries?](platform-configuration/shared-storage-for-domain-and-product-binaries.md)
+* [Need to limit SSH validation for standby nodes in a disaster recovery (DR) configuration?](platform-configuration/limiting-ssh-validation-for-standby-nodes.md)
 * [Can I bring my SOA CS domains under the management of MyST?](platform-configuration/introspection/soacs/README.md)
 * [What's required to configure a VIP with an Admin Server and perform a failover?](platform-configuration/using-adminserver-with-vip-and-failing-over.md)
 * [Can I add more nodes to my environment with MyST?](platform-configuration/add-compute-nodes/README.md)
