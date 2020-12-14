@@ -130,31 +130,31 @@ Information about the updated actions which are supported in Myst `6.6.3+`.
 
 #### Scale Up
 
-The example is about scaling down however, for scaling up simply replace <span style="color:Tomato">**shutdown**</span> with <span style="color:DodgerBlue">**start**</span> and <span style="color:Tomato">**remove**</span> with <span style="color:DodgerBlue">**add**</span>.
-
 1. **Infrastructure**
-   1. <span style="color:DodgerBlue">**Shutdown**</span> the physical/virtual host using your preferred tool
-2. **Myst**
-   1. <span style="color:DodgerBlue">**Start**</span> the managed server and nodemanager
-   2. Platform Model > Actions > Control
-   3. Select the node to <span style="color:DodgerBlue">**Start**</span>
-3. **Load Balancer**
-   1. <span style="color:DodgerBlue">**Add**</span> the node from the load balancer
+   1. <span style="color:DodgerBlue">**Create**</span> the physical/virtual node using your preferred tool
+   2. Update DNS to reflect the FQDN of the <span style="color:DodgerBlue">**created**</span> node
+   3. <span style="color:DodgerBlue">**Add**</span> the node from the load balancer
+2. **Start WebLogic Manager Server and NodeManager**
+   1. systemd will auto <span style="color:DodgerBlue">**start**</span> services
+   2. (Optional) Myst
+      1. <span style="color:DodgerBlue">**Start**</span> the managed server and nodemanager
+      2. Platform Model > Actions > Control
+      3. Select the node to <span style="color:DodgerBlue">**Start**</span>
 
 
 
 #### Scale Down
 
-The example is about scaling down however, for scaling up simply replace <span style="color:Tomato">**shutdown**</span> with <span style="color:DodgerBlue">**start**</span> and <span style="color:Tomato">**remove**</span> with <span style="color:DodgerBlue">**add**</span>.
-
-1. **Load Balancer**
-   1. <span style="color:Tomato">**Remove**</span> the node from the load balancer
-2. **Myst**
-   1. <span style="color:Tomato">**Shutdown**</span> the managed server and nodemanager
-   2. Platform Model > Actions > Control
-   3. Select the node to <span style="color:Tomato">**Shutdown**</span>
-3. **Infrastructure**
-   1. <span style="color:Tomato">**Shutdown**</span> the physical/virtual host using your preferred tool
+1. **Start WebLogic Manager Server and NodeManager**
+   1. systemd will auto <span style="color:Tomato">**stop**</span> services
+   2. (Optional) Myst
+      1. <span style="color:Tomato">**Stop**</span> the managed server and nodemanager
+      2. Platform Model > Actions > Control
+      3. Select the node to <span style="color:Tomato">**Stop**</span>
+2. **Infrastructure**
+   1. <span style="color:Tomato">**Terminate**</span> the physical/virtual node using your preferred tool
+   2. Update DNS to reflect the FQDN from the <span style="color:Tomato">**terminated**</span> node
+   3. <span style="color:Tomato">**Remove**</span> the node from the load balancer
 
 
 
