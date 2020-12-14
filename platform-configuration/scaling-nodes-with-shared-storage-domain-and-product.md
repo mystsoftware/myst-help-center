@@ -10,17 +10,17 @@ After provisioning a domain with the *maximum sized nodes* are you scaling nodes
 
 Overview of the requirements to scale nodes up and down.
 
-| Name                                              | Requirement Type      | Requirement Example                                          |
-| ------------------------------------------------- | --------------------- | ------------------------------------------------------------ |
-| Node                                              | Physical/Virtual Host | Create the maximum number of nodes.                          |
-| Node size                                         | Myst                  | Create the Platform Model with the maximum size of nodes.    |
-| Enable feature                                    | Myst                  | [For configuration see **Enable the Feature** ](#enable-the-feature) |
-| NodeManager                                       | Myst                  | [For configuration see **NodeManager**](#nodemanager)        |
-| Deployment Plan Distribution                      | Myst                  | [For configuration see **Deployment Plan**](#deployment-plan) |
-| oraInventory                                      | Myst                  | [For configuration see **oraInventory**](#orainventory-directory) |
-| oraInventory                                      | Shared storage        | `/u01/app/oracle/admin/oraInventory/`                        |
-| Product binary home<br />Both aserver and mserver | Shared storage        | `/u01/app/oracle/product/`                                   |
-| Domain home<br />Both aserver and mserver         | Shared storage        | `/u01/app/oracle/admin/`                                     |
+| Name                                              | Requirement Type      | Requirement Example                                       |
+| ------------------------------------------------- | --------------------- | --------------------------------------------------------- |
+| Node                                              | Physical/Virtual Host | Create the maximum number of nodes.                       |
+| Node size                                         | Myst                  | Create the Platform Model with the maximum size of nodes. |
+| Enable feature                                    | Myst                  | [See **Enable the Feature** ](#enable-the-feature)        |
+| NodeManager                                       | Myst                  | [See **NodeManager**](#nodemanager)                       |
+| Deployment Plan Distribution                      | Myst                  | [See **Deployment Plan**](#deployment-plan)               |
+| oraInventory                                      | Myst                  | [See **oraInventory**](#orainventory-directory)           |
+| oraInventory                                      | Shared storage        | `/u01/app/oracle/admin/oraInventory/`                     |
+| Product binary home<br />Both aserver and mserver | Shared storage        | `/u01/app/oracle/product/`                                |
+| Domain home<br />Both aserver and mserver         | Shared storage        | `/u01/app/oracle/admin/`                                  |
 
 
 
@@ -128,6 +128,10 @@ Information about the updated actions which are supported in Myst `6.6.3+`.
 
 ## Scaling Nodes Up and Down
 
+*Note: See the documentation about [limiting SSH validation for standby nodes](../platform-configuration/limiting-ssh-validation-for-standby-nodes.md) for an understanding of limitations which may affect you when scaling.*
+
+
+
 #### Scale Up
 
 1. **Infrastructure**
@@ -135,22 +139,14 @@ Information about the updated actions which are supported in Myst `6.6.3+`.
    2. Update DNS to reflect the FQDN of the <span style="color:DodgerBlue">**created**</span> node
    3. <span style="color:DodgerBlue">**Add**</span> the node from the load balancer
 2. **Start WebLogic Manager Server and NodeManager**
-   1. systemd will auto <span style="color:DodgerBlue">**start**</span> services
-   2. (Optional) Myst
-      1. <span style="color:DodgerBlue">**Start**</span> the managed server and nodemanager
-      2. Platform Model > Actions > Control
-      3. Select the node to <span style="color:DodgerBlue">**Start**</span>
+   1. [systemd](../platform-configuration/can-i-automatically-start-ofmw-servers-when-linux-host-reboots-by-using-myst.md) will auto <span style="color:DodgerBlue">**start**</span> services
 
 
 
 #### Scale Down
 
 1. **Start WebLogic Manager Server and NodeManager**
-   1. systemd will auto <span style="color:Tomato">**stop**</span> services
-   2. (Optional) Myst
-      1. <span style="color:Tomato">**Stop**</span> the managed server and nodemanager
-      2. Platform Model > Actions > Control
-      3. Select the node to <span style="color:Tomato">**Stop**</span>
+   1. [systemd](../platform-configuration/can-i-automatically-start-ofmw-servers-when-linux-host-reboots-by-using-myst.md) will auto <span style="color:Tomato">**stop**</span> services
 2. **Infrastructure**
    1. <span style="color:Tomato">**Terminate**</span> the physical/virtual node using your preferred tool
    2. Update DNS to reflect the FQDN from the <span style="color:Tomato">**terminated**</span> node
@@ -158,4 +154,11 @@ Information about the updated actions which are supported in Myst `6.6.3+`.
 
 
 
-*Note: See the documentation about [limiting SSH validation for standby nodes](platform-configuration/limiting-ssh-validation-for-standby-nodes.md) for an understanding of potential limitations when scaling.*
+#### (Optional) Stop or Start NodeManager and Managed Servers through Myst
+
+Instead of [systemd](../platform-configuration/can-i-automatically-start-ofmw-servers-when-linux-host-reboots-by-using-myst.md), you could use Myst to start or stop services.
+
+1. <span style="color:Tomato">**Stop**</span>/<span style="color:DodgerBlue">**Start**</span> the managed server and nodemanager
+2. Platform Model > Actions > Control
+3. Select the node to <span style="color:Tomato">**Stop**</span>/<span style="color:DodgerBlue">**Start**</span>
+
