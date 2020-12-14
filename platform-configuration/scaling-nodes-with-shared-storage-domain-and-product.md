@@ -158,4 +158,4 @@ The example is about scaling down however, for scaling up simply replace <span s
 
 
 
-*Note: See the documentation about [limiting SSH validation for standby nodes](platform-configuration/limiting-ssh-validation-for-standby-nodes.md) for an understanding of possible limitations.*
+*Note: See the documentation about [limiting SSH validation for standby nodes](platform-configuration/limiting-ssh-validation-for-standby-nodes.md) for an understanding of potential limitations when scaling.*
