@@ -6,7 +6,7 @@
 
 ## Platform Configuration
 
-* [Need to handle scaling nodes by using shared directories for aserver/mserver domains and product binaries?](platform-configuration/scaling-nodes-with-shared-storage-domain-and-product.md)
+* [Scaling nodes using shared storage for aserver/mserver domains and product binaries?](platform-configuration/scaling-nodes-with-shared-storage-domain-and-product.md)
 * [Need to limit SSH validation for standby nodes in a disaster recovery (DR) configuration?](platform-configuration/limiting-ssh-validation-for-standby-nodes.md)
 * [Can I bring my SOA CS domains under the management of MyST?](platform-configuration/introspection/soacs/README.md)
 * [What's required to configure a VIP with an Admin Server and perform a failover?](platform-configuration/using-adminserver-with-vip-and-failing-over.md)
