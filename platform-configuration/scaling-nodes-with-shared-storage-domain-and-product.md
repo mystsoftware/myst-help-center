@@ -15,7 +15,7 @@ Overview of the requirements to scale nodes up and down.
 | Node                                              | Physical/Virtual Host | Create the maximum number of nodes.                          |
 | Node size                                         | Myst                  | Create the Platform Model with the maximum size of nodes.    |
 | Enable feature                                    | Myst                  | [For configuration see **Enable the Feature** ](#enable-the-feature) |
-| NodeManager                                       | Myst                  | [For configuration see **NodeManager**](#nodeManager)        |
+| NodeManager                                       | Myst                  | [For configuration see **NodeManager**](#nodemanager)        |
 | Deployment Plan Distribution                      | Myst                  | [For configuration see **Deployment Plan**](#deployment-plan) |
 | oraInventory                                      | Myst                  | [For configuration see **oraInventory**](#orainventory-directory) |
 | oraInventory                                      | Shared storage        | `/u01/app/oracle/admin/oraInventory/`                        |
