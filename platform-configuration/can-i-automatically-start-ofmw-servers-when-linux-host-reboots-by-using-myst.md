@@ -421,6 +421,12 @@ The **Myst Custom Action** `ofmw-systemd-create-ofmw-properties`  generates this
 
 The contents helps the systemd OFMW startup scripts determine which node the script is running on by using the **nodemanager's listen address**.
 
+
+
+Here is the location and contents of the file:
+
+`/u01/app/oracle/bin/systemd.properties`
+
 ```shell
 node=systemd-host1.mystsoftware.internal
 ```
