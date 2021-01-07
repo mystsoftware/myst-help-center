@@ -392,6 +392,6 @@ The **Myst Custom Action** `ofmw-systemd-create-ofmw-properties`  generates this
 The contents helps the systemd OFMW startup scripts determine which node the script is running on by using the **nodemanager's listen address**.
 
 ```shell
-nodeDNS=systemd-host1.mystsoftware.internal
+node=systemd-host1.mystsoftware.internal
 ```
 
