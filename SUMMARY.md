@@ -65,6 +65,7 @@
 
 ## Myst Management
 
+* [Can Myst SSH to a DMZ host via a Jumpbox/Bastion?](myst-management/ssh-via-jumpbox.md)
 * [How do I use a custom Myst database?](how-do-i-use-a-custom-myst-database.md)
 * [Myst performance management?](myst-management/performance/README.md)
 * [Myst can't connect? Should I test SSH connectivity?](myst-management/ssh-key-pair-connectivity-with-myst.md)
