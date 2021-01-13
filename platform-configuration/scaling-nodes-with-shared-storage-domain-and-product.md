@@ -18,9 +18,9 @@ Overview of the requirements to scale nodes up and down.
 | NodeManager                                       | Myst                  | [See **NodeManager**](#nodemanager)                       |
 | Deployment Plan Distribution                      | Myst                  | [See **Deployment Plan**](#deployment-plan)               |
 | oraInventory                                      | Myst                  | [See **oraInventory**](#orainventory-directory)           |
-| oraInventory                                      | Shared storage        | `/u01/app/oracle/admin/oraInventory/`                     |
+| oraInventory                                      | Shared storage        | `/u01/app/oracle/admin/shared/oraInventory/`              |
 | Product binary home<br />Both aserver and mserver | Shared storage        | `/u01/app/oracle/product/`                                |
-| Domain home<br />Both aserver and mserver         | Shared storage        | `/u01/app/oracle/admin/`                                  |
+| Domain home<br />Both aserver and mserver         | Shared storage        | `/u01/app/oracle/admin/shared/`                           |
 
 
 
@@ -110,7 +110,7 @@ Update the Myst deployment plan distribution to `shared`. Myst now distributes J
 Because the product binaries are installed in shared storage we want the relating oraInventory to also be there.
 
 1. Go to **Platform Blueprint** > **Global Variables**
-2. Update **oui.inventory.directory** to: `${oracle.base}/admin/oraInventory`
+2. Update **oui.inventory.directory** to: `${oracle.base}/admin/shared/oraInventory`
 
 
 
