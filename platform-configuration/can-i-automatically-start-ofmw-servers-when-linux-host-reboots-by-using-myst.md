@@ -392,7 +392,7 @@ Systemd performs the following actions:
 2. `ofmw-systemd-control-wrapper.sh` -> `ofmw-systemd-control.py`
 3. `ofmw-systemd-control.py` -> Starts `NodeManager / AdminServer / Managed Server / HTTP Server`
 
-## What is ofmw.properties and systemd.properties?
+## What are ofmw.properties and systemd.properties?
 
 ### ofmw.properties
 
