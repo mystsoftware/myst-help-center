@@ -347,7 +347,7 @@ def generate_wlst_credentials(nmUser, nmPass, nmHostname, nmPort, domainName, do
    ```
    [Unit]
    Description=Oracle Fusion Middleware control for NM, AS, MS, and OHS
-   After=syslog.target network.target
+   After=syslog.target network.target cloud-final.service
    
    [Service]
    Type=oneshot
@@ -373,6 +373,8 @@ def generate_wlst_credentials(nmUser, nmPass, nmHostname, nmPort, domainName, do
 4. To view ofmw service's log
 
    `journalctl -u ofmw.service`
+   
+5. Remove `cloud-final.service` from the unit file if you are not using AWS.
 
 
 
@@ -429,25 +431,5 @@ Here is the location and contents of the file:
 
 ```shell
 node=systemd-host1.mystsoftware.internal
-```
-
-If you are using cloud technologies like AWS to provision instances, you can create the file using cloud-init user data. Modify `ofmw.service` as below by adding `cloud-final.service` so that `/u01/app/oracle/bin/systemd.properties` gets created before the startup of servers.
-
-```
-[Unit]
-Description=Oracle Fusion Middleware control for NM, AS, MS, and OHS
-After=syslog.target network.target cloud-final.service
-
-[Service]
-Type=oneshot
-WorkingDirectory=/u01/app/oracle/admin/shared/systemd
-ExecStart=/u01/app/oracle/admin/shared/systemd/ofmw-systemd-control-wrapper.sh "start"
-ExecStop=/u01/app/oracle/admin/shared/systemd/ofmw-systemd-control-wrapper.sh "stop"
-User=oracle
-Group=oracle
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
 ```
 
