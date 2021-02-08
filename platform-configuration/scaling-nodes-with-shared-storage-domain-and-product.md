@@ -34,7 +34,7 @@ Overview of the requirements to scale nodes up and down.
    `validation.ssh=false`
    `validation.multi-node.install=false`
 3. Create the Platform Model with your **maximum size of nodes**. You can scale down from the maximum and and up to this maximum but no higher.
-4. Run the **provision** action with all nodes active.
+4. Run the **provision** action.
 
 
 
