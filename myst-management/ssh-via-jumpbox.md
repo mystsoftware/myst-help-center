@@ -1,6 +1,4 @@
-Are there servers firewalled (or in a DMZ) which cannot be SSH'd directly from a particular server? These servers are usually public facing such as OHS and can only be SSH'd via a jumpbox. Below are examples of configuring your user's SSH client.
-
-
+Are there servers firewalled (or in a DMZ) which cannot be SSH'd directly? These servers are usually public facing such as OHS and can only be connected via a jumpbox. Below are examples of configuring SSH tunnels.
 
 Note that the SSH configuration below is for the `adminserver` because Myst connects to hosts via the AdminServer.
 
