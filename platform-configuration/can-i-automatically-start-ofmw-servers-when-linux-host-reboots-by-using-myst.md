@@ -237,6 +237,10 @@ def myst(cfg):
             LOG.debug('\tDEBUG: adding ' + ohsServer + ' to ' + machineId)
             nodeDict[machineId].append([ohsServer])
 
+    # The user/key is used by managed servers to connect to the AdminServer for graceful shutdown
+    asUserFile = cfg.getProperty('core.fmw.domain-mserver-home') + '/admin_credentials/userConfigFile'
+    asUserKey  = cfg.getProperty('core.fmw.domain-mserver-home') + '/admin_credentials/userKeyFile'    
+
     # create properties file
     nodes = cfg.getProperty('nodes').split(',')
     for node in nodes:
@@ -279,10 +283,6 @@ def myst(cfg):
                 nmKeyFile = domainHome + '/nodemanager/' + nodeDNS + '/userKeyFile'
 
                 # Generate AdminServer credentials and placed in mserver shared storage
-                # The user/key is used by managed servers to connect to the AdminServer for graceful shutdown
-                mserver_home = cfg.getProperty('core.fmw.domain-mserver-home')
-                asUserFile = mserver_home + '/admin_credentials/userConfigFile'
-                asUserKey  = mserver_home + '/admin_credentials/userKeyFile'    
                 generate_wlst_as_credentials(domainName, domainHome, asUserFile, asUserKey, node, cfg)
 
             # mserver or system components
