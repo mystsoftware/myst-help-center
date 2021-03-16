@@ -1,6 +1,6 @@
 
 
-Yes, you can start and stop servers gracefully and automatically by creating the Systemd scripts from MyST by following the steps below.
+Yes, you can start and stop servers gracefully and automatically by creating the Systemd scripts from Myst by following the steps below.
 
 # Prerequisites
 
