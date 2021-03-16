@@ -15,7 +15,7 @@ Yes, you can start and stop servers gracefully and automatically by creating the
 
 Create plain text files in the Myst [custom action](https://help.mystsoftware.com/platform-configuration/configure-myst-custom-action#creating-custom-actions-in-myst-studio).
 
-![](img\systemd_custom_actions.png)
+![](img/systemd_custom_actions.png)
 
 ### OFMW Systemd Control
 
