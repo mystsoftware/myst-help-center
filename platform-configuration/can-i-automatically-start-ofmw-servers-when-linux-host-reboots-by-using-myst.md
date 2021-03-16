@@ -1,6 +1,6 @@
 
 
-Yes, you can start servers automatically by creating the Systemd scripts from MyST by following the steps below
+Yes, you can start and stop servers gracefully and automatically by creating the Systemd scripts from MyST by following the steps below.
 
 # Prerequisites
 
@@ -479,9 +479,10 @@ def get_timeout(cfg):
 
    ``` systemctl enable ofmw systemctl daemon-reload systemctl status ofmw ```
 
-3. Start ofmw service
+3. Start or stop ofmw service
 
    `systemctl start ofmw`
+   `systemctl stop ofmw`
 
 4. To view ofmw service's log
 
