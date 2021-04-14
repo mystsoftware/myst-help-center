@@ -2,7 +2,7 @@
 
 Yes, you can start and stop servers gracefully and automatically by creating the Systemd scripts from Myst by following the steps below.
 
-# Prerequisites
+# 1. Prerequisites
 
 - `oracle` user has access to create directories:
 
@@ -11,7 +11,20 @@ Yes, you can start and stop servers gracefully and automatically by creating the
 
 
 
-# Configure Myst
+# 2. Add Myst Global Variable
+
+The scripts use WebLogic userconfig and userkey files to authenticate to the NodeManager and AdminServer. Add these properties so the Myst scripts can generate the files without a prompt.
+
+1. Go to Platform Blueprint > Global Variables
+2. Add the global variable:
+
+```properties
+myst.system.properties=-Dweblogic.management.confirmKeyfileCreation=true
+```
+
+
+
+# 3. Configure Myst Custom Actions
 
 Create plain text files in the Myst [custom action](https://help.mystsoftware.com/platform-configuration/configure-myst-custom-action#creating-custom-actions-in-myst-studio).
 
@@ -106,6 +119,7 @@ def validate_adminserver_running(servers, asUserFile, asKeyFile, url):
         if servers is 'admin.server':
             return False
         print 'ofmw-systemd-control: Attempting to connect to AdminServer'
+        print 'ofmw-systemd-control: ' + 'userConfigFile=' + asUserFile + ',userKeyFile=' + asKeyFile + ',url=' + url
         connect(userConfigFile=asUserFile,userKeyFile=asKeyFile,url=url)
         return True
     except:
@@ -155,6 +169,14 @@ else
     exit 1
 fi
 
+# Backwards compatibility for old version of the script which only did a 'start'
+if [ $# -eq 0 ]; then
+    echo "ofmw-systemd-control-wrapper: No arguments. Defaulting to 'start'."
+    ARG1="start"
+else
+    ARG1=$1
+fi
+
 # $dns environment variable is sourced from $SYSTEMD_PROPERTIES
 SCRIPT_HOME=/u01/app/oracle/admin/shared/systemd
 OFMW_PROPERTIES=$SCRIPT_HOME/$dns/ofmw.properties
@@ -164,7 +186,7 @@ nmPort=`grep "nmPort" $OFMW_PROPERTIES | cut -d'=' -f2`
 nmJavaOptions=`grep "nmJavaOptions" $OFMW_PROPERTIES | cut -c 15-`
 
 # Start NodeManager
-if [ $1 = "start" ]; then
+if [ $ARG1 = "start" ]; then
     echo -e "\nofmw-systemd-control-wrapper: Starting NodeManager"
     echo -e "ofmw-systemd-control-wrapper: Java options (if applicable): $nmJavaOptions"
     export JAVA_OPTIONS=$nmJavaOptions
@@ -188,9 +210,9 @@ while [ $RESULT -ne 0 ]; do
 done
 
 # Start OFMW
-echo -e "\nofmw-systemd-control-wrapper: $1 OFMW servers"
+echo -e "\nofmw-systemd-control-wrapper: $ARG1 OFMW servers"
 source $productHome/wlserver/server/bin/setWLSEnv.sh
-java weblogic.WLST $SCRIPT_HOME/ofmw-systemd-control.py $1
+java weblogic.WLST $SCRIPT_HOME/ofmw-systemd-control.py $ARG1
 
 ```
 
@@ -347,7 +369,7 @@ def myst(cfg):
             LOG.info("Finishing on node: " + node)
             LOG.info("**************************")
         except Exception, e:
-            if is_autoscale_enabled(cfg):
+            if autoscale_enabled(cfg):
                 LOG.warn('validation.ssh is set to "false" hence ignoring the error as the host may be unavailable.')
                 continue
             else:
@@ -356,6 +378,13 @@ def myst(cfg):
 def initialise_files(node, ofmwPropertiesDir, nodeDNS, cfg):
     LOG.info('Initialising files for ' + node)
     LOG.info('Creating directory: ' + ofmwPropertiesDir)
+    
+    # Setup symlinks for non autoscaling environments
+    if not autoscale_enabled(cfg):
+        LOG.info('Autoscaling not enabled. Creating symlinks for scripts.')
+        symlink_command = 'ln -sf ' + ofmwPropertiesBaseDir + '/' + controlWrapperFile + ' ' + systemdPropertiesBaseDir + '/' + controlWrapperFile
+        LOG.info(symlink_command)
+        SSHUtil.executeCommandOnNode(node, symlink_command, 0)
     
     # Remove properties file and create dir
     ofmwPropertiesFile = ofmwPropertiesDir + '/' + nodeDNS + '/' + ofmwPropertiesFilename
@@ -420,7 +449,7 @@ def generate_wlst_as_credentials(domainName, domainHome, asUserFile, asUserKey, 
     disconnect()
 
 # Check if autoscaling is enabled
-def is_autoscale_enabled(cfg):
+def autoscale_enabled(cfg):
     validationSSH = cfg.getProperty('validation.ssh')
     if validationSSH is not None and validationSSH == 'false':
         return true
@@ -442,6 +471,7 @@ def get_timeout(cfg):
    - `/u01/app/oracle/bin/ofmw-systemd-control-wrapper.sh`
    - `/u01/app/oracle/bin/ofmw-systemd-control.py`
    - `/u01/app/oracle/bin/ofmw.properties`
+   - `/u01/app/oracle/bin/systemd.properties`
    - `$ASERVER/nodemanager/userConfigFile`
    - `$ASERVER/nodemanager/userKeyFile`
    - `$MSERVER/nodemanager/userConfigFile`
