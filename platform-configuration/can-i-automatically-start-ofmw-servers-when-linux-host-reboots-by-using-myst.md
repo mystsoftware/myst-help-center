@@ -575,6 +575,6 @@ The contents helps the systemd OFMW startup scripts determine which node the scr
 Example of the file `/u01/app/oracle/bin/systemd.properties`
 
 ```shell
-node=host_ms1.mystsoftware.internal
+dns=host_ms1.mystsoftware.internal
 ```
 
