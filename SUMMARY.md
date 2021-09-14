@@ -4,6 +4,14 @@
 * [What is Myst?](what-is-myst.md)
 * [Which browsers are supported by Myst?](which-browsers-supported.md)
 
+## Troubleshooting
+
+* [Cannot open a Platform Model or Blueprint](platform-configuration/troubleshooting/corrupt-blueprint-or-model.md)
+* [How do I solve authentication errors when Myst connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
+* [Myst can't connect? Should I test SSH connectivity?](myst-management/ssh-key-pair-connectivity-with-myst.md)
+* [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
+* [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
+
 ## Platform Configuration
 
 * [Scaling nodes using shared storage for aserver/mserver domains and product binaries?](platform-configuration/scaling-nodes-with-shared-storage-domain-and-product.md)
@@ -28,8 +36,6 @@
 * [How do I use the Myst REST API to apply common settings across Platform Blueprints?](platform-configuration/rest-api-bulk-edit-blueprints.md)
 * [How do I use the Myst REST API to automate creation of resources in Myst with the help of Jenkins?](platform-configuration/creating-myst-studio-resources-using-rest-apis-with-help-of-jenkins.md)
 * [I have existing WebLogic environments I built outside of Myst, how can I bring them into the control of Myst?](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
-* [When trying to introspect an environment I received a notice about "Data integrity constraints". What now?](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
-* [During execution I get a java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
 * [How do I perform advanced webtier customisations using Myst?](platform-configuration/webtier/advanced/README.md)
 * [How to deploy SQL in 12c using SQL\*Plus?](platform-configuration/deploy-sql-12c-using-sqlplus.md)
 * [Provisioning Oracle Data Integrator 12c?](platform-configuration/provisioning-oracle-data-integrator-12c.md)
@@ -68,11 +74,9 @@
 * [Can Myst SSH to a DMZ host via a Jumpbox/Bastion?](myst-management/ssh-via-jumpbox.md)
 * [How do I use a custom Myst database?](how-do-i-use-a-custom-myst-database.md)
 * [Myst performance management?](myst-management/performance/README.md)
-* [Myst can't connect? Should I test SSH connectivity?](myst-management/ssh-key-pair-connectivity-with-myst.md)
 * [How do I setup notifications from Myst?](myst-management/notifications/README.md)
 * [What do I do with the Myst license?](myst-management/myst-license.md)
 * [Why does Myst Studio UI show a failure after running for a long time or a lot of logging?](myst-management/container-configuration/myst-fails-after-large-amount-of-logging.md)
 * [Can I use Myst CLI with data from Myst Studio?](myst-management/myst-cli-with-myst-studio.md)
 * [Uploading large files?](myst-management/uploading-large-files.md)
-* [How do I solve authentication errors when Myst connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
 * [How do I setup Myst and associated components to use an Internet Proxy?](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
