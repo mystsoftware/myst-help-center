@@ -74,7 +74,7 @@ To update these files you would need to:
 5. Create a **global variable** in the Platform Blueprint (e.g. `action.configure-webtier.post=webtier-update-conf`\)
 6. Run `configure-webtier` as usual. This will result in `configure-webtier` running and then the below custom action `webtier-update-conf` **overwriting** the conf files with ones defined as `Plain text` type in the custom action.
 
-Below is an example **Jython Action** for replacing `httpd.conf` with a template
+Below is an example **Jython Action** for replacing `httpd.conf` | `ssl.conf` | `admin.conf` with a template
 
 ```python
 from com.rubiconred.myst.config import ConfigUtils
