@@ -6,6 +6,7 @@
 
 ## Troubleshooting
 
+* [What can I do to troubleshoot failed Myst actions?](platform-configuration/troubleshooting-update-or-provision-failures.md)
 * [Cannot open a Platform Model or Blueprint](platform-configuration/troubleshooting/corrupt-blueprint-or-model.md)
 * [How do I solve authentication errors when Myst connects to a server?](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
 * [Myst can't connect? Should I test SSH connectivity?](myst-management/ssh-key-pair-connectivity-with-myst.md)
@@ -45,7 +46,6 @@
 * [How do I configure SSL on my Domain?](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
 * [Can I bring my oddball domains under the management of Myst?](platform-configuration/introspection/odd-domain/README.md)
 * [How do I deploy artifacts as part of a provisioning?](platform-configuration/system-artifacts/README.md)
-* [What can I do to troubleshoot failed Myst actions?](platform-configuration/troubleshooting-update-or-provision-failures.md)
 * [How to create a Vanilla Weblogic Domain?](platform-configuration/Plain-Vanilla-Weblogic-Domain.md)
 * [Deleting Weblogic resources using Myst?](platform-configuration/Removing-WL-resources-in-MyST.md)
 * [I want to compare Platform Blueprints / Platform Models?](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
