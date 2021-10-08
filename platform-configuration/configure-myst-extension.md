@@ -1,9 +1,11 @@
 MyST provides an intuitive data model to define your Fusion Middleware model that covers most of the configuration you need to set up. However, you can extend MyST to achieve specific configuration requirements that are not available in the model.
 
-**NOTE:** Define declarative WLST only if the MyST model does not have the configuration that you want to define. MyST must be extended only when strictly necessary. Contact [Rubicon Red Support](mailto:myst.support@rubiconred.com) if you need further information.
+**NOTE:** Define declarative WLST only if the MyST model does not have the configuration that you want to define. MyST must be extended only when strictly necessary. Contact [Myst Support](mailto:myst.support@rubiconred.com) if you need further information.
 
-###Prerequisites
-####Create the WLST Script
+### Prerequisites
+
+#### Create the WLST Script
+
 1. Easiest way to do this is using the WebLogic console recording ![WebLogic Record](/platform-configuration/configure-myst-extension/WebLogic-Console-Record.png)
 1. Here is an example of a WebLogic recorded wlst script
 1. Remove any WLST code that is not relevant
@@ -23,24 +25,26 @@ cmo.setLocalJNDIName('my/localjndi')
 cmo.setRemoteJNDIName('my/remotejndi')
 ```
 
-####Create a MyST Workspace
+#### Create a MyST Workspace
+
 1. Create a new folder for our MyST workspace.
 ```bash
-mkdir myst-workspace
+mkdir -p /tmp/mystWorkspace/test1
 ```
 1. Navigate to the myst-workspace and initialize using MyST. Ensure MYST_HOME environment variable is set to your MyST home directory.
 ```bash
-cd myst-workspace
-export MYST_HOME=/opt/myst-studio; export PATH=$PATH:$MYST_HOME
+export MYST_HOME=/opt/myst; export PATH=$PATH:$MYST_HOME
+cd /tmp/mystWorkspace/test1
 myst init
 ```
 
-###Generate the MyST Extension
+### Generate the MyST Extension
+
 1. Generate the myst-extension.
 ```
 myst generate-model -Dmodel.source=wlst -Dwlst.file=/path-to-your-script/Script1487132184588.py
 ```
-2. Follow the instructions outputted by the generate-model action.
+2. Follow the instructions outputted by the generate-model action to add the contents into Myst Studio.
 
 ```
 ------------------------------------------------------------------------
@@ -91,7 +95,7 @@ myst generate-model -Dmodel.source=wlst -Dwlst.file=/path-to-your-script/Script1
 
 ```
 
-###Applying the MyST Extension at in a Specific Resource
+### Applying the MyST Extension at in a Specific Resource
 In MyST Studio if you want to add the myst-extension to a specific resource (eg. JMS Module) as opposed to the domain level you need to copy the relevant XML internal elments.
 
 This example shows myst-extension applied at a managed server level (as opposed to the domain level).
@@ -112,9 +116,10 @@ This example shows myst-extension applied at a managed server level (as opposed 
  6 - Click 'Save' then 'Apply Changes'
 ```
 
-2. Because you are already at the server level you only need to copy elements inside of WLS_ESS1. 
+2. Because you are already at the server level you can copy the elements inside of WLS_ESS1. 
 
    ![](configure-myst-extension/myst-studio-extension.png)
+   
 3. This is visible in wlst.sh
 
    ![](configure-myst-extension/wlst.png)
