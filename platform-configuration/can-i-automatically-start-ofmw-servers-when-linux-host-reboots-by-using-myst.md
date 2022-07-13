@@ -40,6 +40,7 @@ Create plain text files in the Myst [custom action](https://help.mystsoftware.co
 
 ```python
 #!/usr/bin/python
+import os
 import sys
 from java.io import FileInputStream
 
@@ -54,7 +55,7 @@ def control_ofmw():
     cfg_systemd = Properties()
     cfg_systemd.load(propInputStream)
     nodeDNS = cfg_systemd.getProperty('dns')
-    
+
     # Load properties
     print 'ofmw-systemd-control: Initialising ofmw properties'
     properties = '/u01/app/oracle/admin/shared/systemd/' + nodeDNS + '/ofmw.properties'
@@ -71,7 +72,7 @@ def control_ofmw():
     nmPort     = int(cfg.get('nmPort'))
     nmUserFile = cfg.get('nmUserFile')
     nmKeyFile  = cfg.get('nmKeyFile')
-    
+
     # Retrieve AdminServer connection properties
     url        = cfg.get('adminUrl')
     asUserFile = aserverDomainHome + '/admin_credentials/as_userConfigFile'
@@ -85,11 +86,21 @@ def control_ofmw():
         # START
         if command == 'start':
             try:
+                print 'ofmw-systemd-control: running command:'
+                print('nmConnect(userConfigFile=%s,userKeyFile=%s,host=%s,port=%s,domainName=%s,domainDir=%s,verbose=\'true\')' \
+                      % (nmUserFile,nmKeyFile,nmHostname,nmPort,domainName,domainHome))
                 nmConnect(userConfigFile=nmUserFile,userKeyFile=nmKeyFile,host=nmHostname,port=nmPort,domainName=domainName,domainDir=domainHome,verbose='true')
                 if serverType == 'ohs':
+                    print 'ofmw-systemd-control: Starting OHS: ' + server
                     nmStart(server, serverType='OHS')
                 else:
-                    nmStart(server)
+                    # In autoscaling start the managed servers via AdminServer if startup.properties is not available. If available, start via nodemanager.
+                    if not os.path.exists(domainHome + '/servers/' + server + 'data/nodemanager/startup.properties'):
+                        print 'ofmw-systemd-control: startup.properties does not exist. Starting via AdminServer.'
+                        start_via_as(cfg, server, asUserFile, asKeyFile, url)
+                    else:
+                        print 'ofmw-systemd-control: startup.properties exists. Starting via NodeManager.'
+                        nmStart(server)
             except WLSTException, e:
                 if 'already running or in the process of starting/restarting' in str(e):
                     print 'ofmw-systemd-control: Process starting or already running: ' + server
@@ -101,30 +112,34 @@ def control_ofmw():
                 nmDisconnect()
         # STOP
         elif command == 'stop':
-            print 'ofmw-systemd-control: Stopping OFMW server: ' + server
-            if validate_adminserver_running(servers, asUserFile, asKeyFile, url):
+            print 'ofmw-systemd-control: Stopping OFMW servers'
+            if validate_adminserver_running(server, asUserFile, asKeyFile, url):
+                print 'ofmw-systemd-control: Stopping via AdminServer OFMW server: ' + server
                 stop_via_as(cfg, server)
             else:
-                print 'ofmw-systemd-control: Shutdown forcefully via nodemanager'
+                print 'ofmw-systemd-control: Stopping forcefully via nodemanager'
+                print('nmConnect(userConfigFile=%s,userKeyFile=%s,host=%s,port=%s,domainName=%s,domainDir=%s,verbose=\'true\')' \
+                      % (nmUserFile,nmKeyFile,nmHostname,nmPort,domainName,domainHome))
                 nmConnect(userConfigFile=nmUserFile,userKeyFile=nmKeyFile,host=nmHostname,port=nmPort,domainName=domainName,domainDir=domainHome,verbose='true')
                 if serverType == 'ohs':
+                    print 'ofmw-systemd-control: Stopping OHS: ' + server
                     nmKill(server, serverType='OHS')
                 else:
+                    print 'ofmw-systemd-control: Stopping server: ' + server
                     nmKill(server)
                 nmDisconnect()
 
 # Validate AdminServer is running
-def validate_adminserver_running(servers, asUserFile, asKeyFile, url):
+def validate_adminserver_running(server, asUserFile, asKeyFile, url):
     try:
-        if servers is 'admin.server':
+        if 'AdminServer' in server:
             return False
         print 'ofmw-systemd-control: Attempting to connect to AdminServer'
         print 'ofmw-systemd-control: ' + 'userConfigFile=' + asUserFile + ',userKeyFile=' + asKeyFile + ',url=' + url
         connect(userConfigFile=asUserFile,userKeyFile=asKeyFile,url=url)
         return True
     except:
-        print 'ofmw-systemd-control: Unable to connect AdminServer for shutdown() gracefully.'
-        print 'ofmw-systemd-control: Proceeding with NodeManager nmKill() instead.'
+        print 'ofmw-systemd-control: Unable to connect AdminServer.'
         return False
 
 # Graceful shutdown via AdminServer
@@ -138,6 +153,25 @@ def stop_via_as(cfg, server):
     except Exception, e:
         print "ofmw-systemd-control: Error shutting down " + server + ". It may already be shutdown."
         print "ofmw-systemd-control: SKIPPING..."
+
+# Start via AdminServer - Used when Managed Server's startup.properties (used by nodemanager) does not exist
+def start_via_as(cfg, server, asUserFile, asKeyFile, url):
+    if validate_adminserver_running(server, asUserFile, asKeyFile, url):
+        print "ofmw-systemd-control: AdminServer detected as running"
+        print "ofmw-systemd-control: Starting " + server
+        nmStart(server)
+    else:
+        try:
+            print "ofmw-systemd-control: Starting " + server
+            # start AdminServer
+            if 'AdminServer' in server:
+                nmStart('AdminServer')
+            # start servers
+            else:
+                start(server, 'Server', block='false')
+        except Exception, e:
+            print "ofmw-systemd-control: Could not start managed server " + server
+            print "ofmw-systemd-control: Ignoring and continuing..."
 
 # Main
 control_ofmw()
@@ -507,12 +541,18 @@ def get_timeout(cfg):
 
 2. Initialise ofmw service
 
-   ``` systemctl enable ofmw systemctl daemon-reload systemctl status ofmw ```
+   ```
+   systemctl enable ofmw
+   systemctl daemon-reload
+   systemctl status ofmw
+   ```
 
 3. Start or stop ofmw service
 
-   `systemctl start ofmw`
-   `systemctl stop ofmw`
+   ```
+   systemctl start ofmw
+   systemctl stop ofmw
+   ```
 
 4. To view ofmw service's log
 
