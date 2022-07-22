@@ -100,6 +100,8 @@
 
 ## Myst Management
 
+* [Enable SSL (HTTPS) for Jenkins](myst-management/jenkins-ssl/README.md)
+* [Myst performance management](myst-management/performance/README.md)
 * [Myst SSH to a DMZ host via a Jumpbox/Bastion](myst-management/ssh-via-jumpbox.md)
 * [Custom Myst database](how-do-i-use-a-custom-myst-database.md)
 * [Myst performance management](myst-management/performance/README.md)
