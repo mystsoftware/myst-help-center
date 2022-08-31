@@ -49,7 +49,7 @@
 
 ### Operations
 
-* [Clone Platform Blueprints/Models](platform-configuration/README.md)
+* [Clone Platform Blueprints/Models](platform-configuration/clone-blueprint-model/README.md)
 * [Compare Platform Blueprints/Models](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
 * [Extra OFMW product parameters](platform-configuration/product-parameters.md)
 * [OPatch one server at a time](platform-configuration/apply-rolling-patches.md)
