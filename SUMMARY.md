@@ -49,6 +49,8 @@
 
 ### Operations
 
+* [Clone Platform Blueprints/Models](platform-configuration/clone-blueprint-model/README.md)
+* [Compare Platform Blueprints/Models](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
 * [Extra OFMW product parameters](platform-configuration/product-parameters.md)
 * [OPatch one server at a time](platform-configuration/apply-rolling-patches.md)
 * [Configure SOA MBeans](platform-configuration/can-i-configure-soa-mbeans-with-myst-studio.md)
@@ -56,7 +58,6 @@
 * [Configure EJB Transaction Timeout](platform-configuration/add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.md)
 * [Run SQL scripts pre/post RCU](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [Deleting Weblogic resources](platform-configuration/Removing-WL-resources-in-MyST.md)
-* [Compare Platform Blueprints/Models](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
 
 ### Custom Scripting
 
