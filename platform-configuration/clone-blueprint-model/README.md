@@ -1,4 +1,7 @@
-This guide covers the basics of creating a new Platform Blueprint and Platform Model based off an existing one. The use case is the user wants to create a parallel Oracle FMW domain.
+This guide covers the basics of creating a new Platform Blueprint and Platform Model based off an existing one.
+
+# Use Case
+The use case is the user wants to create a parallel Oracle FMW domain because an Oracle Database 19c upgrade is required resulting in another upgrade of FMW 12.2.1.4.0.
 
 
 # Infrastructure Provider
@@ -46,7 +49,7 @@ Due to the nature of 'environment specific' Platform Models, the clone feature i
 1. Click **Platform Model** and select your model
 2. Click Actions > **View Report** <br>![](img/model-view-report.png)
 3. Scroll down to **Properties** section
-4. Highlight and copy the property(s)/value(s) into your clipboard <br>![](img/model-compare-properties.png)
+4. Highlight and copy the **property(s)/value(s)** into your clipboard <br>![](img/model-compare-properties.png)
 5. Paste into a tool such as Microsoft Excel <br>![](img/model-excel.png)
 6. In Excel go to **Save As** and select **CSV** type <br>![](img/model-excel-csv.png)
 7. Repeat for the other environment you want to compare
@@ -75,25 +78,30 @@ In upgrade use cases you may find OSB servers only allow deployments of applicat
 3. Use your previous version (eg. `1.0`) for your old environment's source code.
 4. In the next section we handle versioning via the **Application Blueprint**
 
+
 ### Create the Application Blueprint
 1. Go to Release Management > **Application Blueprints**
 2. Select an existing **Application Blueprint** that is deployed to your environment
 3. Click the drop down and click **Clone** and enter a new version (eg. `2.0.0`) <br>![](img/release-clone-abp.png)
-4. For the newly built application source code, select the new version <br>![](img/release-abp.png)
+4. For the newly built application(s) source code, select the new version <br>![](img/release-abp.png)
 5. Click ![](img/save.png)
+
 
 ### Create the Release Pipeline
 1. Go to Release Management > **Pipelines**
 2. Click ![](img/create-new.png)
 3. Fill in and create the [Release Pipeline information (stream/stages/etc) as per the standard process.](https://userguide.mystsoftware.com/release/pipeline/)
-4. When adding a Stream, make sure to select the Platform Blueprint created earlier <br>![](img/release-stream-creation.png)
-5. Select the new **Application Blueprints** which are similar to the release pipeline you are cloning and click ![](img/save.png)
-6. Select the **Platform Model** for each **Stage** <br>![](img/release-stream-platform-model.png)
-7. Click ![](img/save.png) then return to the pipline and click ![](img/release-save-activate.png)
+4. When adding a Stream, make sure to select the **Platform Blueprint** created earlier <br>![](img/release-stream-creation.png)
+5. Select the **Application Blueprints** which are similar to the release pipeline you are cloning <br>![](img/release-stream-abp.png)
+6. Click ![](img/save.png)
+7. Select the **Platform Model** for each **Stage** <br>![](img/release-stream-platform-model.png)
+8. Click ![](img/save.png) then return to the pipline and click ![](img/release-save-activate.png)
+
 
 ### Defaulting Artifact Property Registry
 It's good practice to define the Stream Model defaults in the Artifact Property Registry. This will **significantly** reduce the effort of filling in the Stream Model properties for your new Platform Model.
 ![](img/release-artifact-property-registry-defaults.png)
+
 
 ### Updating Stream Model Properties
 Here we update the Stream Model Properties for each new stage (environment). In Myst you can use the 'Edit Bulk' button and copy+paste from the existing stream model to the new stream model.
