@@ -68,7 +68,7 @@
 ### Provisioning Guides
 
 * [Axway API Gateway](platform-configuration/axway/README.md)
-* [Oracle Data Integrator 12c](platform-configuration/provisioning-oracle-data-integrator-12c.md)
+* [Oracle Data Integrator (ODI) 12c](platform-configuration/provisioning-oracle-data-integrator-12c.md)
 * [Vanilla Weblogic Domain](platform-configuration/Plain-Vanilla-Weblogic-Domain.md)
 * [Oracle Order and Service Management 12c](platform-configuration/add-compute-nodes/provisioning-oracle-order-and-service-management-12c.md)
 
