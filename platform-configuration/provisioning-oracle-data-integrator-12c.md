@@ -7,17 +7,35 @@ Oracle Data Integrator 12.2.1.2.6 is an enterprise install with a J2EE agent.
 1. The ODI agent is named OracleDIAgent and doesn't need to be changed.
 2. Changing the name of this agent requires ODI Studio > Creating a domain template containing the new agent name > unpacking the domain template
 
-#### Manual Configuration of the Physical and Logical Agents
-1. Instructions provided below for configuration
-2. Requires either ODI Studio (GUI client) or ODI Console (web interface)
-
 ### Installation
 #### Overview
-1. Provision using MyST Studio
-2. Create an Agent in the Master Repository using ODI Studio or ODI Console
-3. Restart the ODI managed servers
+1. Provision using Myst
+3. Run a Myst custom action to create an Agent in the Master Repository or; alternatively, create the Agent manually using ODI Studio/ODI Console
+4. Start the ODI app
+5. Restart the ODI managed servers
 
-### Create an Agent with ODI Console
+### Create an Agent using Myst
+Register the ODI agent by doing the following after provisioning the ODI domain:
+1. Platform Model > Actions > Control > Custom > `register-odi-agents`
+2. Click **Execute**
+
+![](img/odi-create-agent.png)
+
+### Start the ODI Application
+When registration is complete, start the ODI application:
+1. Platform Model > Actions > Control > Custom > `**start-oraclediagent-webapp**`
+2. Click **Execute**
+
+![](img/odi-start-agent-app.png)
+
+### Restart the ODI Managed Servers
+When registration and the ODI application has started, restart theODI Managed Servers:
+1. Platform Model > Actions > Control > Custom > **Restart**
+2. Click **Execute**
+![](img/odi-restart.png)
+
+## Alternative to Using Myst
+### Manually Create an Agent with ODI Console
 #### ODI Console (Web Browser)
 1. Access the ODI Console on `http://<HOST>:15101/odiconsole`
 2. Select Master Repository and log in with an administrative user such as `SUPERVISOR`<br>![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi-console-physicalagent-01.png)
