@@ -1,7 +1,7 @@
 
 
 # Symptoms
-When running a Maven build the logs show a `maven-default-http-blocker` error.
+When **deploying** with Myst the 'download-deploy-artifacts' Myst action returns a `maven-default-http-blocker` error.
 ```
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:2.5.1:copy (copy-artifacts) on project myst-Artefacts: Unable to resolve artifact.: Could not transfer artifact mystsoftware:StockOSB:sbar:1.0-101 from/to maven-default-http-blocker (http://0.0.0.0/): Blocked mirror for repositories: [artifactory-repo (http://10.0.0.1:8083/artifactory/libs-release, default, releases+snapshots), artifactory-snapshot-repo (http://10.0.0.1:8083/artifactory/libs-snapshot, default, releases+snapshots)]
 ```
