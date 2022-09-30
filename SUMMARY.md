@@ -6,6 +6,7 @@
 
 ## Troubleshooting
 
+* [Maven 3.9.1+ blocks http during build](platform-configuration/troubleshooting/maven-default-http-blocker.md)
 * [Troubleshoot failed Myst actions](platform-configuration/troubleshooting-update-or-provision-failures.md)
 * [Cannot open a Platform Model or Blueprint](platform-configuration/troubleshooting/corrupt-blueprint-or-model.md)
 * [SSH Authentication](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)

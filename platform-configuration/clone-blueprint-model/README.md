@@ -95,7 +95,8 @@ In upgrade use cases you may find OSB servers only allow deployments of applicat
 5. Select the **Application Blueprints** which are similar to the release pipeline you are cloning <br>![](img/release-stream-abp.png)
 6. Click ![](img/save.png)
 7. Select the **Platform Model** for each **Stage** <br>![](img/release-stream-platform-model.png)
-8. Click ![](img/save.png) then return to the pipline and click ![](img/release-save-activate.png)
+8. Tick the checkbox for **Disable Version conflict validation** <br>![](img/release-conflict-validation.png)
+9. Click ![](img/save.png) then return to the pipline and click ![](img/release-save-activate.png)
 
 
 ### Defaulting Artifact Property Registry
