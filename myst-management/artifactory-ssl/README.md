@@ -97,14 +97,41 @@ If the Jenkins SSL Truststore has not yet been setup as part of [Enable SSL (HTT
 
 ### Maven Truststore
 
+There are many options to add the arguments to Maven. [Maven documentation](https://maven.apache.org/guides/mini/guide-repository-ssl.html)  has information. Here are three options.
+
 Add a flag to the Maven `settings.xml` so Maven is aware of the truststore to use.
 
+##### Option 1 - Java cacerts
+
+Go to your $JAVA_HOME/jre/lib/security/cacerts and specify the 
+
+##### Option 2 - .mavenrc
+
+On each AdminServer 
+`$HOME/.mavenrc`
+```shell
+MAVEN_OPTS="$MAVEN_OPTS -Djavax.net.ssl.trustStore=/location/of/truststore/truststore.jks"
+```
+
+##### Option 3 - Environment Variable
+
+Similar to Option 2, you can define an environment variable for the SSH user in `.bashrc` or `.bash_profile`.
+```shell
+export MAVEN_OPTS="$MAVEN_OPTS -Djavax.net.ssl.trustStore=/location/of/truststore/truststore.jks"
+```
 
 # (Optional) Disable HTTP - non-SSL
 
-To disable Artifactory's HTTP (non-SSL) simply comment out the port HTTP port.
+To disable Artifactory's HTTP (non-SSL) comment out the port HTTP port.
 
     ports:
      #- 8083:8081
      - 8084:8443
+
+Restart the docker containers via Myst
+```shell
+cd /opt/myst-studio/bin
+./stop.sh
+./start.sh
+```
 
