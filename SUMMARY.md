@@ -1,10 +1,11 @@
-# Summary
+## Summary
 
 * [Introduction](README.md)
 * [Supported Browsers](which-browsers-supported.md)
 * [What is Myst?](what-is-myst.md)
 
-# Troubleshooting
+
+## Troubleshooting
 
 * [Maven 3.9.1+ blocks http during deployment](platform-configuration/troubleshooting/maven-default-http-blocker.md)
 * [Troubleshoot failed Myst actions](platform-configuration/troubleshooting-update-or-provision-failures.md)
@@ -15,7 +16,8 @@
 * [Error java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
 * [Myst UI hanging](myst-management/container-configuration/myst-fails-after-large-amount-of-logging.md)
 
-# Myst Management
+
+## Myst Management
 
 * [Enable SSL (HTTPS) for Artifactory](myst-management/artifactory-ssl/README.md)
 * [Enable SSL (HTTPS) for Jenkins](myst-management/jenkins-ssl/README.md)
@@ -30,22 +32,23 @@
 * [Use an Internet Proxy](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
 * [Upgrading to v5.5.1.0+](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 
-# Platform Configuration
 
-## Custom Scripting
+## Platform Configuration
+
+### Custom Scripting
 
 * [Integrate my custom scripts with Myst](platform-configuration/configure-myst-custom-action.md)
 * [Configure myst-extension](platform-configuration/configure-myst-extension.md)
 * [JDK version error](platform-configuration/jdk-issue.md)
 
-## Introspection
+### Introspection
 
 * [Managing SOA CS domains with Myst](platform-configuration/introspection/soacs/README.md)
 * [Add more nodes with Myst](platform-configuration/add-compute-nodes/README.md)
 * [Bring existing environments into Myst](platform-configuration/i-have-existing-environments-i-built-outside-of-myst-how-can-i-bring-them-into-the-control-of-myst.md)
 * [Bring oddball domains into Myst](platform-configuration/introspection/odd-domain/README.md)
 
-## Operations
+### Operations
 
 * [Clone Platform Blueprints/Models](platform-configuration/clone-blueprint-model/README.md)
 * [Compare Platform Blueprints/Models](platform-configuration/How-to-compare-changes-between-two-versions-of-Models-Blueprints.md)
@@ -57,20 +60,20 @@
 * [Run SQL scripts pre/post RCU](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [Deleting Weblogic resources](platform-configuration/Removing-WL-resources-in-MyST.md)
 
-## Provisioning Guides
+### Provisioning Guides
 
 * [Axway API Gateway](platform-configuration/axway/README.md)
 * [Oracle Data Integrator (ODI) 12c](platform-configuration/provisioning-oracle-data-integrator-12c.md)
 * [Vanilla Weblogic Domain](platform-configuration/Plain-Vanilla-Weblogic-Domain.md)
 * [Oracle Order and Service Management 12c](platform-configuration/add-compute-nodes/provisioning-oracle-order-and-service-management-12c.md)
 
-## Rest API
+### Rest API
 
 * [Manipulate Blueprint and Model payload](platform-configuration/rest-api.md)
 * [Apply common settings across Blueprints](platform-configuration/rest-api-bulk-edit-blueprints.md)
 * [Automate creation of resources with Jenkins](platform-configuration/creating-myst-studio-resources-using-rest-apis-with-help-of-jenkins.md)
 
-## Scaling
+### Scaling
 
 * [Scaling nodes with shared storage for domain/binaries](platform-configuration/scaling-nodes-with-shared-storage-domain-and-product.md)
 * [Configure AdminServer VIP for failover](platform-configuration/using-adminserver-with-vip-and-failing-over.md)
@@ -78,29 +81,30 @@
 * [Systemd auto start](platform-configuration/can-i-automatically-start-ofmw-servers-when-linux-host-reboots-by-using-myst.md)
 * [How do I shutdown/start Managed Servers](platform-configuration/add-compute-nodes/how-do-i-shutdown-or-start-up-some-of-my-servers.md)
 
-## SSL
+### SSL
 
 * [Create KSS keystores using Myst](platform-configuration/can-i-create-kss-keystore-by-using-myst.md)
 * [Configure SSL](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
 
-## Webtier
+### Webtier
 
 * [Copy custom Webtier config and soft restart](platform-configuration/webtier/How-do-I-use-MyST-to-copy-custom-webtier-configuration-and-perform-soft-restart.md)
 * [Custom HTML coloring for Admin Consoles](platform-configuration/can-i-configure-custom-colouring-for-admin-console-by-using-myst.md)
 * [Advanced Webtier customizations](platform-configuration/webtier/advanced/README.md)
 
-# Application
 
-## Builds
+## Application
+
+### Builds
 
 * [Jenkins maven project build error](artifact-build/maven-build-issues.md)
 * [Upgrade Maven builds from 11g to 12c](artifact-build/maven-11g-to-12c.md)
 
-## Deployment SDK
+### Deployment SDK
 
 * [Deploy ESS with Myst Deployment SDK](myst-apis-and-sdk/deploying-ess-using-deployment-sdk.md)
 
-## Deployments
+### Deployments
 
 * [Deploy time customizations for an OSB project](application-deployment/osb-change-transport-details.md)
 * [12c SQL\*Plus deployments](platform-configuration/deploy-sql-12c-using-sqlplus.md)
