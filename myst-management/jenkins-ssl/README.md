@@ -58,6 +58,7 @@ services:
      - 8081:8080
      - 8443:8443
      - 50000:50000
+    
     # Volumes - (external_host:container)
     volumes:
      - ../data/keystores:/var/jenkins_home/keystores
@@ -113,7 +114,8 @@ Links the keystores directory created earlier to the Jenkins container.
 Environment variable used by Jenkins on startup.
 
 ##### Options
-* The `--httpPort=-1` disables HTTP. Change to `--httpPort=8080`  if you want to allow HTTP too.
+* The `--httpPort=-1` disables HTTP
+* Change to `--httpPort=8080`  if you want to allow HTTP too.
 
 ```yaml
     # Environment Variables
