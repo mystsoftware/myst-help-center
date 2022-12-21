@@ -93,12 +93,18 @@ The server's public certificate needs to be added to clients' truststores for a 
 
 ### Jenkins Truststore
 
-
+If the Jenkins SSL Truststore has not yet been setup as part of [Enable SSL (HTTPS) for Jenkins](myst-management/jenkins-ssl/README.md) then follow the instructions there.
 
 ### Maven Truststore
 
+Add a flag to the Maven `settings.xml` so Maven is aware of the truststore to use.
 
 
-# (Optional) Disable non-SSL
+# (Optional) Disable HTTP - non-SSL
 
+To disable Artifactory's HTTP (non-SSL) simply comment out the port HTTP port.
+
+    ports:
+     #- 8083:8081
+     - 8084:8443
 
