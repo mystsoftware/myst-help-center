@@ -33,8 +33,6 @@ services:
      - repo
 ```
 
-2. 
-
 
 # Enable Artifactory SSL
 
@@ -45,11 +43,10 @@ services:
 docker exec -ti maven-repository /bin/sh -c 'mkdir -p /opt/jfrog/artifactory/data/keystore'
 docker cp identity.jks maven-repository:/opt/jfrog/artifactory/data/keystore/
 ```
-
 2. Update Tomcat `server.xml` to enable the SSL port.
 ```shell
 # Backup server.xml
-docker exec -ti maven-repository /bin/sh -c 'cd /opt/jfrog/artifactory/tomcat/conf/server.xml && cp -p server.xml server.xml.org'
+docker exec -ti maven-repository /bin/sh -c 'cd /opt/jfrog/artifactory/tomcat/conf/ && cp -p server.xml server.xml.org'
 docker cp identity.jks maven-repository:/opt/jfrog/artifactory/data/keystore/
 
 # Replace server.xml with the contents below which includes SSL
@@ -83,6 +80,91 @@ EOF
 '
 ```
 
+# Update Jenkins settings.xml
+
+The Maven `settings.xml` used by Jenkins' job to build artifacts should be updated to use the new HTTPS URL.
+
+```shell
+# Create Backup
+docker exec -ti maven-repository /bin/sh -c 'cd /var/jenkins_home/ && cp -p settings.xml settings.xml.bak'
+
+# Update settings.xml
+docker exec -ti maven-repository /bin/sh -c 'cat > /var/jenkins_home/settings.xml <<EOF
+
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>https://maven-repository:8443/artifactory/libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://maven-repository:8443/artifactory/libs-snapshot</url>
+        </repository>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>ext-release</id>
+          <name>ext-release-local</name>
+          <url>https://maven-repository:8443/artifactory/ext-release-local</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>plugins-release</name>
+          <url>https://maven-repository:8443/artifactory/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>plugins-snapshot</name>
+          <url>https://maven-repository:8443/artifactory/plugins-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+  <servers>
+    <server>
+      <username>admin</username>
+      <password>password</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>admin</username>
+      <password>password</password>
+      <id>snapshots</id>
+    </server>
+    <server>
+      <username>admin</username>
+      <password>password</password>
+      <id>ext-release</id>
+    </server>
+  </servers>
+
+EOF
+
+```
+
+
 # Add Trusted Certificates to Clients
 
 The server's public certificate needs to be added to clients' truststores for a successful SSL handshake. In the Myst ecosystem truststores need to be updated on:
@@ -99,11 +181,9 @@ If the Jenkins SSL Truststore has not yet been setup as part of [Enable SSL (HTT
 
 There are many options to add the arguments to Maven. [Maven documentation](https://maven.apache.org/guides/mini/guide-repository-ssl.html)  has information. Here are three options.
 
-Add a flag to the Maven `settings.xml` so Maven is aware of the truststore to use.
-
 ##### Option 1 - Java cacerts
 
-Go to your $JAVA_HOME/jre/lib/security/cacerts and specify the 
+Go to each Linux host and import the Myst certifcate into `$JAVA_HOME/jre/lib/security/cacerts`
 
 ##### Option 2 - .mavenrc
 
@@ -122,7 +202,7 @@ export MAVEN_OPTS="$MAVEN_OPTS -Djavax.net.ssl.trustStore=/location/of/truststor
 
 # (Optional) Disable HTTP - non-SSL
 
-To disable Artifactory's HTTP (non-SSL) comment out the port HTTP port.
+To disable the Artifactory Docker container's HTTP (non-SSL) port, comment out the port from the `conf/ci/docker-compose-base.yml` file.
 
     ports:
      #- 8083:8081
