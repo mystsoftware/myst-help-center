@@ -164,6 +164,10 @@ EOF
 
 ```
 
+# Update Myst Continuous Delivery Profile
+
+Update the **Repository URL** and the **Custom Maven Settings File** with your new HTTPS URL.
+![](CDP.png)
 
 # Add Trusted Certificates to Clients
 

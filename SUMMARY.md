@@ -62,6 +62,7 @@
 
 ### Provisioning Guides
 
+* [Oracle Analytics Server](platform-configuration/oas/README.md)
 * [Axway API Gateway](platform-configuration/axway/README.md)
 * [Oracle Data Integrator (ODI) 12c](platform-configuration/provisioning-oracle-data-integrator-12c.md)
 * [Vanilla Weblogic Domain](platform-configuration/Plain-Vanilla-Weblogic-Domain.md)
