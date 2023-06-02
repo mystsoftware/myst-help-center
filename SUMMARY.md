@@ -19,8 +19,6 @@
 
 ## Myst Management
 
-* [Enable SSL (HTTPS) for Artifactory](myst-management/artifactory-ssl/README.md)
-* [Enable SSL (HTTPS) for Jenkins](myst-management/jenkins-ssl/README.md)
 * [Myst performance management](myst-management/performance/README.md)
 * [Myst SSH to a DMZ host via a Jumpbox/Bastion](myst-management/ssh-via-jumpbox.md)
 * [Custom Myst database](how-do-i-use-a-custom-myst-database.md)
@@ -84,8 +82,11 @@
 
 ### SSL
 
+* [Update SSL Certificates for Myst](myst-management/myst-ssl/README.md)
+* [Enable SSL (HTTPS) for Artifactory](myst-management/artifactory-ssl/README.md)
+* [Enable SSL (HTTPS) for Jenkins](myst-management/jenkins-ssl/README.md)
 * [Create KSS keystores using Myst](platform-configuration/can-i-create-kss-keystore-by-using-myst.md)
-* [Configure SSL](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
+* [Configure SSL for WebLogic](platform-configuration/add-compute-nodes/how-do-i-configure-ssl-on-my-managed-servers.md)
 
 ### Webtier
 
