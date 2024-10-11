@@ -67,7 +67,7 @@ weblogic-introspection -skip-push -export <path to domain files>
 
 ## Reviewing the JSON
 
-There are many tools that you can use to view and edit json files. One that I particularly like is the "JSON Online Editor" which is an extension for Chrome. It easily formats the json, as well having support for searching and traversing.<br> ![](/assets/2017-06-20 11_47_48-JSON Editor Online - view, edit and format JSON online.png)
+There are many tools that you can use to view and edit json files. One that I particularly like is the "JSON Online Editor" which is an extension for Chrome. It easily formats the json, as well having support for searching and traversing.<br> ![](assets/json-editor-online.png)
 
 The size and scope of the json document make it very difficult to compare all of the parameters for each individual JCA Adapter configuration looking for duplicates using the Online JSON Editor. There is a tool called [jq](https://stedolan.github.io/jq/) that proves great json manipulation, in a similar fashion to the unix command sed.
 
@@ -81,11 +81,11 @@ If you do not want to install jq, there is an [online version](https://jqplay.or
 .initialVersion.serviceTemplate.nodeTemplates."rxr.wls.JcaAdapter-FtpAdapter".properties.instance[] |{name: .jndiName."_value",  params: [.param[].mystId."_value"] | sort}
 ```
 
-![](/assets/2017-06-20 13_13_55-jq play.png)
+![](assets/jq-play.png)
 
-1. Either review the filtered list in qjplay or use your favourite text editor to look for duplicate entries. In the example below eis/sftp/JDEXeAppSvr has both `PrivateKeyFile` and `privateKeyFile`
+1. Either review the filtered list in jq play or use your favourite text editor to look for duplicate entries. In the example below eis/sftp/JDEXeAppSvr has both `PrivateKeyFile` and `privateKeyFile`
 
-![](/assets/2017-06-20 13_17_26-_E__08_temp_temp.json - Notepad++.png)
+![](assets/json-duplicate-entries.png)
 
 ## Edit the Plan.xml
 
@@ -100,7 +100,7 @@ There are two types entries that will need to be removed from the Plan.xml
 
 ### Searching for the Parameter
 
-The easiest way to find what we are looking for is to perform a **case sensitive **search of the Plan.xml file for the variable assignment using the following:
+The easiest way to find what we are looking for is to perform a **case sensitive** search of the Plan.xml file for the variable assignment using the following:
 
 `[jndi-name="<jndi name>"]/connection-properties/properties/property/[name="<parameter>"]`
 
@@ -110,11 +110,11 @@ e.g.
 
 This should return two results, one for the assignment of the parameter name, and one for the assignment of the parameter value. Take note of the two &lt;name&gt; elements of the variable assignments, as this is what we are going to search for to locate their respective variable definition and values.
 
-![](/assets/2017-06-20 13_24_58-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+![](assets/variable-assignment-name.png)
 
 Next we search for the variable definition using one of the &lt;name&gt; attributes. In our example variable name is `ConfigProperty_PrivateKeyFile_Name_14733557988300`
 
-![](/assets/2017-06-20 13_31_05-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+![](assets/variable-definition.png)
 
 We can see in the screenshot above the variable definition and value for the parameter \(they may not always be sequential in the file\). In this case the variable has valid value.
 
@@ -126,12 +126,12 @@ e.g. search for:
 
 ### Deleting the Parameter
 
-To delete the parameter we must delete the variable assignment as well as the variable definition. In this example we are going to delete the**PrivateKeyFile**parameter that we initially searched for.
+To delete the parameter we must delete the variable assignment as well as the variable definition. In this example we are going to delete the **PrivateKeyFile** parameter that we initially searched for.
 
 Delete the variable definition elements:  
-![](/assets/2017-06-20 13_43_55-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+![](assets/delete-variable-definition.png)
 
-Delete the variable assignment elements:<br> ![](/assets/2017-06-20 13_47_16-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+Delete the variable assignment elements:<br> ![](assets/delete-variable-assignment.png)
 
 ## Re-Run Introspection
 
