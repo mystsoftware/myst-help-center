@@ -10,7 +10,7 @@ The following properties have been added and updated:
   * set as a short url if using generic DataSources or;
   * set as a long url if using gridlink DataSources
 * the default OFMW platform DataSources (eg. mds-soa) use the `db-runtime-url` property
-  ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/blueprint_db_url.png)
+  <br> ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/blueprint_db_url.png)
 
 #### Platform Model
 The following properties are new and will be **undefined**:
@@ -22,11 +22,11 @@ The following properties are new and will be **undefined**:
 To effectively use the new RCU properties you can:
 1. Go to your Platform Model > Product > RCU
 2. Update the `db-host`, `db-port` and `db-service-name` properties
- ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/new_db_props.png)
+ <br> ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/new_db_props.png)
 3. Delete the `db-url`. This resets the property so it now inherits from the blueprint.
- ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/delete_db_url.png)
+ <br> ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/delete_db_url.png)
 4. Click Save and Save again.
 5. You will see the `db-url` re-generated with a resolved value.
- ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/delete_db_url2.png)
+ <br> ![WebLogic Record](/platform-configuration/upgrading-to-v5510+-new-rcu-properties/delete_db_url2.png)
 6. Save and Commit your changes
 

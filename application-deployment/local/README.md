@@ -13,7 +13,7 @@ After this, you can deploy from any directory with the `deploy.properties` by si
 
 ## Install the MyST CLI
 
-Install the MyST CLI to `/opt/myst` using instructions available [here](https://myst.rubiconred.com/webhelp/myst-cli-user-guide-5.6.0.0/index.html#install_myst.html).
+Install the MyST CLI to `/opt/myst` using instructions available [here](https://userguide.mystsoftware.com/installation/myst-studio/).
 
 ## Create the wrapper script
 

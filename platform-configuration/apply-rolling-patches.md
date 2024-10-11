@@ -1,6 +1,6 @@
 ## {{page.title}}
 
-Yes.
+In this article we want to explore how to automate using OPatch against one server at a time.
 
 In this use case, we will do the following:
 
@@ -40,10 +40,10 @@ Jenkins is a CI server which allows for orchestrating multiple steps in a single
 2 . Create a "Freestyle project" 
 
 3 . Select the SCM which you wish to pull the myst-workspace from. In our example, it is a Git repository
-![](img/howto-patch-rollstart-4.choose-scm.png)
+<br> ![](img/howto-patch-rollstart-4.choose-scm.png)
 
 4 . Click on "Add build step" and select "Execute shell" 
-![](img/howto-patch-rollstart-5.scm-execute-shell.png)
+<br> ![](img/howto-patch-rollstart-5.scm-execute-shell.png)
 
 > NOTE:  Alternatively, you can use the MyST CLI plugin for Jenkins. In order to provide instructions that would be compatible for other CI server and orchestration tools, we are going to use the generic "Execute shell" option in our example.
 

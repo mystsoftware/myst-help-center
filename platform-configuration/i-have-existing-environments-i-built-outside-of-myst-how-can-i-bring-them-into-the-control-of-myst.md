@@ -1,17 +1,17 @@
-[MyST](http://myst.rubiconred.com) has comprehensive support for introspecting existing WebLogic environments so that automated operations can be performed on them such as:
- - Automated [configuration updates](https://docs.rubiconred.com/myst-studio/platform/update/),  [patching](https://docs.rubiconred.com/myst-studio/platform/management/) and [application release](https://docs.rubiconred.com/myst-studio/deploy/application/)
- - [Automated Upgrade](https://docs.rubiconred.com/myst-studio/platform/upgrade/) (e.g. 11g to 12c)
- - [Migration to the Cloud](http://blog.rubiconred.com/automating-the-provisioning-of-oracle-soa-suite-on-aws/)
- - Performing [configuration drift checks](https://docs.rubiconred.com/myst-studio/platform/management/)
- - [Start/stop/rolling restart operations](https://docs.rubiconred.com/myst-studio/platform/management/)
- - [Change visibility, approvals and governance](https://docs.rubiconred.com/myst-studio/release/pipeline/dashboard/)
+[MyST](http://www.mystsoftware.com) has comprehensive support for introspecting existing WebLogic environments so that automated operations can be performed on them such as:
+ - Automated [configuration updates](https://userguide.mystsoftware.com/platform/update/), [patching](https://userguide.mystsoftware.com/platform/management/) and [application release](https://userguide.mystsoftware.com/deploy/application/)
+ - [Automated Upgrade](https://userguide.mystsoftware.com/platform/upgrade/) (e.g. 11g to 12c)
+ - [Migration to the Cloud](https://www.mystsoftware.com/data-sheets/fully-automated-provisioning-of-oracle-middleware)
+ - Performing [configuration drift checks](https://userguide.mystsoftware.com/platform/management/)
+ - [Start/stop/rolling restart operations](https://userguide.mystsoftware.com/platform/management/)
+ - [Change visibility, approvals and governance](https://userguide.mystsoftware.com/release/pipeline/dashboard/)
 
-If you are wanting to perform introspection using MyST Studio, it is recommended to be on version 5.6 and above. If you want to use MyST introspection on a pre-5.6 version, it is recommended to raise a ticket with [MyST Support](http://support.rubiconred.com) who can help you work through the process and specifically point you to the relevant documentation for your version of MyST.
+If you are wanting to perform introspection using MyST Studio, it is recommended to be on version 5.6 and above. If you want to use MyST introspection on a pre-5.6 version, it is recommended to raise a ticket with [MyST Support](http://support.mystsoftware.com) who can help you work through the process and specifically point you to the relevant documentation for your version of MyST.
 
 ## Introspecting a WebLogic Domain from MyST Studio
 
-You can introspect a [Platform Blueprint ](https://docs.rubiconred.com/myst-studio/platform/blueprints/) and/or [Platform Model](https://docs.rubiconred.com/myst-studio/platform/models/) from a WebLogic domain home directly within MyST Studio to bring it under the control of MyST.
-Details on how to do this are documented [here](https://docs.rubiconred.com/myst-studio/platform/introspection/).
+You can introspect a [Platform Blueprint ](https://userguide.mystsoftware.com/platform/blueprints/) and/or [Platform Model](https://userguide.mystsoftware.com/platform/models/) from a WebLogic domain home directly within MyST Studio to bring it under the control of MyST.
+Details on how to do this are documented [here](https://userguide.mystsoftware.com/platform/introspection/).
 
 It is easiest to introspect directly within MyST Studio rather than via the command-line because it provides a drop-down menu for selecting Compute Definition and the Host to introspect from.
 At introspection time MyST Studio will directly connect to the host over SSH and discover the Blueprint details from the WebLogic domain.
@@ -58,8 +58,8 @@ In order to push discovered data from the command-line introspection agent to St
 
 When using the CLI Introspection Agent, at times, you may need to provide IDs to reference existing components within MyST Studio.
 Common use cases for doing this are as follows:
-- Customising the Platform Blueprint introspection to reference a specific [Compute Definition](https://docs.rubiconred.com/myst-studio/infrastructure/compute-definitions/) other than the default one that comes with MyST Studio.
-- Customising the Platform Model introspection to reference a specific [Environment Type](https://docs.rubiconred.com/myst-studio/infrastructure/environment-types/) other than the default "CI" environment type that comes out-of-the-box with MyST Studio.
+- Customising the Platform Blueprint introspection to reference a specific [Compute Definition](https://userguide.mystsoftware.com/infrastructure/compute-definitions/) other than the default one that comes with MyST Studio.
+- Customising the Platform Model introspection to reference a specific [Environment Type](https://userguide.mystsoftware.com/infrastructure/environment-types/) other than the default "CI" environment type that comes out-of-the-box with MyST Studio.
 - Ensuring consistency between environments. In this case, you may have a Platform Blueprint and a Platform Model and now want to introspect a different Platform Model but reference the previous Platform Blueprint. For example, if you introspected the Blueprint for Production and now want to introspect the UAT Model while reusing the same Blueprint to ensure consistency of common (non-environment specific) settings with what is in production.
 - Advanced customisation to the translation between the WebLogic Domain model and the abstract MyST model which allows the domain to be lifted and shifted.
 
@@ -67,7 +67,7 @@ The ID for a given resource can be obtained from the URL of the resource in MyST
 
 ##### Compute Definition references
 
-[Compute Definitions](https://docs.rubiconred.com/myst-studio/infrastructure/compute-definitions/) are used to indicate operating system requirements for target hosts in MyST Studio. 
+[Compute Definitions](https://userguide.mystsoftware.com/infrastructure/compute-definitions/) are used to indicate operating system requirements for target hosts in MyST Studio. 
 
 You can reuse an existing Compute Definition at introspection time, by referencing it's ID. This can be obtained as follows:
 1. From the MyST Studio console navigate to **Infrastructure** > **Compute Definition**.
@@ -76,7 +76,7 @@ The ID is the last part of the URL. For example, if the URL is `https://acme-cor
 
 ##### Environment Type references
 
-[Environment Types](https://docs.rubiconred.com/myst-studio/infrastructure/environment-types/) are designed to help categorize Oracle Middleware Platform Instances for governance purposes. 
+[Environment Types](https://userguide.mystsoftware.com/infrastructure/environment-types/) are designed to help categorize Oracle Middleware Platform Instances for governance purposes. 
 
 You can reuse an existing Environment Type at introspection time,  by referencing it's ID. This can be obtained as follows:
 1. From the MyST Studio console navigate to **Infrastructure** > **Environment Types**.
@@ -85,7 +85,7 @@ The ID is the last part of the URL. For example, if the URL is `https://acme-cor
 
 ##### Infrastructure Provider references
 
-[Infrastructure Providers](https://docs.rubiconred.com/myst-studio/infrastructure/) map to a data center or a cloud provider region and typically have a set of associated host, networks, credentials and other related infrastructure resources. When you reference an infrastructure provider at introspection time, MyST will check if the host and credentials exist and if not, it will add them. After introspection, the user can then go in and enter the values (key or password) for the SSH credentials so that environments running on the given hosts can be managed by MyST.
+[Infrastructure Providers](https://userguide.mystsoftware.com/infrastructure/) map to a data center or a cloud provider region and typically have a set of associated host, networks, credentials and other related infrastructure resources. When you reference an infrastructure provider at introspection time, MyST will check if the host and credentials exist and if not, it will add them. After introspection, the user can then go in and enter the values (key or password) for the SSH credentials so that environments running on the given hosts can be managed by MyST.
 
 You can reuse an existing Infrastructure Provider at introspection time, by referencing it's ID. This can be obtained as follows:
 1. From the MyST Studio console navigate to **Infrastructure** > **Infrastructure Providers**.

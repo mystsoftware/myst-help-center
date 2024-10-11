@@ -102,4 +102,4 @@ cd  /opt/myst-studio/bin
 
 ## Raise a Myst Support Ticket
 
-Feel free to raise a [support ticket](https://support.rubiconred.com) if there are other suggestions you would like to make or requests you would like make.
+Feel free to raise a [support ticket](https://support.mystsoftware.com) if there are other suggestions you would like to make or requests you would like make.

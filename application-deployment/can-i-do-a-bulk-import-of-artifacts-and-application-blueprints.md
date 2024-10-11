@@ -9,7 +9,7 @@ MyST allows each artifact build from a CI server to be auto-registered in MyST S
 ### Automated job creation
 
 
-CI build jobs can be [configured](https://docs.rubiconred.com/myst-studio/build/ci/) to automatically push to MyST Studio. This registration must be performed prior to any attempt to group Artifacts into Application Blueprints.
+CI build jobs can be [configured](https://userguide.mystsoftware.com/build/ci/) to automatically push to MyST Studio. This registration must be performed prior to any attempt to group Artifacts into Application Blueprints.
 
 
 If you are using Jenkins for CI and need to create a large number of automated build jobs from scratch Groovy scripts are a great way to do this.

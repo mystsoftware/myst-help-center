@@ -1,6 +1,6 @@
 # Installing the License
 For new installations of MyST Studio follow the instructions in the MyST Installation Guide:
-https://docs.rubiconred.com/myst-studio/installation/myst-studio/#installation-using-the-wizard
+https://userguide.mystsoftware.com/installation/myst-studio/
 
 # Updating the License
 ## MyST Studio
@@ -13,10 +13,10 @@ https://docs.rubiconred.com/myst-studio/installation/myst-studio/#installation-u
 7. Extract the license file (MyST.lic) to `/opt/myst-studio/conf/data/license/` which ensures if the container is rebuilt the new license file is loaded.
 
 ## PRE-5.6.5
-It is recommended to upgrade to the latest version of MyST Studio to apply the license. If you have questions please contact [MyST Support](mailto:myst.support@rubiconred.com "myst.support@rubiconred.com").
+It is recommended to upgrade to the latest version of MyST Studio to apply the license. If you have questions please contact [MyST Support](https://support.mystsoftware.com).
 
 ## MyST CLI
-1. Follow the [MyST CLI license instructions](https://myst.rubiconred.com/webhelp/myst-cli-user-guide-5.6.0.0/index.html#install_myst_update_license.html) for either an automatic or manual installation
+1. Follow the [MyST CLI license instructions](https://userguide.mystsoftware.com/installation/myst-studio/) for either an automatic or manual installation
 
 **NOTE:** If you have followed the instructions above be aware MyST will continue to display the old license until it expires. Once expired MyST will automatically apply the new license on the next action.
 
@@ -26,4 +26,4 @@ When renewing your license, you will recieve a `MyST-<name>-.lic.tar.gz` file wh
 **NOTE:** If your version of MyST only requires `MyST.lic` you can simply extract the license file from `MyST-<name>.lic.tar.gz`.
 
 ## License Expired or Expiring?
-If your license is due to expire and you are yet to receive the license please contact [MyST Support](mailto:myst.support@rubiconred.com "myst.support@rubiconred.com")
+If your license is due to expire and you are yet to receive the license please contact [MyST Support](https://support.mystsoftware.com).

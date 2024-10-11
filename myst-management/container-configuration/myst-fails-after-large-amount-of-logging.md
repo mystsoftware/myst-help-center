@@ -35,4 +35,4 @@ Increase the `max_allowed_packet` for MyST Studio database container by adding t
   `./restart.sh`
 
 #### Impact of Increasing  max_allowed_packet
-The larger the studio.log file is the slower MyST UI will be to display the log. Raise a [support ticket](https://support.rubiconred.com) if you find logs you believe should be changed or silent.
+The larger the studio.log file is the slower MyST UI will be to display the log. Raise a [support ticket](https://support.mystsoftware.com) if you find logs you believe should be changed or silent.

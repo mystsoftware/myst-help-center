@@ -15,3 +15,6 @@ _book
 *.mobi
 *.pdf
 .obsidian/*
+
+# Eclipse
+.project

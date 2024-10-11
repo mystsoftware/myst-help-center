@@ -2,9 +2,9 @@ Can I control deployments of system-artifacts during provisioning?
 
 Yes, now you can control the deployments of system-artifacts in a phased manner to run pre/post any action.
 
-# Prerequisites #
+# Prerequisites 
 
-####System-Artifacts####
+####System-Artifacts
 System-Artifacts are the artifacts which have the dependency on the provisioning life-cycle and they need to be deployed during the provisioning of the environment.
 
 ***Note***:- *System-artifact are completely different from the artifacts as they are dependent on the provisioning life-cycle. System artifacts are not controlled from Release Management unlike the usual artifacts and are defined from the Global Variable*. 
@@ -14,7 +14,7 @@ System-Artifacts are the artifacts which have the dependency on the provisioning
 
 
 
-# Problem #
+# Problem
 
 How to control the deployment phase of system-artifacts during the provisioning of an environment.
 
@@ -22,18 +22,18 @@ Phase deployment feature is introduced in the MyST 5.8.2 version and customers u
 
 ![](/assets/deployment-properties.png)
 
-### Drawback with earlier approach ###
+### Drawback with earlier approach 
 
 The user did not have the control over the deployments of system-artifacts as MyST deployed all the artifacts at a go which caused a few issues. 
 Now, with the MyST versions 5.8.2, each system-artifact can be deployed at a desired level.
 
 ***Example***: A user can deploy shared library system-artifact as a pre create-resource action and also deploy a wsm policy as a post copy-domain action.
 
-# Solution #
+# Solution
 
 Deployments of system-artifacts can be achieved in two ways, either from the MyST Studio or from MyST CLI. The property core.deployment[ID].param[phase] is used to define the stage of deployment of the system-artifact where ID denotes the unique identifier for the artifact instance.
 
-### MyST Studio ###
+### MyST Studio
 
 - Login to MyST Studio, navigate to Platform Blueprint/Platform Model -> Edit Configuration -> Global Variable.
 - Add the core.deployment properties of the system-artifact as shown in the below screenshot.
@@ -45,7 +45,7 @@ Deployments of system-artifacts can be achieved in two ways, either from the MyS
 - Go to Platform Model -> Action -> Provision
 - This will deploy the system-artifact during the provisioning of the environment.
 
-### MyST CLI ###
+### MyST CLI
 
 - Define the core.properties for the deployment under the mystWorkspace/conf/fc.properties as shown below.
 
