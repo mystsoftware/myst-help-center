@@ -1,4 +1,4 @@
-Myst has out of the box support for customising webtier routing rules and standard settings as described [here](https://docs.rubiconred.com/myst-studio/platform/resources/weblogic/servers/web-tier.html). This approach takes the inputs from attributes defined in the MyST Platform Definition and uses these to generate the `moduleconf\*.conf` files and `httpd.conf`, `admin.conf` and `sshd.conf`. But what if you want full control over the files being created?
+Myst has out of the box support for customising webtier routing rules and standard settings as described [here](https://userguide.mystsoftware.com/platform/resources/weblogic/servers/web-tier.html). This approach takes the inputs from attributes defined in the MyST Platform Definition and uses these to generate the `moduleconf\*.conf` files and `httpd.conf`, `admin.conf` and `sshd.conf`. But what if you want full control over the files being created?
 
 In this case, you may find it more fitting to define a template file for replacement when the webtier is configured at provision-time.
 
@@ -19,7 +19,7 @@ Let's say for instance, that you wanted to create a file called `moduleconf/cust
 </Location>
 ```
 
-Whilst the above could be achieved entirely through the [Routing Rules](https://docs.rubiconred.com/myst-studio/platform/resources/weblogic/servers/web-tier.html) construct in the MyST Platform Definition, it may be easier to use a template. Let's look at the templated version of our `custom.conf`.
+Whilst the above could be achieved entirely through the [Routing Rules](https://userguide.mystsoftware.com/platform/resources/weblogic/servers/web-tier.html) construct in the MyST Platform Definition, it may be easier to use a template. Let's look at the templated version of our `custom.conf`.
 
 ```
 <Location /customroute>

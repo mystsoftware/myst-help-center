@@ -48,7 +48,7 @@ To configure BPM EJB transaction timeout
 1. From MyST model editor, click **Edit Configuration**
 2. Navigate through **Products **-&gt; **Oracle Business Process Management**
 3. Click on add one in the **Name-Value Parameters**
-4. Add the key as **‘bpm-ejb-timeout’** and set the value accordingly
+4. Add the key as **bpm-ejb-timeout** and set the value accordingly
    ![](/assets/bpm.png)
 5. Click on **Save **and **Commit **the changes
 6. Run a **MyST update** action to reflect the changes to all BPM beans

@@ -104,7 +104,7 @@ Add the following line after the Port definition:
 
 ```
 environment:
-* JAVA_OPTS=-Dhttp.auth.preference="basic"
+ - JAVA_OPTS=-Dhttp.auth.preference="basic"
 ```
 
 The Jenkins JVM will use basic authentication to the proxy, not NTLM authenication.
@@ -140,7 +140,7 @@ Add the following line after the Port definition:
 
 ```
 environment:
-JAVA_OPTS=-Dhttp.auth.preference="basic"
+ - JAVA_OPTS=-Dhttp.auth.preference="basic"
 ```
 
 The Artifactory JVM will use basic authentication to the proxy, not NTLM authenication.
@@ -167,16 +167,16 @@ Add the below section to the global maven settings.xml file right after the root
 
 ```
 <proxies>
-<proxy>
-<id>proxy</id>
-<active>true</active>
-<protocol>http</protocol>
-<username><Domain>%5C<Username></username>
-<password><Password></password>
-<host><ProxyHost></host>
-<port><ProxyPort></port>
-<nonProxyHosts><NoProxy></nonProxyHosts>
-</proxy>
+  <proxy>
+   <id>proxy</id>
+   <active>true</active>
+   <protocol>http</protocol>
+   <username>Domain%5CUsername</username>
+   <password>Password</password>
+   <host><ProxyHost></host>
+   <port><ProxyPort></port>
+   <nonProxyHosts><NoProxy></nonProxyHosts>
+  </proxy>
 </proxies>
 ```
 
@@ -193,10 +193,10 @@ Add the below content and save the file.
 
 ```
 <project>
-<modelVersion>4.0.0</modelVersion>
-<groupId>com.mycompany.app</groupId>
-<artifactId>my-app</artifactId>
-<version>1</version>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1</version>
 </project>
 ```
 

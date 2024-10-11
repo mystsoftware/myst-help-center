@@ -67,7 +67,7 @@ weblogic-introspection -skip-push -export <path to domain files>
 
 ## Reviewing the JSON
 
-There are many tools that you can use to view and edit json files. One that I particularly like is the "JSON Online Editor" which is an extension for Chrome. It easily formats the json, as well having support for searching and traversing.![](/assets/2017-06-20 11_47_48-JSON Editor Online - view, edit and format JSON online.png)
+There are many tools that you can use to view and edit json files. One that I particularly like is the "JSON Online Editor" which is an extension for Chrome. It easily formats the json, as well having support for searching and traversing.<br> ![](/assets/2017-06-20 11_47_48-JSON Editor Online - view, edit and format JSON online.png)
 
 The size and scope of the json document make it very difficult to compare all of the parameters for each individual JCA Adapter configuration looking for duplicates using the Online JSON Editor. There is a tool called [jq](https://stedolan.github.io/jq/) that proves great json manipulation, in a similar fashion to the unix command sed.
 
@@ -131,7 +131,7 @@ To delete the parameter we must delete the variable assignment as well as the va
 Delete the variable definition elements:  
 ![](/assets/2017-06-20 13_43_55-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
 
-Delete the variable assignment elements![](/assets/2017-06-20 13_47_16-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
+Delete the variable assignment elements:<br> ![](/assets/2017-06-20 13_47_16-E__01_RxR_Local_01_Customers_Land_o_lakes_01_Customer_Provided_02_Config_Project.png)
 
 ## Re-Run Introspection
 

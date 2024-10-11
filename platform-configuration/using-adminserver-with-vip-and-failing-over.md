@@ -29,8 +29,8 @@ In order to failover the Adminserver you will need to move the Admin Server prod
 
 1. Go to Platform Model > **Compute Nodes**
 2. Update the **Admin Server** product to it's respective node. In this example we move the Admin Server from soa - 01 to soa - 02.
-   3. Delete **Admin Server** from soa - 01![](img/using-adminserver-with-vip-and-failing-over-03-v2.png)<br>
-   2. Add into soa - 02![](img/using-adminserver-with-vip-and-failing-over-04-v2.png)<br>
+   3. Delete **Admin Server** from soa - 01<br> ![](img/using-adminserver-with-vip-and-failing-over-03-v2.png)<br>
+   2. Add into soa - 02<br> ![](img/using-adminserver-with-vip-and-failing-over-04-v2.png)<br>
 3. Click ![](img/using-adminserver-with-vip-and-failing-over-05-2.png)
 4. Click Actions > **Update**
 5. Stop the Admin Server (Custom action: `stop-as-via-nm`)
@@ -60,8 +60,8 @@ Configuration change sin MyST are required to fail over the admin server to anot
 
 1. Go to **Compute Nodes**
 2. Update the **Admin Server** product to it's respective node. For example:
-  1. Delete from node 1![](img/using-adminserver-with-vip-and-failing-over-02.png)
-  2. Add into node 2![](img/using-adminserver-with-vip-and-failing-over-03-1.png)
+  1. Delete from node 1<br> ![](img/using-adminserver-with-vip-and-failing-over-02.png)
+  2. Add into node 2<br> ![](img/using-adminserver-with-vip-and-failing-over-03-1.png)
 3. Click ![](img/using-adminserver-with-vip-and-failing-over-03-2.png) to refresh the data in MyST
 4. Go to **Machines**
 5. Remove the auto-computed machine

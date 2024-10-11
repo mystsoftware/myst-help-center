@@ -1,7 +1,5 @@
 ## {{page.title }} 
 
-Yes.
-
 If you wish to deploy an artifact type that is not in the list of supported MyST Artifact Types, you can do this through the MyST Extensibility Framework.
 
 ### About Extending MyST

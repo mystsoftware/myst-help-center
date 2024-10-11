@@ -1,6 +1,6 @@
 # Introspecting Oracle SOA Cloud Service (SOA CS) Environment
 
-A [SOA Cloud Service (SOA CS)](https://cloud.oracle.com/en_US/soa) environment can be [introspected](https://docs.rubiconred.com/myst-studio/platform/introspection/) to create a Platform Blueprint and Platform Model.
+A [SOA Cloud Service (SOA CS)](https://cloud.oracle.com/en_US/soa) environment can be [introspected](https://userguide.mystsoftware.com/platform/introspection/) to create a Platform Blueprint and Platform Model.
 
 The article will guide users through the introspection process specifically for SOA CS environments.
 

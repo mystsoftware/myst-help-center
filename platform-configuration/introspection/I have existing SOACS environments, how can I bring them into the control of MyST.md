@@ -1,6 +1,6 @@
 ### Introspecting a existing SOACS WebLogic Domain from MyST Studio
 
-You can introspect a [Platform Blueprint ](https://docs.rubiconred.com/myst-studio/platform/blueprints/)and/or [Platform Model](https://docs.rubiconred.com/myst-studio/platform/models/) from a existing WebLogic domain home directly within MyST Studio to bring it under the control of MyST. Details on how to do this are documented [here](https://docs.rubiconred.com/myst-studio/platform/introspection/).
+You can introspect a [Platform Blueprint](https://userguide.mystsoftware.com/platform/blueprints/) and/or a [Platform Model](https://userguide.mystsoftware.com/platform/models/) from a existing WebLogic domain home directly within MyST Studio to bring it under the control of MyST. Details on how to do this are documented under [Platform Introspection](https://userguide.mystsoftware.com/platform/introspection/).
 
 There are few updates required to the introspected Blueprint/Model for SOACS Environment, which can be made in the Blueprint.
 
@@ -56,7 +56,7 @@ There are few updates required to the introspected Blueprint/Model for SOACS Env
 
 ##### Create a Model using the Introspected Blueprint.
 
-To create a Model using the Introspected Blueprint details on how to do this are documented [here](https://docs.rubiconred.com/myst-studio/platform/models/).
+To create a Model using the Introspected Blueprint details on how to do this are documented under [Platform Models](https://userguide.mystsoftware.com/platform/models/).
 
 We need to update configurations in the model to match with existing environment.
 

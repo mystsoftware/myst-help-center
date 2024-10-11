@@ -37,7 +37,7 @@ To configure the SSL on the Admin server, select the Blueprint as above and Edit
 
 Save and commit you changes to the blueprint.
 
-The following is an example of the SSL configuration:![](/assets/SSL configuration.png)
+The following is an example of the SSL configuration:<br> ![](/assets/SSL configuration.png)
 
 ### Configure the Managed Servers
 

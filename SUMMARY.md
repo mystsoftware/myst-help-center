@@ -21,13 +21,12 @@
 
 * [Myst performance management](myst-management/performance/README.md)
 * [Myst SSH to a DMZ host via a Jumpbox/Bastion](myst-management/ssh-via-jumpbox.md)
-* [Custom Myst database](how-do-i-use-a-custom-myst-database.md)
-* [Myst performance management](myst-management/performance/README.md)
+* [Custom Myst database](myst-management/how-do-i-use-a-custom-myst-database.md)
 * [Setup notifications for success/failure of Myst actions](myst-management/notifications/README.md)
 * [Myst license](myst-management/myst-license.md)
 * [Integrate Myst CLI with Studio](myst-management/myst-cli-with-myst-studio.md)
 * [Uploading large files](myst-management/uploading-large-files.md)
-* [Use an Internet Proxy](how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
+* [Use an Internet Proxy](myst-management/how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
 * [Upgrading to v5.5.1.0+](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
 
 
@@ -109,9 +108,9 @@
 ### Deployments
 
 * [Deploy time customizations for an OSB project](application-deployment/osb-change-transport-details.md)
-* [12c SQL\*Plus deployments](platform-configuration/deploy-sql-12c-using-sqlplus.md)
+* [12c SQL*Plus deployments](platform-configuration/deploy-sql-12c-using-sqlplus.md)
 * [Deploy artifacts during provisioning](platform-configuration/system-artifacts/README.md)
-* [Jenkins Configure as Code](application-deployment/how-do-i-configure-JenkinsConfigurationasCode(JCaC)-for-Myst-Plugin)
+* [Jenkins Configure as Code](application-deployment/how-do-i-configure-JenkinsConfigurationasCode-for-Myst-Plugin.md)
 * [Copy files to a host](application-deployment/how-do-i-copy-files-to-a-linux-host-using-myst.md)
 * [Integrate existing deploy scripts](application-deployment/custom.md)
 * [Test deployments in local](application-deployment/local/README.md)

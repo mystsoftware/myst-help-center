@@ -32,7 +32,7 @@ When registration is complete, start the ODI application:
 When registration and the ODI application has started, restart theODI Managed Servers:
 1. Platform Model > Actions > Control > Custom > **Restart**
 2. Click **Execute**
-![](img/odi-restart.png)
+<br> ![](img/odi-restart.png)
 
 ## Alternative to Using Myst
 ### Manually Create an Agent with ODI Console
@@ -50,10 +50,10 @@ When registration and the ODI application has started, restart theODI Managed Se
 
 #### Starting the ODI Agent
 1. In the WebLogic Administration console select Deployments. Navigate through the table of deployments until `oraclediagent` is visible.
-![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi_weblogic_console_agentfailed.png)
+<br> ![](/platform-configuration/provisioning-oracle-data-integrator-12c/odi_weblogic_console_agentfailed.png)
 2. If the state of the application is shown as Failed, select the Control tab on the Deployments screen.
 3. Select the checkbox for the `oraclediagent` application, then from the Start drop-down at the bottom of the table Start Servicing all requests.
-![](/platform-configuration/provisioning-oracle-data-integrator-12c/start-odi-agent-manually.png)
+<br> ![](/platform-configuration/provisioning-oracle-data-integrator-12c/start-odi-agent-manually.png)
 
 #### Validation
 1. In the ODI Console right click and Refresh to display the newly created agent.

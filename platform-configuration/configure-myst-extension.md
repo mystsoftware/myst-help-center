@@ -1,6 +1,6 @@
 MyST provides an intuitive data model to define your Fusion Middleware model that covers most of the configuration you need to set up. However, you can extend MyST to achieve specific configuration requirements that are not available in the model.
 
-**NOTE:** Define declarative WLST only if the MyST model does not have the configuration that you want to define. MyST must be extended only when strictly necessary. Contact [Myst Support](mailto:myst.support@rubiconred.com) if you need further information.
+**NOTE:** Define declarative WLST only if the MyST model does not have the configuration that you want to define. MyST must be extended only when strictly necessary. Contact [MyST Support](https://support.mystsoftware.com) if you need further information.
 
 ### Prerequisites
 

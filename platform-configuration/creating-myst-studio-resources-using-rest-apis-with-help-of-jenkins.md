@@ -35,9 +35,9 @@ In order to POST data to MyST studio, we need URL and payload that needs to be p
 
 In order to reuse the source payload to create Multiple Stream Types, we parameterize the fields which we pass when we create manually. Below steps guide the procedure:
 
-- Create a FreeStyle Jenkins Job with Name “**Stream Type Creation**”
+- Create a FreeStyle Jenkins Job with Name **Stream Type Creation**
 
-- Add two parameters “**Name**” and “**Description**”
+- Add two parameters **Name** and **Description**
 
 - In the Build section add a Execute shell which will publish Stream Type Data to MyST studio using curl commands as below:
 
@@ -50,15 +50,15 @@ In order to reuse the source payload to create Multiple Stream Types, we paramet
 
 - Save the job.
 
-- Click **Build with Parameters** to build the job and provide “**Name**” and “**Description**”. Press **Build**.
+- Click **Build with Parameters** to build the job and provide **Name** and **Description**. Press **Build**.
   ![](img/jenkins-build-with-parametrs.png)
 
 - The Job will post the Data to MyST Studio and Stream Type will be created successfully
    ![](img/jenkins-build-success-console-output.png)
 
 - Verify the resource created in MyST Studio.
-   ![](img/myst-studio-stream-type-output.png)
+   <br> ![](img/myst-studio-stream-type-output.png)
 
 
 
-For more information on REST APIs used in MyST, please refer [MyST Studio REST API](https://generator.swagger.io/?url=https://docs.rubiconred.com/api/swagger.json)
+For more information on REST APIs used in MyST, please refer [MyST Studio REST API](https://generator.swagger.io/?url=https://userguide.mystsoftware.com/api/swagger.json)
