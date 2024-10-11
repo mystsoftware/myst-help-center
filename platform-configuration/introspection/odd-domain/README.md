@@ -21,30 +21,30 @@ If you cannot simply re-build the environment to follow the correct standards fo
 After introspection you may have an extra compute group and an extra compute node because of the 'localhost' hack. You're blueprint and model would look similar to the diagrams below.
  
 **Blueprint**
-<br> ![](/assets/pastedImage_1.png)
+<br> ![](assets/blueprint.png)
 
 **Model**
-<br> ![](/assets/pastedImage_4.png)
+<br> ![](assets/model.png)
  
-First, make sure you are on MyST 5.8.1+
+First, make sure you are on Myst [5.8.1+](https://www.mystsoftware.com/post/myst-studio-5-8-1)
 Next, using the UI we can remove the extra compute group from the blueprint and the extra compute node from the model as shown below.
  
 **Model**
-<br> ![](/assets/pastedImage_6.png)
+<br> ![](assets/model-remove-node.png)
  
 **Blueprint**
-<br> ![](/assets/pastedImage_7.png)
+<br> ![](assets/blueprint-remove-node.png)
  
-After this, we have to target the Admin Server product to the other compute group and node. This is possible to do from 5.8.1+.
+After this, we have to target the Admin Server product to the other compute group and node. This is possible to do from [5.8.1+](https://www.mystsoftware.com/post/myst-studio-5-8-1).
  
 **Blueprint**
-<br> ![](/assets/pastedImage_10.png) 
+<br> ![](assets/blueprint-adminserver-reassign.png) 
  
 **Model**
-<br> ![](/assets/pastedImage_13.png)
+<br> ![](assets/model-adminserver-reassign.png)
  
 Now all that remains is to be able to set the node manager listen address and listen port for the Admin server machine according to the unconventional `localhost` approach. That can be done by editing the model.
-<br> ![](/assets/pastedImage_14.png)
+<br> ![](assets/model-adminserver-listen-address.png)
 
 The topology should now be in the desired state so that you can use MyST to deploy to the platform instance. All that will be left to do is to choose the **Provision** action while selecting the pre-existing flag. This final step puts the Platform Instance into an `ACTIVE` state without needing to do an actual re-provisioning. Now you can manage your unconventional environment in style.
 
