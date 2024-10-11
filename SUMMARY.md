@@ -10,9 +10,9 @@
 * [Maven 3.9.1+ blocks http during deployment](platform-configuration/troubleshooting/maven-default-http-blocker.md)
 * [Troubleshoot failed Myst actions](platform-configuration/troubleshooting-update-or-provision-failures.md)
 * [Cannot open a Platform Model or Blueprint](platform-configuration/troubleshooting/corrupt-blueprint-or-model.md)
-* [SSH Authentication](how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
+* [SSH Authentication](platform-configuration/how-do-i-solve-authentication-errors-when-myst-connects-to-a-server.md)
 * [Test SSH connectivity](myst-management/ssh-key-pair-connectivity-with-myst.md)
-* [Introspection and 'Data integrity constraints'](platform-configuration/i-am-receiving-data-integrity-constraints-were-violated-while-trying-to-persist-the-necessary-entities-error-when-trying-to-introspect-and-environment.md)
+* [Introspection and 'Data integrity constraints'](platform-configuration/data-integrity-constraints/data-integrity-constraints-during-introspect-and-environment.md)
 * [Error java.lang.NullPointerException](platform-configuration/javalangnullpointerexception/javalangnullpointerexception.md)
 * [Myst UI hanging](myst-management/container-configuration/myst-fails-after-large-amount-of-logging.md)
 
