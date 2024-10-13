@@ -28,6 +28,7 @@
 * [Uploading large files](myst-management/uploading-large-files.md)
 * [Use an Internet Proxy](myst-management/how-do-i-setup-myst-and-associated-components-to-use-an-internet-proxy.md)
 * [Upgrading to v5.5.1.0+](platform-configuration/upgrading-to-v5510+-new-rcu-properties.md)
+* [Using a MySQL8 database](myst-management/mysql8/README.md)
 
 
 ## Platform Configuration
