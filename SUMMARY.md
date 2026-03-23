@@ -57,6 +57,7 @@
 * [Configure EJB Transaction Timeout](platform-configuration/add-compute-nodes/can-i-configure-ejb-transaction-timeout-through-myst.md)
 * [Run SQL scripts pre/post RCU](platform-configuration/sql-scripts-pre-and-post-rcu.md)
 * [Deleting Weblogic resources](platform-configuration/Removing-WL-resources-in-MyST.md)
+* [Troubleshooting Patching](platform-configuration/patching/troubleshooting-patching.md)
 
 ### Provisioning Guides
 
